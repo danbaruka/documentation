@@ -196,29 +196,54 @@
               "sidebar": "docsSidebar"
             },
             {
+              "id": "validators/alerting",
+              "path": "/validators/alerting",
+              "sidebar": "docsSidebar"
+            },
+            {
               "id": "validators/become-a-validator",
               "path": "/validators/become-a-validator",
               "sidebar": "docsSidebar"
             },
             {
+              "id": "validators/disaster-recovery",
+              "path": "/validators/disaster-recovery",
+              "sidebar": "docsSidebar"
+            },
+            {
               "id": "validators/key-management",
-              "path": "/validators/key-management"
+              "path": "/validators/key-management",
+              "sidebar": "docsSidebar"
             },
             {
               "id": "validators/monitoring",
-              "path": "/validators/monitoring"
+              "path": "/validators/monitoring",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "validators/operations",
+              "path": "/validators/operations",
+              "sidebar": "docsSidebar"
             },
             {
               "id": "validators/overview",
-              "path": "/validators/overview"
+              "path": "/validators/overview",
+              "sidebar": "docsSidebar"
             },
             {
               "id": "validators/remote-signing",
-              "path": "/validators/remote-signing"
+              "path": "/validators/remote-signing",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "validators/security",
+              "path": "/validators/security",
+              "sidebar": "docsSidebar"
             },
             {
               "id": "validators/sentry-architecture",
-              "path": "/validators/sentry-architecture"
+              "path": "/validators/sentry-architecture",
+              "sidebar": "docsSidebar"
             },
             {
               "id": "validators/slashing",

@@ -1,7 +1,7 @@
 {
   "id": "validators/sentry-architecture",
   "title": "Sentry architecture",
-  "description": "Production P2P topology for Safrochain validators — sentry nodes, persistent peers, private validator network.",
+  "description": "Production P2P topology for Safrochain validators: sentry nodes, persistent peers, private validator network.",
   "source": "@site/docs/validators/sentry-architecture.md",
   "sourceDirName": "validators",
   "slug": "/validators/sentry-architecture",
@@ -10,11 +10,11 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "lastUpdatedAt": 1539502055000,
+  "lastUpdatedAt": 1777285958000,
   "sidebarPosition": 5,
   "frontMatter": {
     "title": "Sentry architecture",
-    "description": "Production P2P topology for Safrochain validators — sentry nodes, persistent peers, private validator network.",
+    "description": "Production P2P topology for Safrochain validators: sentry nodes, persistent peers, private validator network.",
     "sidebar_position": 5,
     "keywords": [
       "sentry node",
@@ -26,5 +26,14 @@
       "DDoS mitigation",
       "Cosmos sentry pattern"
     ]
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "Remote signing (TMKMS & Horcrux)",
+    "permalink": "/validators/remote-signing"
+  },
+  "next": {
+    "title": "Monitoring (Prometheus + Grafana)",
+    "permalink": "/validators/monitoring"
   }
 }

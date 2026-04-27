@@ -19,8 +19,8 @@
   },
   "sidebar": "docsSidebar",
   "previous": {
-    "title": "How to become a Safrochain validator",
-    "permalink": "/validators/become-a-validator"
+    "title": "Disaster recovery",
+    "permalink": "/validators/disaster-recovery"
   },
   "next": {
     "title": "Safrochain IBC overview",

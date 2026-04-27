@@ -1,7 +1,7 @@
 {
   "id": "validators/monitoring",
   "title": "Monitoring (Prometheus + Grafana)",
-  "description": "Production monitoring for Safrochain validators — enable CometBFT metrics, scrape with Prometheus, visualise with Grafana, and watch the right signals.",
+  "description": "Production monitoring for Safrochain validators: enable CometBFT metrics, scrape with Prometheus, visualise with Grafana, and watch the right signals.",
   "source": "@site/docs/validators/monitoring.md",
   "sourceDirName": "validators",
   "slug": "/validators/monitoring",
@@ -10,11 +10,11 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "lastUpdatedAt": 1539502055000,
+  "lastUpdatedAt": 1777285958000,
   "sidebarPosition": 6,
   "frontMatter": {
     "title": "Monitoring (Prometheus + Grafana)",
-    "description": "Production monitoring for Safrochain validators — enable CometBFT metrics, scrape with Prometheus, visualise with Grafana, and watch the right signals.",
+    "description": "Production monitoring for Safrochain validators: enable CometBFT metrics, scrape with Prometheus, visualise with Grafana, and watch the right signals.",
     "sidebar_position": 6,
     "keywords": [
       "validator monitoring",
@@ -28,5 +28,14 @@
       "observability",
       "SLO"
     ]
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "Sentry architecture",
+    "permalink": "/validators/sentry-architecture"
+  },
+  "next": {
+    "title": "Alerting & runbooks",
+    "permalink": "/validators/alerting"
   }
 }

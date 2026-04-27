@@ -10,7 +10,7 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "lastUpdatedAt": 1539502055000,
+  "lastUpdatedAt": 1777285958000,
   "sidebarPosition": 1,
   "frontMatter": {
     "title": "Validators overview",
@@ -25,5 +25,14 @@
       "Cosmos validator",
       "validator operations"
     ]
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "Upgrades (cosmovisor)",
+    "permalink": "/run-a-node/upgrades"
+  },
+  "next": {
+    "title": "Validators overview",
+    "permalink": "/validators/overview"
   }
 }

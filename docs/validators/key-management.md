@@ -61,7 +61,7 @@ safrochaind keys show validator --bech val -a --keyring-backend file
 | `addr_safro1…` | account address (receives rewards) |
 | `addr_safrovaloper1…` | validator operator address (used in `tx staking …`) |
 
-### Keyring backends — pick the right one
+### Keyring backends: pick the right one
 
 | Backend | Where it lives | When to use |
 | --- | --- | --- |
@@ -130,7 +130,7 @@ safrochaind comet show-address
 This is the address that appears in CometBFT signing logs and in the
 slashing module.
 
-## Backups — exact recipe
+## Backups: exact recipe
 
 What you back up depends on **where the consensus key lives**.
 
@@ -140,7 +140,7 @@ Back up these three things to two **encrypted, offline** locations
 (USB + safe-deposit box, two cloud KMS buckets, etc.):
 
 ```bash
-# 1. operator mnemonic — paper / steel
+# 1. operator mnemonic: paper / steel
 # (already done at key creation)
 
 # 2. consensus key
@@ -155,7 +155,7 @@ gpg --symmetric --cipher-algo AES256 \
 
 ### With a remote signer (recommended)
 
-The validator host has **no consensus key on disk** — back up the signer
+The validator host has **no consensus key on disk**: back up the signer
 configuration instead:
 
 - TMKMS: `tmkms.toml`, the `softsign` or YubiHSM key material, and the
@@ -171,7 +171,7 @@ two of three, you are tombstoned**.
 
 | Key | Can it be rotated on a live validator? |
 | --- | --- |
-| Operator key | No on-chain rotation — create a new validator with the new operator and migrate delegators (rare). |
+| Operator key | No on-chain rotation: create a new validator with the new operator and migrate delegators (rare). |
 | Consensus key | **No** in stock Cosmos SDK. The current best practice is to retire the validator and re-launch with a new consensus key. Some chains support `MsgRotateConsPubKey`; Safrochain mainnet will follow the canonical SDK behaviour at launch. |
 | Node identity (`node_key.json`) | Yes, regenerate any time. Affects only your peer ID, not consensus. |
 

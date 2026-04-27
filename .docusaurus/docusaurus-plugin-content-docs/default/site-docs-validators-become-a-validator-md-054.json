@@ -1,7 +1,7 @@
 {
   "id": "validators/become-a-validator",
   "title": "How to become a Safrochain validator",
-  "description": "Step-by-step guide to creating, funding, and running a Safrochain validator on CometBFT proof-of-stake — keys, self-delegation, commission, and signing.",
+  "description": "Step-by-step guide to creating, funding, and running a Safrochain validator on CometBFT proof-of-stake: keys, self-delegation, commission, and signing.",
   "source": "@site/docs/validators/become-a-validator.md",
   "sourceDirName": "validators",
   "slug": "/validators/become-a-validator",
@@ -14,7 +14,7 @@
   "sidebarPosition": 1,
   "frontMatter": {
     "title": "How to become a Safrochain validator",
-    "description": "Step-by-step guide to creating, funding, and running a Safrochain validator on CometBFT proof-of-stake — keys, self-delegation, commission, and signing.",
+    "description": "Step-by-step guide to creating, funding, and running a Safrochain validator on CometBFT proof-of-stake: keys, self-delegation, commission, and signing.",
     "sidebar_position": 1,
     "keywords": [
       "Safrochain validator",
@@ -31,11 +31,11 @@
   },
   "sidebar": "docsSidebar",
   "previous": {
-    "title": "Upgrades (cosmovisor)",
-    "permalink": "/run-a-node/upgrades"
+    "title": "Validators overview",
+    "permalink": "/validators/overview"
   },
   "next": {
-    "title": "Slashing & jail",
-    "permalink": "/validators/slashing"
+    "title": "Validator key management",
+    "permalink": "/validators/key-management"
   }
 }

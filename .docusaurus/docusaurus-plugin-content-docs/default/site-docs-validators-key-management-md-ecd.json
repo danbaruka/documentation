@@ -10,7 +10,7 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "lastUpdatedAt": 1539502055000,
+  "lastUpdatedAt": 1777285958000,
   "sidebarPosition": 3,
   "frontMatter": {
     "title": "Validator key management",
@@ -28,5 +28,14 @@
       "secp256k1",
       "ed25519"
     ]
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "How to become a Safrochain validator",
+    "permalink": "/validators/become-a-validator"
+  },
+  "next": {
+    "title": "Remote signing (TMKMS & Horcrux)",
+    "permalink": "/validators/remote-signing"
   }
 }

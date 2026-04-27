@@ -19,7 +19,7 @@ import TabItem from '@theme/TabItem';
 
 The default `priv_validator_key.json` on the validator host is convenient
 but it is the single most attractive target for an attacker. Production
-validators move signing **off the validator** to a dedicated process —
+validators move signing **off the validator** to a dedicated process:
 either a single-instance signer with an HSM (TMKMS) or a threshold-MPC
 cluster (Horcrux).
 
@@ -117,7 +117,7 @@ reconnect = true
 ```
 
 > Replace `softsign` with `yubihsm` and add a `[[providers.yubihsm]]` block
-> if you are using a YubiHSM 2 — the key never leaves the device.
+> if you are using a YubiHSM 2: the key never leaves the device.
 
 ### Run it
 
@@ -214,7 +214,7 @@ priv_validator_state_file = ""
 
 Horcrux cosigners dial the validator on `priv_validator_laddr` and
 collectively answer signing requests. The validator never knows or cares
-which cosigners are online — it just gets a signed vote.
+which cosigners are online: it just gets a signed vote.
 
 ## Smoke-test the signer
 
@@ -226,7 +226,7 @@ journalctl -u safrochaind -f | grep -Ei 'signed|privval'
 
 You should see `signed proposal` and `signed vote` lines at every height.
 If you see `failed to start private validator socket client`, the signer
-is unreachable — check firewall rules and `priv_validator_laddr`.
+is unreachable: check firewall rules and `priv_validator_laddr`.
 
 Compare the consensus address that the signer is producing with the one
 your validator was created with:
@@ -241,10 +241,10 @@ safrochaind query staking validator $(safrochaind keys show validator --bech val
   | jq '.consensus_pubkey'
 ```
 
-If the two **do not match**, you imported the wrong key — stop everything
+If the two **do not match**, you imported the wrong key: stop everything
 and reconfigure before signing a single block.
 
-## Going from local to remote — zero-downtime checklist
+## Going from local to remote: zero-downtime checklist
 
 1. Spin up the signer (TMKMS or Horcrux) and confirm it boots cleanly.
 2. **Stop the validator** (`systemctl stop safrochaind`).

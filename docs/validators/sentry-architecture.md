@@ -1,6 +1,6 @@
 ---
 title: Sentry architecture
-description: Production P2P topology for Safrochain validators — sentry nodes, persistent peers, private validator network.
+description: "Production P2P topology for Safrochain validators: sentry nodes, persistent peers, private validator network."
 sidebar_position: 5
 keywords:
   - sentry node
@@ -76,12 +76,12 @@ max_num_outbound_peers = 0         # only dial sentries
 
 Key flags:
 
-- `private_peer_ids` — these peers' presence is **never gossiped**. Stops
+- `private_peer_ids`: these peers' presence is **never gossiped**. Stops
   random nodes from learning about your validator.
-- `unconditional_peer_ids` — bypass the inbound peer cap; the validator
+- `unconditional_peer_ids`: bypass the inbound peer cap; the validator
   will always accept these specific node IDs even when the inbound table
   is full.
-- `pex = false` and `seeds = ""` — keep the validator off the gossip
+- `pex = false` and `seeds = ""`: keep the validator off the gossip
   network entirely.
 
 ## Sentry `config.toml`

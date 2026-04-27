@@ -1,0 +1,40 @@
+{
+  "id": "validators/operations",
+  "title": "Validator operations (day-2)",
+  "description": "Edit commission, withdraw rewards, software upgrades, state pruning, and the routine work of running a Safrochain validator.",
+  "source": "@site/docs/validators/operations.md",
+  "sourceDirName": "validators",
+  "slug": "/validators/operations",
+  "permalink": "/validators/operations",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedAt": null,
+  "sidebarPosition": 8,
+  "frontMatter": {
+    "title": "Validator operations (day-2)",
+    "description": "Edit commission, withdraw rewards, software upgrades, state pruning, and the routine work of running a Safrochain validator.",
+    "sidebar_position": 8,
+    "keywords": [
+      "validator operations",
+      "edit-validator",
+      "withdraw rewards",
+      "software upgrade",
+      "cosmovisor",
+      "state pruning",
+      "re-delegate",
+      "unbond",
+      "commission rate"
+    ]
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "Alerting & runbooks",
+    "permalink": "/validators/alerting"
+  },
+  "next": {
+    "title": "Security hardening",
+    "permalink": "/validators/security"
+  }
+}

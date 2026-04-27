@@ -42,7 +42,34 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Validators',
       collapsed: true,
-      items: ['validators/become-a-validator', 'validators/slashing'],
+      link: { type: 'doc', id: 'validators/overview' },
+      items: [
+        'validators/overview',
+        'validators/become-a-validator',
+        {
+          type: 'category',
+          label: 'Keys & signing',
+          collapsed: true,
+          items: [
+            'validators/key-management',
+            'validators/remote-signing',
+          ],
+        },
+        'validators/sentry-architecture',
+        {
+          type: 'category',
+          label: 'Monitoring & alerting',
+          collapsed: true,
+          items: [
+            'validators/monitoring',
+            'validators/alerting',
+          ],
+        },
+        'validators/operations',
+        'validators/security',
+        'validators/disaster-recovery',
+        'validators/slashing',
+      ],
     },
     {
       type: 'category',

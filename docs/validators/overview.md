@@ -89,7 +89,7 @@ The **smallest** stack the foundation considers production-ready on mainnet:
 
 1. One validator host, dedicated to `safrochaind`, behind a firewall.
 2. Two **public sentries** in front of the validator (P2P-only entry points).
-3. **Remote signing** via TMKMS or Horcrux 2-of-3 — the validator host
+3. **Remote signing** via TMKMS or Horcrux 2-of-3: the validator host
    never holds the consensus key on disk in plaintext.
 4. **Prometheus + Grafana + Alertmanager** scraping the validator and
    sentries; one paging integration (Discord/PagerDuty/Telegram).
@@ -108,5 +108,5 @@ same six pillars.
 | Testnet | `safro-testnet-1` | live | open, faucet-funded |
 
 Always validate on testnet first. Every page in this section assumes you
-have a synced node — see [Run a node](../run-a-node/overview) if you do not
+have a synced node: see [Run a node](../run-a-node/overview) if you do not
 have one yet.

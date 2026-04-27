@@ -1,0 +1,40 @@
+{
+  "id": "validators/security",
+  "title": "Security hardening",
+  "description": "Operating-system hardening, firewall, SSH, fail2ban, and process isolation for Safrochain validator hosts.",
+  "source": "@site/docs/validators/security.md",
+  "sourceDirName": "validators",
+  "slug": "/validators/security",
+  "permalink": "/validators/security",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedAt": null,
+  "sidebarPosition": 9,
+  "frontMatter": {
+    "title": "Security hardening",
+    "description": "Operating-system hardening, firewall, SSH, fail2ban, and process isolation for Safrochain validator hosts.",
+    "sidebar_position": 9,
+    "keywords": [
+      "validator security",
+      "host hardening",
+      "SSH hardening",
+      "fail2ban",
+      "ufw",
+      "nftables",
+      "WireGuard",
+      "systemd hardening",
+      "CIS benchmark"
+    ]
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "Validator operations (day-2)",
+    "permalink": "/validators/operations"
+  },
+  "next": {
+    "title": "Disaster recovery",
+    "permalink": "/validators/disaster-recovery"
+  }
+}

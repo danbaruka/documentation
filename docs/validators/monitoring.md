@@ -1,6 +1,6 @@
 ---
 title: Monitoring (Prometheus + Grafana)
-description: Production monitoring for Safrochain validators — enable CometBFT metrics, scrape with Prometheus, visualise with Grafana, and watch the right signals.
+description: "Production monitoring for Safrochain validators: enable CometBFT metrics, scrape with Prometheus, visualise with Grafana, and watch the right signals."
 sidebar_position: 6
 keywords:
   - validator monitoring
@@ -211,10 +211,10 @@ docker compose logs -f prometheus | head
 ```
 
 Confirm Prometheus is reaching the validator: open
-`http://<observability-host>:9090/targets` — every target should show
+`http://<observability-host>:9090/targets`: every target should show
 `UP`.
 
-## 4 · Grafana — datasource & dashboards
+## 4 · Grafana: datasource & dashboards
 
 Provision the datasource (`grafana/provisioning/datasources/prom.yml`):
 
@@ -245,9 +245,9 @@ providers:
 
 | Dashboard | Source | What to import |
 | --- | --- | --- |
-| **CometBFT validator** | Grafana.com — search "CometBFT" or "Tendermint validator" | covers height, missed blocks, peers, mempool |
+| **CometBFT validator** | Grafana.com: search "CometBFT" or "Tendermint validator" | covers height, missed blocks, peers, mempool |
 | **Node Exporter Full** | Grafana ID **1860** | host CPU/memory/disk/network |
-| **Cosmos SDK / Validator overview** (Safrochain custom — see below) | snippet here | KPIs in one screen |
+| **Cosmos SDK / Validator overview** (Safrochain custom: see below) | snippet here | KPIs in one screen |
 
 Drop a `safro-validator.json` file into
 `grafana/dashboards/`. A starting JSON skeleton with the right queries:
@@ -332,7 +332,7 @@ rate(horcrux_consensus_signing_attempts_total[5m])
 ```
 
 If signing attempts go to zero while the chain keeps producing blocks,
-the signer cluster lost quorum — page the on-call **immediately**.
+the signer cluster lost quorum: page the on-call **immediately**.
 
 ## 7 · Continue to alerting
 
