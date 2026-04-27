@@ -10,6 +10,8 @@ and this project aims to follow [Semantic Versioning](https://semver.org/).
 
 ### Added
 
+- Auto deploy: GitHub Actions production job to Vercel (`vercel deploy build --prod`)
+  with build artifact handoff; `vercel.json`, `scripts/deploy.sh`, `.env.example`.
 - Pro-grade Validators section: overview, key management, remote signing
   (TMKMS/Horcrux), sentry architecture, monitoring (Prometheus + Grafana),
   alerting (Alertmanager + runbooks), day-2 operations, security hardening, and

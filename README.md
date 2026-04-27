@@ -161,29 +161,72 @@ a markdown file refreshes the browser.
 | `npm run clear` | Clear Docusaurus cache (`.docusaurus/`) |
 | `npm run typecheck` | Run `tsc --noEmit` over the TypeScript sources |
 | `npm run lint` | Run ESLint over `src/` and config |
+| `npm run deploy` | Local production deploy: typecheck, lint, build, `vercel deploy` (see below) |
+| `npm run deploy:vercel` | Deploy existing `build/` to Vercel only (assumes you already built) |
 
 ## Deployment
 
-The site auto-deploys on every push to `main`:
+### Auto deploy (CI)
 
-1. Push to `main` → CI workflow runs `npm run build`.
-2. The `build/` artifact is published to **Vercel**, which serves
-   `https://docs.safrochain.com` from a global CDN.
-3. Pull requests get a **preview URL** posted as a comment so reviewers
-   can see the rendered site.
+On every **push to `main`**, the GitHub Action **CI** (`.github/workflows/ci.yml`):
 
-### Manual deployment
+1. Installs with `npm ci`, runs `typecheck`, `lint`, and `npm run build`.
+2. Uploads the `build/` folder as an artifact.
+3. The **Deploy to Vercel** job downloads that artifact and runs
+   `vercel deploy build --prod` with your project token.
 
-If you ever need to deploy by hand:
+**Required repository secrets** (Settings → Secrets and variables → Actions):
+
+| Secret | Where to get it |
+| --- | --- |
+| `VERCEL_TOKEN` | Vercel: Account Settings → Tokens (create a token for CI) |
+| `VERCEL_ORG_ID` | Project → Settings → General, **Team / Org ID** |
+| `VERCEL_PROJECT_ID` | Project → Settings → General, **Project ID** |
+
+Create a GitHub **Environment** named `production` (optional) if you
+want required reviewers or branch rules before the deploy job runs. The
+workflow already targets `environment: production` with
+`https://docs.safrochain.com` as the deployment URL.
+
+**Manual re-deploy:** Actions → **CI** → **Run workflow**, branch `main`.
+That runs the same build + deploy path without a git push.
+
+If the same repository is also connected in the Vercel dashboard with
+**production deploys on `main`**, you can get two production deploys per
+push. Pick one path: either turn off Vercel’s automatic production
+deploy for `main`, or remove the **Deploy to Vercel** job from the
+workflow and rely on Vercel Git only.
+
+### Vercel Git (optional, previews)
+
+You can also connect the repo in the Vercel dashboard so every pull
+request gets a **preview URL**. The CI job above still runs on each PR
+for typecheck, lint, and build; it does not deploy production until `main`
+is updated.
+
+### Manual deployment from your laptop
 
 ```bash
-npm install
-npm run build
-npx vercel deploy --prebuilt --prod
+# One-shot (reads VERCEL_TOKEN, VERCEL_ORG_ID, VERCEL_PROJECT_ID)
+export VERCEL_TOKEN=...
+export VERCEL_ORG_ID=...
+export VERCEL_PROJECT_ID=...
+npm run deploy
 ```
 
-> Production deploys require `VERCEL_TOKEN`, `VERCEL_ORG_ID`, and
-> `VERCEL_PROJECT_ID` in your environment.
+Or, if you already have a good `build/`:
+
+```bash
+export VERCEL_TOKEN=...
+export VERCEL_ORG_ID=...
+export VERCEL_PROJECT_ID=...
+npm run build
+npm run deploy:vercel
+```
+
+`vercel.json` in the repo root sets install, build, and `outputDirectory`
+so the Vercel **dashboard** builds stay aligned with this repo. See
+`.env.example` for the variable names.
 
 ## Contributing
 
