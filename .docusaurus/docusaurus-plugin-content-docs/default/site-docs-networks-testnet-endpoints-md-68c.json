@@ -1,7 +1,7 @@
 {
   "id": "networks/testnet-endpoints",
-  "title": "Testnet endpoints",
-  "description": "Live public RPC, REST, gRPC, faucet, and explorer for safro-testnet-1.",
+  "title": "Safrochain testnet endpoints (RPC, REST, faucet)",
+  "description": "Live public RPC, REST (LCD), gRPC, faucet, and explorer URLs for safro-testnet-1 — the easiest way to experiment with Safrochain.",
   "source": "@site/docs/networks/testnet-endpoints.md",
   "sourceDirName": "networks",
   "slug": "/networks/testnet-endpoints",
@@ -10,15 +10,26 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
+  "lastUpdatedAt": 1777284667000,
   "sidebarPosition": 2,
   "frontMatter": {
-    "title": "Testnet endpoints",
-    "description": "Live public RPC, REST, gRPC, faucet, and explorer for safro-testnet-1.",
-    "sidebar_position": 2
+    "title": "Safrochain testnet endpoints (RPC, REST, faucet)",
+    "description": "Live public RPC, REST (LCD), gRPC, faucet, and explorer URLs for safro-testnet-1 — the easiest way to experiment with Safrochain.",
+    "sidebar_position": 2,
+    "keywords": [
+      "Safrochain testnet",
+      "safro-testnet-1",
+      "testnet RPC",
+      "testnet REST",
+      "faucet",
+      "block explorer",
+      "chain endpoints",
+      "Cosmos testnet"
+    ]
   },
   "sidebar": "docsSidebar",
   "previous": {
-    "title": "Mainnet endpoints",
+    "title": "Safrochain mainnet endpoints (RPC, REST, gRPC)",
     "permalink": "/networks/mainnet-endpoints"
   },
   "next": {

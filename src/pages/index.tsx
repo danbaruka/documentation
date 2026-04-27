@@ -427,14 +427,45 @@ function CommunityCTA(): React.JSX.Element {
 }
 
 export default function Home(): React.JSX.Element {
+  const homepageDescription =
+    'Official Safrochain documentation — build on, validate, and ' +
+    'operate Safrochain, a Cosmos SDK Layer-1 for fast, affordable, ' +
+    'mobile-first payments, remittances, and IBC-connected economies.';
+
+  // TechArticle / WebPage JSON-LD for the documentation home, plus
+  // duplicated description so it overrides the site-wide default in
+  // page-specific previews.
+  const homeJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': 'https://docs.safrochain.com/#home',
+    url: 'https://docs.safrochain.com/',
+    name: 'Safrochain Documentation',
+    description: homepageDescription,
+    inLanguage: 'en',
+    isPartOf: { '@id': 'https://docs.safrochain.com/#website' },
+    about: { '@id': 'https://safrochain.com/#organization' },
+    primaryImageOfPage: 'https://docs.safrochain.com/img/og.png',
+  };
+
   return (
     <Layout>
       <Head>
-        <title>Safrochain Docs</title>
+        <title>Safrochain Docs — Cosmos SDK Layer-1 for mobile-first payments</title>
+        <meta name="description" content={homepageDescription} />
+        <link rel="canonical" href="https://docs.safrochain.com/" />
         <meta
-          name="description"
-          content="Build, validate, and operate Safrochain, a Cosmos SDK Layer 1 for payments and remittances."
+          name="keywords"
+          content="Safrochain, Safrochain docs, Cosmos SDK, Layer-1, blockchain, validator, IBC, CometBFT, SAF, mobile-first payments, remittances, African blockchain, RPC, REST, gRPC, staking, governance"
         />
+        <meta property="og:title" content="Safrochain Docs — Cosmos SDK Layer-1" />
+        <meta property="og:description" content={homepageDescription} />
+        <meta property="og:url" content="https://docs.safrochain.com/" />
+        <meta name="twitter:title" content="Safrochain Docs — Cosmos SDK Layer-1" />
+        <meta name="twitter:description" content={homepageDescription} />
+        <script type="application/ld+json">
+          {JSON.stringify(homeJsonLd)}
+        </script>
       </Head>
       <main>
         <Hero />

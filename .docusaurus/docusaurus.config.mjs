@@ -9,6 +9,7 @@ export default {
   "favicon": "img/favicon.svg",
   "url": "https://docs.safrochain.com",
   "baseUrl": "/",
+  "trailingSlash": false,
   "organizationName": "Safrochain-Org",
   "projectName": "safrochain-docs",
   "onBrokenLinks": "throw",
@@ -62,6 +63,125 @@ export default {
     "path": "i18n",
     "localeConfigs": {}
   },
+  "headTags": [
+    {
+      "tagName": "meta",
+      "attributes": {
+        "name": "robots",
+        "content": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+      },
+      "customElement": false
+    },
+    {
+      "tagName": "meta",
+      "attributes": {
+        "name": "googlebot",
+        "content": "index, follow"
+      },
+      "customElement": false
+    },
+    {
+      "tagName": "meta",
+      "attributes": {
+        "name": "theme-color",
+        "content": "#0b1d4a"
+      },
+      "customElement": false
+    },
+    {
+      "tagName": "meta",
+      "attributes": {
+        "name": "application-name",
+        "content": "Safrochain Docs"
+      },
+      "customElement": false
+    },
+    {
+      "tagName": "meta",
+      "attributes": {
+        "name": "apple-mobile-web-app-title",
+        "content": "Safrochain Docs"
+      },
+      "customElement": false
+    },
+    {
+      "tagName": "meta",
+      "attributes": {
+        "name": "format-detection",
+        "content": "telephone=no"
+      },
+      "customElement": false
+    },
+    {
+      "tagName": "link",
+      "attributes": {
+        "rel": "manifest",
+        "href": "/site.webmanifest"
+      },
+      "customElement": false
+    },
+    {
+      "tagName": "link",
+      "attributes": {
+        "rel": "apple-touch-icon",
+        "sizes": "180x180",
+        "href": "/img/apple-touch-icon.png"
+      },
+      "customElement": false
+    },
+    {
+      "tagName": "link",
+      "attributes": {
+        "rel": "icon",
+        "type": "image/svg+xml",
+        "href": "/img/favicon.svg"
+      },
+      "customElement": false
+    },
+    {
+      "tagName": "link",
+      "attributes": {
+        "rel": "icon",
+        "type": "image/png",
+        "sizes": "96x96",
+        "href": "/img/favicon-96x96.png"
+      },
+      "customElement": false
+    },
+    {
+      "tagName": "link",
+      "attributes": {
+        "rel": "preconnect",
+        "href": "https://fonts.googleapis.com"
+      },
+      "customElement": false
+    },
+    {
+      "tagName": "link",
+      "attributes": {
+        "rel": "preconnect",
+        "href": "https://fonts.gstatic.com",
+        "crossorigin": "anonymous"
+      },
+      "customElement": false
+    },
+    {
+      "tagName": "script",
+      "attributes": {
+        "type": "application/ld+json"
+      },
+      "innerHTML": "{\"@context\":\"https://schema.org\",\"@type\":\"Organization\",\"@id\":\"https://safrochain.com/#organization\",\"name\":\"Safrochain Foundation\",\"alternateName\":\"Safrochain\",\"url\":\"https://safrochain.com\",\"logo\":\"https://docs.safrochain.com/img/safrochain-icon.svg\",\"description\":\"Safrochain is a Cosmos SDK Layer-1 blockchain built for mobile-first payments, remittances, and real-utility apps across African economies.\",\"sameAs\":[\"https://github.com/Safrochain-Org\",\"https://x.com/safrochain\",\"https://t.me/safrochainannonce\",\"https://discord.gg/fe2XAm6ENQ\",\"https://medium.com/@safrochain\"],\"foundingDate\":\"2024\"}",
+      "customElement": false
+    },
+    {
+      "tagName": "script",
+      "attributes": {
+        "type": "application/ld+json"
+      },
+      "innerHTML": "{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"@id\":\"https://docs.safrochain.com/#website\",\"url\":\"https://docs.safrochain.com\",\"name\":\"Safrochain Docs\",\"description\":\"Build, validate, and operate Safrochain — a Cosmos SDK Layer-1 for fast, affordable mobile-first payments and IBC-connected African economies.\",\"inLanguage\":\"en\",\"publisher\":{\"@id\":\"https://safrochain.com/#organization\"},\"potentialAction\":{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https://docs.safrochain.com/search?q={search_term_string}\"},\"query-input\":\"required name=search_term_string\"}}",
+      "customElement": false
+    }
+  ],
   "presets": [
     [
       "classic",
@@ -70,17 +190,28 @@ export default {
           "sidebarPath": "./sidebars.ts",
           "routeBasePath": "/",
           "showLastUpdateAuthor": false,
-          "showLastUpdateTime": false
+          "showLastUpdateTime": true
         },
         "blog": false,
         "theme": {
           "customCss": "./src/css/custom.css"
+        },
+        "sitemap": {
+          "changefreq": "weekly",
+          "priority": 0.6,
+          "ignorePatterns": [
+            "/search",
+            "/search/**"
+          ],
+          "filename": "sitemap.xml",
+          "lastmod": "date"
         }
       }
     ]
   ],
   "clientModules": [
-    "/Users/bdan/Projects/SAFROCHAIN/node/Docs/src/clientModules/back-nav-fix.ts"
+    "/Users/bdan/Projects/SAFROCHAIN/node/Docs/src/clientModules/back-nav-fix.ts",
+    "/Users/bdan/Projects/SAFROCHAIN/node/Docs/src/clientModules/seo-jsonld.ts"
   ],
   "plugins": [
     [
@@ -108,9 +239,87 @@ export default {
     "colorMode": {
       "defaultMode": "dark",
       "disableSwitch": false,
-      "respectPrefersColorScheme": true
+      "respectPrefersColorScheme": false
     },
     "image": "img/og.png",
+    "metadata": [
+      {
+        "name": "description",
+        "content": "Build, validate, and operate Safrochain — a Cosmos SDK Layer-1 for fast, affordable mobile-first payments and IBC-connected African economies."
+      },
+      {
+        "name": "keywords",
+        "content": "Safrochain, Cosmos SDK, Layer-1, blockchain, validator, IBC, CometBFT, SAF, mobile-first payments, remittances, Africa blockchain, RPC, REST, gRPC, staking, governance"
+      },
+      {
+        "name": "author",
+        "content": "Safrochain Foundation"
+      },
+      {
+        "name": "publisher",
+        "content": "Safrochain Foundation"
+      },
+      {
+        "name": "twitter:card",
+        "content": "summary_large_image"
+      },
+      {
+        "name": "twitter:site",
+        "content": "@safrochain"
+      },
+      {
+        "name": "twitter:creator",
+        "content": "@safrochain"
+      },
+      {
+        "name": "twitter:image",
+        "content": "https://docs.safrochain.com/img/og.png"
+      },
+      {
+        "name": "twitter:image:alt",
+        "content": "Safrochain — Cosmos SDK Layer-1 documentation"
+      },
+      {
+        "property": "og:type",
+        "content": "website"
+      },
+      {
+        "property": "og:site_name",
+        "content": "Safrochain Docs"
+      },
+      {
+        "property": "og:title",
+        "content": "Safrochain Docs"
+      },
+      {
+        "property": "og:description",
+        "content": "Build, validate, and operate Safrochain — a Cosmos SDK Layer-1 for fast, affordable mobile-first payments and IBC-connected African economies."
+      },
+      {
+        "property": "og:image",
+        "content": "https://docs.safrochain.com/img/og.png"
+      },
+      {
+        "property": "og:image:alt",
+        "content": "Safrochain — Cosmos SDK Layer-1 documentation"
+      },
+      {
+        "property": "og:image:width",
+        "content": "1200"
+      },
+      {
+        "property": "og:image:height",
+        "content": "630"
+      },
+      {
+        "property": "og:locale",
+        "content": "en_US"
+      },
+      {
+        "property": "og:url",
+        "content": "https://docs.safrochain.com"
+      }
+    ],
     "navbar": {
       "title": "",
       "hideOnScroll": false,
@@ -411,7 +620,6 @@ export default {
         "groupByYear": true
       }
     },
-    "metadata": [],
     "tableOfContents": {
       "minHeadingLevel": 2,
       "maxHeadingLevel": 3
@@ -442,7 +650,6 @@ export default {
   ],
   "customFields": {},
   "scripts": [],
-  "headTags": [],
   "titleDelimiter": "|",
   "noIndex": false
 };

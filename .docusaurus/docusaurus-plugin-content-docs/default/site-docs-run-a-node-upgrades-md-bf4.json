@@ -10,6 +10,7 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
+  "lastUpdatedAt": 1777284667000,
   "sidebarPosition": 9,
   "frontMatter": {
     "title": "Upgrades (cosmovisor)",
@@ -22,7 +23,7 @@
     "permalink": "/run-a-node/statesync"
   },
   "next": {
-    "title": "Become a validator",
+    "title": "How to become a Safrochain validator",
     "permalink": "/validators/become-a-validator"
   }
 }

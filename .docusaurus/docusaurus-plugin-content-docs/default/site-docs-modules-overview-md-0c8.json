@@ -1,7 +1,7 @@
 {
   "id": "modules/overview",
-  "title": "Modules overview",
-  "description": "Safrochain modules and how to navigate their specs.",
+  "title": "Safrochain modules overview",
+  "description": "Safrochain modules — clock, cw-hooks, drip, feepay, feeshare, tokenfactory, and more — with friendly entry points and links to module specs.",
   "source": "@site/docs/modules/overview.md",
   "sourceDirName": "modules",
   "slug": "/modules/overview",
@@ -10,9 +10,21 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
+  "lastUpdatedAt": 1777284667000,
   "frontMatter": {
-    "title": "Modules overview",
-    "description": "Safrochain modules and how to navigate their specs."
+    "title": "Safrochain modules overview",
+    "description": "Safrochain modules — clock, cw-hooks, drip, feepay, feeshare, tokenfactory, and more — with friendly entry points and links to module specs.",
+    "keywords": [
+      "Safrochain modules",
+      "Cosmos SDK modules",
+      "x/clock",
+      "cw-hooks",
+      "feepay",
+      "feeshare",
+      "tokenfactory",
+      "drip",
+      "module spec"
+    ]
   },
   "sidebar": "docsSidebar",
   "previous": {

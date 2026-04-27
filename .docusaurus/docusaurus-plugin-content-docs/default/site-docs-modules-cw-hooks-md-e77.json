@@ -10,6 +10,7 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
+  "lastUpdatedAt": 1777284667000,
   "frontMatter": {
     "title": "CW Hooks",
     "description": "CosmWasm hook integration module."
@@ -20,7 +21,7 @@
     "permalink": "/modules/clock"
   },
   "next": {
-    "title": "Tokenomics",
+    "title": "Safrochain tokenomics — the SAF token",
     "permalink": "/protocol/tokenomics"
   }
 }

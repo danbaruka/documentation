@@ -1,7 +1,7 @@
 {
   "id": "cli/overview",
-  "title": "CLI overview",
-  "description": "safrochaind command-line interface, global flags, keyring, common patterns.",
+  "title": "safrochaind CLI overview",
+  "description": "The safrochaind command-line interface — global flags, keyring backends, query/tx patterns, fees, gas, and broadcast modes.",
   "source": "@site/docs/cli/overview.md",
   "sourceDirName": "cli",
   "slug": "/cli/overview",
@@ -10,11 +10,24 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
+  "lastUpdatedAt": 1777284667000,
   "sidebarPosition": 1,
   "frontMatter": {
-    "title": "CLI overview",
-    "description": "safrochaind command-line interface, global flags, keyring, common patterns.",
-    "sidebar_position": 1
+    "title": "safrochaind CLI overview",
+    "description": "The safrochaind command-line interface — global flags, keyring backends, query/tx patterns, fees, gas, and broadcast modes.",
+    "sidebar_position": 1,
+    "keywords": [
+      "safrochaind",
+      "CLI",
+      "Cosmos SDK CLI",
+      "keyring",
+      "tx",
+      "query",
+      "gas",
+      "fees",
+      "broadcast mode",
+      "Safrochain commands"
+    ]
   },
   "sidebar": "docsSidebar",
   "previous": {

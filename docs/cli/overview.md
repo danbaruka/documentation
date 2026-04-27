@@ -1,7 +1,18 @@
 ---
-title: CLI overview
-description: safrochaind command-line interface, global flags, keyring, common patterns.
+title: safrochaind CLI overview
+description: The safrochaind command-line interface — global flags, keyring backends, query/tx patterns, fees, gas, and broadcast modes.
 sidebar_position: 1
+keywords:
+  - safrochaind
+  - CLI
+  - Cosmos SDK CLI
+  - keyring
+  - tx
+  - query
+  - gas
+  - fees
+  - broadcast mode
+  - Safrochain commands
 ---
 
 `safrochaind` is the single binary that powers a Safrochain node and acts as

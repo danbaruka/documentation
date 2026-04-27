@@ -10,6 +10,7 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
+  "lastUpdatedAt": 1777284667000,
   "sidebarPosition": 3,
   "frontMatter": {
     "title": "Channels",
@@ -22,7 +23,7 @@
     "permalink": "/ibc/hermes-setup"
   },
   "next": {
-    "title": "CLI overview",
+    "title": "safrochaind CLI overview",
     "permalink": "/cli/overview"
   }
 }

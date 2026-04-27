@@ -10,6 +10,7 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
+  "lastUpdatedAt": 1777284667000,
   "frontMatter": {
     "title": "Quick links",
     "description": "Official Safrochain URLs and developer endpoints."
@@ -20,7 +21,7 @@
     "permalink": "/getting-started/what-is-safrochain"
   },
   "next": {
-    "title": "Mainnet endpoints",
+    "title": "Safrochain mainnet endpoints (RPC, REST, gRPC)",
     "permalink": "/networks/mainnet-endpoints"
   }
 }

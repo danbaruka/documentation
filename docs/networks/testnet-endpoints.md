@@ -1,7 +1,16 @@
 ---
-title: Testnet endpoints
-description: Live public RPC, REST, gRPC, faucet, and explorer for safro-testnet-1.
+title: Safrochain testnet endpoints (RPC, REST, faucet)
+description: Live public RPC, REST (LCD), gRPC, faucet, and explorer URLs for safro-testnet-1 — the easiest way to experiment with Safrochain.
 sidebar_position: 2
+keywords:
+  - Safrochain testnet
+  - safro-testnet-1
+  - testnet RPC
+  - testnet REST
+  - faucet
+  - block explorer
+  - chain endpoints
+  - Cosmos testnet
 ---
 
 :::tip Testnet is live

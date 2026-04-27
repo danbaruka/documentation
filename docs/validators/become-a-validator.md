@@ -1,7 +1,18 @@
 ---
-title: Become a validator
-description: Step-by-step guide to creating, funding, and running a Safrochain validator.
+title: How to become a Safrochain validator
+description: Step-by-step guide to creating, funding, and running a Safrochain validator on CometBFT proof-of-stake — keys, self-delegation, commission, and signing.
 sidebar_position: 1
+keywords:
+  - Safrochain validator
+  - become a validator
+  - CometBFT
+  - proof of stake
+  - self-delegation
+  - validator commission
+  - staking
+  - SAF
+  - create-validator
+  - tendermint validator
 ---
 
 import Tabs from '@theme/Tabs';

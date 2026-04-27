@@ -1,7 +1,7 @@
 {
   "id": "run-a-node/overview",
-  "title": "Run a node (overview)",
-  "description": "Install safrochaind and run a local, testnet, or mainnet Safrochain node.",
+  "title": "Run a Safrochain node — overview",
+  "description": "Install safrochaind and run a local, testnet, or mainnet Safrochain full node, sentry, RPC, or archive node.",
   "source": "@site/docs/run-a-node/overview.md",
   "sourceDirName": "run-a-node",
   "slug": "/run-a-node/overview",
@@ -10,11 +10,23 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
+  "lastUpdatedAt": 1777284667000,
   "sidebarPosition": 1,
   "frontMatter": {
-    "title": "Run a node (overview)",
-    "description": "Install safrochaind and run a local, testnet, or mainnet Safrochain node.",
-    "sidebar_position": 1
+    "title": "Run a Safrochain node — overview",
+    "description": "Install safrochaind and run a local, testnet, or mainnet Safrochain full node, sentry, RPC, or archive node.",
+    "sidebar_position": 1,
+    "keywords": [
+      "run a Safrochain node",
+      "safrochaind",
+      "full node",
+      "RPC node",
+      "archive node",
+      "Cosmos node",
+      "CometBFT",
+      "testnet node",
+      "mainnet node"
+    ]
   },
   "sidebar": "docsSidebar",
   "previous": {

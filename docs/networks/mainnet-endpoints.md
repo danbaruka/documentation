@@ -1,7 +1,18 @@
 ---
-title: Mainnet endpoints
-description: Public RPC, REST, gRPC, gRPC-Web, P2P seeds, status, and Grafana for safro-mainnet-1.
+title: Safrochain mainnet endpoints (RPC, REST, gRPC)
+description: Public RPC, REST (LCD), gRPC, gRPC-Web, P2P seeds, status, and Grafana endpoints for safro-mainnet-1.
 sidebar_position: 1
+keywords:
+  - Safrochain mainnet
+  - safro-mainnet-1
+  - public RPC
+  - REST API
+  - LCD
+  - gRPC
+  - gRPC-Web
+  - P2P seeds
+  - chain endpoints
+  - Cosmos RPC
 ---
 
 :::info Mainnet target

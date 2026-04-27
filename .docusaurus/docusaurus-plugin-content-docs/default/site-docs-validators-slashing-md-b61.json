@@ -10,6 +10,7 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
+  "lastUpdatedAt": 1777284667000,
   "sidebarPosition": 6,
   "frontMatter": {
     "title": "Slashing & jail",
@@ -18,11 +19,11 @@
   },
   "sidebar": "docsSidebar",
   "previous": {
-    "title": "Become a validator",
+    "title": "How to become a Safrochain validator",
     "permalink": "/validators/become-a-validator"
   },
   "next": {
-    "title": "IBC overview",
+    "title": "Safrochain IBC overview",
     "permalink": "/ibc/overview"
   }
 }

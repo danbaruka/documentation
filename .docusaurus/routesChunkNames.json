@@ -12,172 +12,172 @@
     },
     "config": "5e9f5e1a"
   },
-  "/-0d5": {
+  "/-42e": {
     "__comp": "5e95c892",
     "__context": {
       "plugin": "aba21aa0"
     }
   },
-  "/-35d": {
+  "/-7d9": {
     "__comp": "a7bd4aaa",
     "__props": "22dd74f7"
   },
-  "/-6a0": {
+  "/-4bb": {
     "__comp": "a94703ab"
   },
-  "/cli/bank-073": {
+  "/cli/bank-292": {
     "__comp": "17896441",
     "content": "a1c696b8"
   },
-  "/cli/governance-95d": {
+  "/cli/governance-600": {
     "__comp": "17896441",
     "content": "63525d4e"
   },
-  "/cli/keys-b20": {
+  "/cli/keys-260": {
     "__comp": "17896441",
     "content": "e73bf4f0"
   },
-  "/cli/overview-e41": {
+  "/cli/overview-c76": {
     "__comp": "17896441",
     "content": "2c1aff2f"
   },
-  "/cli/query-fa7": {
+  "/cli/query-400": {
     "__comp": "17896441",
     "content": "98eaae3f"
   },
-  "/cli/staking-d28": {
+  "/cli/staking-c34": {
     "__comp": "17896441",
     "content": "2f25f1bb"
   },
-  "/cli/tx-293": {
+  "/cli/tx-136": {
     "__comp": "17896441",
     "content": "534ed58d"
   },
-  "/getting-started/quick-links-b3f": {
+  "/getting-started/quick-links-ee0": {
     "__comp": "17896441",
     "content": "e5dca322"
   },
-  "/getting-started/what-is-safrochain-16e": {
+  "/getting-started/what-is-safrochain-624": {
     "__comp": "17896441",
     "content": "dac14025"
   },
-  "/ibc/channels-e57": {
+  "/ibc/channels-4db": {
     "__comp": "17896441",
     "content": "eb70334d"
   },
-  "/ibc/hermes-setup-593": {
+  "/ibc/hermes-setup-02e": {
     "__comp": "17896441",
     "content": "22e0b11e"
   },
-  "/ibc/overview-672": {
+  "/ibc/overview-3dd": {
     "__comp": "17896441",
     "content": "f6d0e3e9"
   },
-  "/intro-4a2": {
+  "/intro-fa3": {
     "__comp": "17896441",
     "content": "0e384e19"
   },
-  "/modules/clock-7e5": {
+  "/modules/clock-de9": {
     "__comp": "17896441",
     "content": "2ef9b453"
   },
-  "/modules/cw-hooks-a5e": {
+  "/modules/cw-hooks-7d6": {
     "__comp": "17896441",
     "content": "e77654f6"
   },
-  "/modules/drip-4d3": {
+  "/modules/drip-07a": {
     "__comp": "17896441",
     "content": "87f5fe8a"
   },
-  "/modules/feepay-e26": {
+  "/modules/feepay-0be": {
     "__comp": "17896441",
     "content": "29e50b41"
   },
-  "/modules/feeshare-5b2": {
+  "/modules/feeshare-767": {
     "__comp": "17896441",
     "content": "9eaebb35"
   },
-  "/modules/overview-1f0": {
+  "/modules/overview-919": {
     "__comp": "17896441",
     "content": "0c8680ed"
   },
-  "/networks/chain-registry-06b": {
+  "/networks/chain-registry-238": {
     "__comp": "17896441",
     "content": "4fe92cd7"
   },
-  "/networks/mainnet-endpoints-480": {
+  "/networks/mainnet-endpoints-3bd": {
     "__comp": "17896441",
     "content": "fcd2f1d9"
   },
-  "/networks/testnet-endpoints-015": {
+  "/networks/testnet-endpoints-992": {
     "__comp": "17896441",
     "content": "68c18103"
   },
-  "/protocol/foundation-360": {
+  "/protocol/foundation-14e": {
     "__comp": "17896441",
     "content": "89835864"
   },
-  "/protocol/governance-54a": {
+  "/protocol/governance-cc5": {
     "__comp": "17896441",
     "content": "4d0972f9"
   },
-  "/protocol/tokenomics-627": {
+  "/protocol/tokenomics-dfc": {
     "__comp": "17896441",
     "content": "0942bbbd"
   },
-  "/resources/brand-assets-efc": {
+  "/resources/brand-assets-bec": {
     "__comp": "17896441",
     "content": "80d1488f"
   },
-  "/resources/faq-982": {
+  "/resources/faq-1df": {
     "__comp": "17896441",
     "content": "b66a831f"
   },
-  "/resources/whitepaper-926": {
+  "/resources/whitepaper-a2d": {
     "__comp": "17896441",
     "content": "47194ee1"
   },
-  "/run-a-node/hardware-d00": {
+  "/run-a-node/hardware-4a3": {
     "__comp": "17896441",
     "content": "68d8c6b7"
   },
-  "/run-a-node/install-4ba": {
+  "/run-a-node/install-2da": {
     "__comp": "17896441",
     "content": "e9d0b5e2"
   },
-  "/run-a-node/join-mainnet-bb4": {
+  "/run-a-node/join-mainnet-6aa": {
     "__comp": "17896441",
     "content": "d69ffaf3"
   },
-  "/run-a-node/join-testnet-d82": {
+  "/run-a-node/join-testnet-da0": {
     "__comp": "17896441",
     "content": "176b5ef2"
   },
-  "/run-a-node/local-testnet-7f7": {
+  "/run-a-node/local-testnet-af0": {
     "__comp": "17896441",
     "content": "aed9d52d"
   },
-  "/run-a-node/overview-335": {
+  "/run-a-node/overview-30e": {
     "__comp": "17896441",
     "content": "da060b36"
   },
-  "/run-a-node/snapshots-e10": {
+  "/run-a-node/snapshots-9c8": {
     "__comp": "17896441",
     "content": "000360c1"
   },
-  "/run-a-node/statesync-a4c": {
+  "/run-a-node/statesync-bc2": {
     "__comp": "17896441",
     "content": "55c801fe"
   },
-  "/run-a-node/upgrades-9c8": {
+  "/run-a-node/upgrades-17c": {
     "__comp": "17896441",
     "content": "bf40f6eb"
   },
-  "/validators/become-a-validator-6d2": {
+  "/validators/become-a-validator-4e3": {
     "__comp": "17896441",
     "content": "05460ad7"
   },
-  "/validators/slashing-a22": {
+  "/validators/slashing-343": {
     "__comp": "17896441",
     "content": "b6146528"
   }

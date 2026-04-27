@@ -1,7 +1,17 @@
 ---
-title: Introduction
-description: Start here. What Safrochain is and how to use these docs.
+title: Introduction to Safrochain
+description: Start here. What Safrochain is, how it works, and how to use these docs to build, validate, or run a node on the Cosmos SDK Layer-1.
 sidebar_position: 1
+keywords:
+  - Safrochain
+  - Cosmos SDK
+  - Layer-1 blockchain
+  - documentation
+  - mobile payments
+  - remittances
+  - IBC
+  - SAF token
+slug: /intro
 ---
 
 Safrochain empowers communities through **fast, affordable, and accessible

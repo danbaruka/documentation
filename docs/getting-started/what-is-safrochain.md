@@ -1,6 +1,15 @@
 ---
 title: What is Safrochain?
-description: Vision, positioning, and the problem Safrochain solves.
+description: Vision, positioning, and the problem Safrochain solves — a Cosmos SDK Layer-1 for mobile-first payments, remittances, and IBC-connected African economies.
+keywords:
+  - what is Safrochain
+  - Cosmos SDK Layer-1
+  - African blockchain
+  - mobile-first payments
+  - remittances
+  - IBC
+  - SAF token
+  - Safrochain Foundation
 ---
 
 Safrochain empowers communities through **fast, affordable, and accessible

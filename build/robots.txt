@@ -1,0 +1,25 @@
+User-agent: *
+Allow: /
+
+# Internal-only routes. They do not produce indexable content
+# (search results page, build artifacts, source maps).
+Disallow: /search
+Disallow: /search/
+Disallow: /*?q=
+Disallow: /*.map$
+
+# AI crawlers — opted in. Remove or change to `Disallow` per future policy.
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# Sitemaps
+Sitemap: https://docs.safrochain.com/sitemap.xml

@@ -1,7 +1,7 @@
 {
   "id": "getting-started/what-is-safrochain",
   "title": "What is Safrochain?",
-  "description": "Vision, positioning, and the problem Safrochain solves.",
+  "description": "Vision, positioning, and the problem Safrochain solves — a Cosmos SDK Layer-1 for mobile-first payments, remittances, and IBC-connected African economies.",
   "source": "@site/docs/getting-started/what-is-safrochain.md",
   "sourceDirName": "getting-started",
   "slug": "/getting-started/what-is-safrochain",
@@ -10,13 +10,24 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
+  "lastUpdatedAt": 1777284667000,
   "frontMatter": {
     "title": "What is Safrochain?",
-    "description": "Vision, positioning, and the problem Safrochain solves."
+    "description": "Vision, positioning, and the problem Safrochain solves — a Cosmos SDK Layer-1 for mobile-first payments, remittances, and IBC-connected African economies.",
+    "keywords": [
+      "what is Safrochain",
+      "Cosmos SDK Layer-1",
+      "African blockchain",
+      "mobile-first payments",
+      "remittances",
+      "IBC",
+      "SAF token",
+      "Safrochain Foundation"
+    ]
   },
   "sidebar": "docsSidebar",
   "previous": {
-    "title": "Introduction",
+    "title": "Introduction to Safrochain",
     "permalink": "/intro"
   },
   "next": {

@@ -1,7 +1,7 @@
 {
   "id": "ibc/overview",
-  "title": "IBC overview",
-  "description": "How Safrochain participates in the Cosmos IBC ecosystem.",
+  "title": "Safrochain IBC overview",
+  "description": "How Safrochain participates in the Cosmos IBC ecosystem — clients, connections, channels, packets, and supported tokens for cross-chain transfers.",
   "source": "@site/docs/ibc/overview.md",
   "sourceDirName": "ibc",
   "slug": "/ibc/overview",
@@ -10,11 +10,23 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
+  "lastUpdatedAt": 1777284667000,
   "sidebarPosition": 1,
   "frontMatter": {
-    "title": "IBC overview",
-    "description": "How Safrochain participates in the Cosmos IBC ecosystem.",
-    "sidebar_position": 1
+    "title": "Safrochain IBC overview",
+    "description": "How Safrochain participates in the Cosmos IBC ecosystem — clients, connections, channels, packets, and supported tokens for cross-chain transfers.",
+    "sidebar_position": 1,
+    "keywords": [
+      "IBC",
+      "Inter-Blockchain Communication",
+      "ibc-go",
+      "Cosmos IBC",
+      "IBC channels",
+      "cross-chain transfers",
+      "relayer",
+      "Safrochain IBC",
+      "ICS-20"
+    ]
   },
   "sidebar": "docsSidebar",
   "previous": {

@@ -1,7 +1,17 @@
 ---
-title: IBC overview
-description: How Safrochain participates in the Cosmos IBC ecosystem.
+title: Safrochain IBC overview
+description: How Safrochain participates in the Cosmos IBC ecosystem — clients, connections, channels, packets, and supported tokens for cross-chain transfers.
 sidebar_position: 1
+keywords:
+  - IBC
+  - Inter-Blockchain Communication
+  - ibc-go
+  - Cosmos IBC
+  - IBC channels
+  - cross-chain transfers
+  - relayer
+  - Safrochain IBC
+  - ICS-20
 ---
 
 Safrochain is built on Cosmos SDK 0.50 with the **`ibc-go`** module enabled,

@@ -10,6 +10,7 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
+  "lastUpdatedAt": 1777284667000,
   "sidebarPosition": 2,
   "frontMatter": {
     "title": "Keys",
@@ -18,7 +19,7 @@
   },
   "sidebar": "docsSidebar",
   "previous": {
-    "title": "CLI overview",
+    "title": "safrochaind CLI overview",
     "permalink": "/cli/overview"
   },
   "next": {

@@ -10,6 +10,7 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
+  "lastUpdatedAt": 1777284667000,
   "sidebarPosition": 2,
   "frontMatter": {
     "title": "Hermes relayer setup",
@@ -18,7 +19,7 @@
   },
   "sidebar": "docsSidebar",
   "previous": {
-    "title": "IBC overview",
+    "title": "Safrochain IBC overview",
     "permalink": "/ibc/overview"
   },
   "next": {

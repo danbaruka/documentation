@@ -1,7 +1,17 @@
 ---
-title: Run a node (overview)
-description: Install safrochaind and run a local, testnet, or mainnet Safrochain node.
+title: Run a Safrochain node — overview
+description: Install safrochaind and run a local, testnet, or mainnet Safrochain full node, sentry, RPC, or archive node.
 sidebar_position: 1
+keywords:
+  - run a Safrochain node
+  - safrochaind
+  - full node
+  - RPC node
+  - archive node
+  - Cosmos node
+  - CometBFT
+  - testnet node
+  - mainnet node
 ---
 
 This section covers running a Safrochain full node with **`safrochaind`**.

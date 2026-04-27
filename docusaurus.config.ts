@@ -1,13 +1,28 @@
 import { themes as prismThemes } from 'prism-react-renderer';
 import type { Config } from '@docusaurus/types';
 
+const SITE_URL = 'https://docs.safrochain.com';
+const SITE_TITLE = 'Safrochain Docs';
+const SITE_DESCRIPTION =
+  'Build, validate, and operate Safrochain — a Cosmos SDK Layer-1 ' +
+  'for fast, affordable mobile-first payments and IBC-connected ' +
+  'African economies.';
+const SOCIAL_PROFILES = [
+  'https://github.com/Safrochain-Org',
+  'https://x.com/safrochain',
+  'https://t.me/safrochainannonce',
+  'https://discord.gg/fe2XAm6ENQ',
+  'https://medium.com/@safrochain',
+];
+
 const config: Config = {
-  title: 'Safrochain Docs',
+  title: SITE_TITLE,
   tagline: 'Cosmos SDK Layer-1: fast, affordable, real-utility blockchain',
   favicon: 'img/favicon.svg',
 
-  url: 'https://docs.safrochain.com',
+  url: SITE_URL,
   baseUrl: '/',
+  trailingSlash: false,
 
   organizationName: 'Safrochain-Org',
   projectName: 'safrochain-docs',
@@ -33,6 +48,66 @@ const config: Config = {
     locales: ['en'],
   },
 
+  // Site-wide <head> tags: canonical preconnects, Apple/Microsoft icons,
+  // robots policy, and JSON-LD structured data for the Safrochain
+  // organisation and the docs site itself (with a SearchAction so Google
+  // can render a sitelinks search box).
+  headTags: [
+    { tagName: 'meta', attributes: { name: 'robots', content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' } },
+    { tagName: 'meta', attributes: { name: 'googlebot', content: 'index, follow' } },
+    { tagName: 'meta', attributes: { name: 'theme-color', content: '#0b1d4a' } },
+    { tagName: 'meta', attributes: { name: 'application-name', content: 'Safrochain Docs' } },
+    { tagName: 'meta', attributes: { name: 'apple-mobile-web-app-title', content: 'Safrochain Docs' } },
+    { tagName: 'meta', attributes: { name: 'format-detection', content: 'telephone=no' } },
+    { tagName: 'link', attributes: { rel: 'manifest', href: '/site.webmanifest' } },
+    { tagName: 'link', attributes: { rel: 'apple-touch-icon', sizes: '180x180', href: '/img/apple-touch-icon.png' } },
+    { tagName: 'link', attributes: { rel: 'icon', type: 'image/svg+xml', href: '/img/favicon.svg' } },
+    { tagName: 'link', attributes: { rel: 'icon', type: 'image/png', sizes: '96x96', href: '/img/favicon-96x96.png' } },
+    { tagName: 'link', attributes: { rel: 'preconnect', href: 'https://fonts.googleapis.com' } },
+    { tagName: 'link', attributes: { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: 'anonymous' } },
+    {
+      tagName: 'script',
+      attributes: { type: 'application/ld+json' },
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Organization',
+        '@id': 'https://safrochain.com/#organization',
+        name: 'Safrochain Foundation',
+        alternateName: 'Safrochain',
+        url: 'https://safrochain.com',
+        logo: `${SITE_URL}/img/safrochain-icon.svg`,
+        description:
+          'Safrochain is a Cosmos SDK Layer-1 blockchain built for ' +
+          'mobile-first payments, remittances, and real-utility apps ' +
+          'across African economies.',
+        sameAs: SOCIAL_PROFILES,
+        foundingDate: '2024',
+      }),
+    },
+    {
+      tagName: 'script',
+      attributes: { type: 'application/ld+json' },
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        '@id': `${SITE_URL}/#website`,
+        url: SITE_URL,
+        name: SITE_TITLE,
+        description: SITE_DESCRIPTION,
+        inLanguage: 'en',
+        publisher: { '@id': 'https://safrochain.com/#organization' },
+        potentialAction: {
+          '@type': 'SearchAction',
+          target: {
+            '@type': 'EntryPoint',
+            urlTemplate: `${SITE_URL}/search?q={search_term_string}`,
+          },
+          'query-input': 'required name=search_term_string',
+        },
+      }),
+    },
+  ],
+
   presets: [
     [
       'classic',
@@ -41,18 +116,33 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           routeBasePath: '/',
           editUrl: undefined,
+          // Surface git-tracked update timestamps in the doc metadata; this
+          // enables both the in-page "Last updated" line and `<lastmod>` in
+          // the generated sitemap.xml entries.
           showLastUpdateAuthor: false,
-          showLastUpdateTime: false,
+          showLastUpdateTime: true,
         },
         blog: false,
         theme: {
           customCss: './src/css/custom.css',
         },
+        sitemap: {
+          changefreq: 'weekly',
+          priority: 0.6,
+          // Search route is internal-only; no value to crawlers and emits a
+          // duplicate description.
+          ignorePatterns: ['/search', '/search/**'],
+          filename: 'sitemap.xml',
+          lastmod: 'date',
+        },
       },
     ],
   ],
 
-  clientModules: [require.resolve('./src/clientModules/back-nav-fix.ts')],
+  clientModules: [
+    require.resolve('./src/clientModules/back-nav-fix.ts'),
+    require.resolve('./src/clientModules/seo-jsonld.ts'),
+  ],
 
   plugins: [
     [
@@ -83,9 +173,42 @@ const config: Config = {
     colorMode: {
       defaultMode: 'dark',
       disableSwitch: false,
-      respectPrefersColorScheme: true,
+      // Two-state toggle (dark ↔ light). When this is `true`, Docusaurus
+      // adds an intermediate "system" state, so the first click on the
+      // navbar toggle moves from `system` to the explicit value that
+      // already matches what's rendered — looking like nothing happened
+      // until the second click. Disabling restores a single-click flip.
+      respectPrefersColorScheme: false,
     },
     image: 'img/og.png',
+    // Default Open Graph + Twitter card metadata. Per-page `description`
+    // and `keywords` from frontmatter override the matching tags
+    // automatically; everything below is the site-wide fallback.
+    metadata: [
+      { name: 'description', content: SITE_DESCRIPTION },
+      { name: 'keywords', content: 'Safrochain, Cosmos SDK, Layer-1, blockchain, validator, IBC, CometBFT, SAF, mobile-first payments, remittances, Africa blockchain, RPC, REST, gRPC, staking, governance' },
+      { name: 'author', content: 'Safrochain Foundation' },
+      { name: 'publisher', content: 'Safrochain Foundation' },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:site', content: '@safrochain' },
+      { name: 'twitter:creator', content: '@safrochain' },
+      // Intentionally omit twitter:title and twitter:description site-wide
+      // so Twitter inherits the per-page og:title / og:description that
+      // Docusaurus emits from each doc's frontmatter. The homepage adds
+      // its own twitter:title / twitter:description in src/pages/index.tsx.
+      { name: 'twitter:image', content: `${SITE_URL}/img/og.png` },
+      { name: 'twitter:image:alt', content: 'Safrochain — Cosmos SDK Layer-1 documentation' },
+      { property: 'og:type', content: 'website' },
+      { property: 'og:site_name', content: SITE_TITLE },
+      { property: 'og:title', content: SITE_TITLE },
+      { property: 'og:description', content: SITE_DESCRIPTION },
+      { property: 'og:image', content: `${SITE_URL}/img/og.png` },
+      { property: 'og:image:alt', content: 'Safrochain — Cosmos SDK Layer-1 documentation' },
+      { property: 'og:image:width', content: '1200' },
+      { property: 'og:image:height', content: '630' },
+      { property: 'og:locale', content: 'en_US' },
+      { property: 'og:url', content: SITE_URL },
+    ],
     navbar: {
       title: '',
       hideOnScroll: false,
