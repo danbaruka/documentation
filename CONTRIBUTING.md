@@ -175,11 +175,11 @@ neither works.
    *what changed*, *why*, and *how to verify*.
 2. **CI runs** `npm run build`, `npm run typecheck`, `npm run lint`.
    All three must pass.
-3. **Vercel posts a preview URL** as a PR comment. Click it; sanity
-   check your changes render correctly.
+3. For **GitHub Pages**, after merge, check the **Deploy to GitHub Pages** job; open
+   the site URL from the run summary (or your custom domain).
 4. **A maintainer reviews.** Expect comments — most are small style
-   fixes. Push more commits to the same branch; the preview URL
-   updates automatically.
+   fixes. Push more commits to the same branch; re-check the PR build
+   in Actions until it is green.
 5. **Squash-merge.** The maintainer sets the conventional-commit
    subject; the body becomes the merge commit body.
 

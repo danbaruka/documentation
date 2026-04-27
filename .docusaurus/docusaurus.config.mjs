@@ -7,11 +7,11 @@ export default {
   "title": "Safrochain Docs",
   "tagline": "Cosmos SDK Layer-1: fast, affordable, real-utility blockchain",
   "favicon": "img/favicon.svg",
-  "url": "https://docs.safrochain.com",
+  "url": "https://draft-docs.safrochain.com",
   "baseUrl": "/",
   "trailingSlash": false,
   "organizationName": "Safrochain-Org",
-  "projectName": "safrochain-docs",
+  "projectName": "documentation",
   "onBrokenLinks": "throw",
   "markdown": {
     "mermaid": true,
@@ -170,7 +170,7 @@ export default {
       "attributes": {
         "type": "application/ld+json"
       },
-      "innerHTML": "{\"@context\":\"https://schema.org\",\"@type\":\"Organization\",\"@id\":\"https://safrochain.com/#organization\",\"name\":\"Safrochain Foundation\",\"alternateName\":\"Safrochain\",\"url\":\"https://safrochain.com\",\"logo\":\"https://docs.safrochain.com/img/safrochain-icon.svg\",\"description\":\"Safrochain is a Cosmos SDK Layer-1 blockchain built for mobile-first payments, remittances, and real-utility apps across African economies.\",\"sameAs\":[\"https://github.com/Safrochain-Org\",\"https://x.com/safrochain\",\"https://t.me/safrochainannonce\",\"https://discord.gg/fe2XAm6ENQ\",\"https://medium.com/@safrochain\"],\"foundingDate\":\"2024\"}",
+      "innerHTML": "{\"@context\":\"https://schema.org\",\"@type\":\"Organization\",\"@id\":\"https://safrochain.com/#organization\",\"name\":\"Safrochain Foundation\",\"alternateName\":\"Safrochain\",\"url\":\"https://safrochain.com\",\"logo\":\"https://draft-docs.safrochain.com/img/safrochain-icon.svg\",\"description\":\"Safrochain is a Cosmos SDK Layer-1 blockchain built for mobile-first payments, remittances, and real-utility apps across African economies.\",\"sameAs\":[\"https://github.com/Safrochain-Org\",\"https://x.com/safrochain\",\"https://t.me/safrochainannonce\",\"https://discord.gg/fe2XAm6ENQ\",\"https://medium.com/@safrochain\"],\"foundingDate\":\"2024\"}",
       "customElement": false
     },
     {
@@ -178,7 +178,7 @@ export default {
       "attributes": {
         "type": "application/ld+json"
       },
-      "innerHTML": "{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"@id\":\"https://docs.safrochain.com/#website\",\"url\":\"https://docs.safrochain.com\",\"name\":\"Safrochain Docs\",\"description\":\"Build, validate, and operate Safrochain — a Cosmos SDK Layer-1 for fast, affordable mobile-first payments and IBC-connected African economies.\",\"inLanguage\":\"en\",\"publisher\":{\"@id\":\"https://safrochain.com/#organization\"},\"potentialAction\":{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https://docs.safrochain.com/search?q={search_term_string}\"},\"query-input\":\"required name=search_term_string\"}}",
+      "innerHTML": "{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"@id\":\"https://draft-docs.safrochain.com/#website\",\"url\":\"https://draft-docs.safrochain.com\",\"name\":\"Safrochain Docs\",\"description\":\"Build, validate, and operate Safrochain — a Cosmos SDK Layer-1 for fast, affordable mobile-first payments and IBC-connected African economies.\",\"inLanguage\":\"en\",\"publisher\":{\"@id\":\"https://safrochain.com/#organization\"},\"potentialAction\":{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https://draft-docs.safrochain.com/search?q={search_term_string}\"},\"query-input\":\"required name=search_term_string\"}}",
       "customElement": false
     }
   ],
@@ -273,7 +273,7 @@ export default {
       },
       {
         "name": "twitter:image",
-        "content": "https://docs.safrochain.com/img/og.png"
+        "content": "https://draft-docs.safrochain.com/img/og.png"
       },
       {
         "name": "twitter:image:alt",
@@ -297,7 +297,7 @@ export default {
       },
       {
         "property": "og:image",
-        "content": "https://docs.safrochain.com/img/og.png"
+        "content": "https://draft-docs.safrochain.com/img/og.png"
       },
       {
         "property": "og:image:alt",
@@ -317,7 +317,7 @@ export default {
       },
       {
         "property": "og:url",
-        "content": "https://docs.safrochain.com"
+        "content": "https://draft-docs.safrochain.com"
       }
     ],
     "navbar": {

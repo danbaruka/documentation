@@ -1,75 +1,60 @@
-# GitHub deploy (Vercel)
+# GitHub Pages deploy (GitHub Actions)
 
-This repo deploys the docs site to **Vercel** on every successful push to
-`main` using GitHub Actions. Follow this once to wire secrets and avoid double
-production deploys.
+Production deploys use **only GitHub Actions**: build the Docusaurus site and publish
+with `actions/upload-pages-artifact` + `actions/deploy-pages`. No Vercel or other
+host tokens are required in the repo.
 
-## One-time setup
+## One-time: enable Pages
 
-### 1. Vercel project
+1. Open the repo on GitHub → **Settings** → **Pages** (left sidebar under “Code and automation”).
 
-Create a project in [Vercel](https://vercel.com) that points at this
-repository (or an empty project you link later). Note:
+2. Under **Build and deployment** → **Source**, choose **GitHub Actions** (not “Deploy from a branch”).
 
-- **Team / Org ID** (sometimes called “Scope”): Project → **Settings** →
-  **General**
-- **Project ID**: same page, **Project ID**
+3. After the first successful run of **CI and Deploy** on `main`, the site will be available at the URL GitHub shows (see below). You can add a **Custom domain** there (e.g. `draft-docs.safrochain.com`) and follow the DNS instructions GitHub provides.
 
-### 2. Vercel token
+**No** `VERCEL_*` (or other) secrets are required for this flow.
 
-Vercel → **Account** → **Settings** → **Tokens** → create a token with a name
-like `github-actions-safrochain-docs`. Copy it once; you will not see it again.
+## Default URL vs custom domain
 
-### 3. GitHub repository secrets
-
-In GitHub: **Settings** → **Secrets and variables** → **Actions** → **New
-repository secret** for each of:
-
-| Name | Value |
+| Setup | What you get |
 | --- | --- |
-| `VERCEL_TOKEN` | The token from step 2 |
-| `VERCEL_ORG_ID` | Team / Org ID from step 1 |
-| `VERCEL_PROJECT_ID` | Project ID from step 1 |
+| **Project site** (repo `documentation`) | `https://safrochain-org.github.io/documentation/` |
+| **Custom domain** in Pages settings | Your domain (e.g. `https://draft-docs.safrochain.com/`) with `static/CNAME` already in the build |
 
-These are read by the **Deploy to Vercel (production)** job in
-[`.github/workflows/ci.yml`](.github/workflows/ci.yml).
-
-### 4. Production environment (optional)
-
-The workflow uses GitHub **Environment** `production` and URL
-`https://draft-docs.safrochain.com`. GitHub creates the environment on first run.
-
-To require approval before a deploy, use **Environments** → `production` →
-**Required reviewers** or **Deployment branches**.
+If you use the default `https://<org>.github.io/<repo>/` **without** a custom domain, set
+Docusaurus `baseUrl` in `docusaurus.config.ts` to `'/<repo>/'` (e.g. `'/documentation/'`).
+With a custom domain at the **root** of the site, keep `baseUrl: '/'` and align `url`
+with the live hostname (already `https://draft-docs.safrochain.com` in this project).
 
 ## How deploy runs
 
 | Event | What happens |
 | --- | --- |
-| Pull request | Typecheck, lint, and build. **No** production deploy. |
-| Push to `main` | Build + upload `build/` artifact, then Vercel production deploy. |
-| **Run workflow** on `main` | Same as push: full build, then deploy (manual re-release). |
+| Pull request | `npm ci` → typecheck → lint → build. **No** deploy. |
+| Push to `main` | Same build, then **Upload Pages artifact**, then **Deploy to GitHub Pages**. |
+| **Run workflow** on `main` | Same as push (manual re-deploy). |
 
-Open **Actions** in GitHub; the workflow name is **CI and Deploy**. A failed
-**Deploy to Vercel** step is almost always a bad or missing secret.
+Workflow file: [`.github/workflows/ci.yml`](.github/workflows/ci.yml). The environment
+`github-pages` and live URL are created by GitHub when Pages uses Actions.
 
-## Avoid two production deploys
-
-If the repo is also connected in the Vercel UI with **automatic production
-deploys** for `main`, every push can trigger **two** production deploys. Choose
-one:
-
-- **GitHub Actions only:** In Vercel, disable automatic production deploy for
-  this project’s production branch, **or**
-- **Vercel only:** Remove the `deploy` job from `ci.yml` and rely on Vercel’s
-  Git integration.
-
-## Local deploy (same as CI)
-
-With the same three variables in your environment:
+## Local check (no cloud deploy)
 
 ```bash
 npm run deploy
 ```
 
-See also [`.env.example`](.env.example) and [`README.md`](./README.md).
+This runs the same quality steps as CI and stops after `build/`. Pushing to `main`
+is what updates the live site.
+
+## DNS (custom domain)
+
+In **Settings** → **Pages** → **Custom domain**, add `draft-docs.safrochain.com` (or
+your host). GitHub will show a **CNAME** target (usually
+`<user>.github.io` or a verification CNAME). Add that record at your DNS provider; see
+[GitHub: managing a custom domain](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site).
+
+## Troubleshooting
+
+- **“Workflow is not run”** — Source must be **GitHub Actions**, not “branch”.
+- **404** — Check `baseUrl` vs real URL; wait for the green check on the **Deploy to GitHub Pages** job.
+- **Old Vercel errors in history** — Removed; new runs use Pages only.

@@ -25,7 +25,7 @@ published at <https://draft-docs.safrochain.com>.
 - [Project layout](#project-layout)
 - [Writing docs](#writing-docs)
 - [Available scripts](#available-scripts)
-- [Deployment](#deployment) ([`DEPLOY.md`](./DEPLOY.md) for GitHub + Vercel setup)
+- [Deployment](#deployment) ([`DEPLOY.md`](./DEPLOY.md) for GitHub Pages)
 - [Contributing](#contributing)
 - [Community & support](#community--support)
 - [License](#license)
@@ -162,76 +162,30 @@ a markdown file refreshes the browser.
 | `npm run clear` | Clear Docusaurus cache (`.docusaurus/`) |
 | `npm run typecheck` | Run `tsc --noEmit` over the TypeScript sources |
 | `npm run lint` | Run ESLint over `src/` and config |
-| `npm run deploy` | Local production deploy: typecheck, lint, build, `vercel deploy` (see below) |
-| `npm run deploy:vercel` | Deploy existing `build/` to Vercel only (assumes you already built) |
+| `npm run deploy` | Local: same checks as CI (typecheck, lint, build). Live site updates by **pushing to `main`** (GitHub Pages). |
 
 ## Deployment
 
-First-time GitHub and Vercel setup is step-by-step in
-[`DEPLOY.md`](./DEPLOY.md). Below is a short reference.
+First-time **GitHub Pages** + Actions setup: [`DEPLOY.md`](./DEPLOY.md).
+You must set **Settings → Pages → Source: GitHub Actions** once.
 
-### Auto deploy (GitHub Actions)
+### Auto deploy (GitHub Actions → GitHub Pages)
 
-On every **push to `main`**, the **CI and Deploy** workflow
-(`.github/workflows/ci.yml`):
+On every **push to `main`**, **CI and Deploy** (`.github/workflows/ci.yml`):
 
-1. Installs with `npm ci`, runs `typecheck`, `lint`, and `npm run build`.
-2. Uploads the `build/` folder as an artifact.
-3. The **Deploy to Vercel** job downloads that artifact and runs
-   `vercel deploy build --prod` with your project token.
+1. `npm ci` → `typecheck` → `lint` → `npm run build`
+2. **Upload Pages artifact** from the `build/` folder
+3. **Deploy to GitHub Pages** (no Vercel; no extra repository secrets)
 
-**Required repository secrets** (Settings → Secrets and variables → Actions):
+**Manual re-deploy:** Actions → **CI and Deploy** → **Run workflow** on `main`.
 
-| Secret | Where to get it |
-| --- | --- |
-| `VERCEL_TOKEN` | Vercel: Account Settings → Tokens (create a token for CI) |
-| `VERCEL_ORG_ID` | Project → Settings → General, **Team / Org ID** |
-| `VERCEL_PROJECT_ID` | Project → Settings → General, **Project ID** |
-
-Create a GitHub **Environment** named `production` (optional) if you
-want required reviewers or branch rules before the deploy job runs. The
-workflow already targets `environment: production` with
-`https://draft-docs.safrochain.com` as the deployment URL.
-
-**Manual re-deploy:** Actions → **CI and Deploy** → **Run workflow**, branch
-`main`. That runs the same build + deploy path without a git push.
-
-If the same repository is also connected in the Vercel dashboard with
-**production deploys on `main`**, you can get two production deploys per
-push. Pick one path: either turn off Vercel’s automatic production
-deploy for `main`, or remove the **Deploy to Vercel** job from the
-workflow and rely on Vercel Git only.
-
-### Vercel Git (optional, previews)
-
-You can also connect the repo in the Vercel dashboard so every pull
-request gets a **preview URL**. The CI job above still runs on each PR
-for typecheck, lint, and build; it does not deploy production until `main`
-is updated.
-
-### Manual deployment from your laptop
+### Local (no upload)
 
 ```bash
-# One-shot (reads VERCEL_TOKEN, VERCEL_ORG_ID, VERCEL_PROJECT_ID)
-export VERCEL_TOKEN=...
-export VERCEL_ORG_ID=...
-export VERCEL_PROJECT_ID=...
 npm run deploy
 ```
 
-Or, if you already have a good `build/`:
-
-```bash
-export VERCEL_TOKEN=...
-export VERCEL_ORG_ID=...
-export VERCEL_PROJECT_ID=...
-npm run build
-npm run deploy:vercel
-```
-
-`vercel.json` in the repo root sets install, build, and `outputDirectory`
-so the Vercel **dashboard** builds stay aligned with this repo. See
-`.env.example` for the variable names.
+This only verifies the project builds like CI. Pushing to `main` updates the public site.
 
 ## Contributing
 

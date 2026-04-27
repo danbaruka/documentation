@@ -6,13 +6,15 @@ on:
     branches: [main]
   workflow_dispatch:
 
-# PRs: cancel superseded runs. main: never cancel (avoid cutting a deploy mid-flight).
+# PRs: cancel superseded runs. main: never cancel a running Pages deploy.
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
 
 permissions:
   contents: read
+  pages: write
+  id-token: write
 
 jobs:
   quality:
@@ -40,45 +42,25 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Upload build for production deploy
+      - name: Upload Pages artifact
         if: |
           github.ref == 'refs/heads/main' &&
           (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-pages-artifact@v4
         with:
-          name: docusaurus-build
-          path: build/
-          retention-days: 2
-          if-no-files-found: error
+          path: build
 
   deploy:
-    name: Deploy to Vercel (production)
+    name: Deploy to GitHub Pages
     needs: quality
     if: |
       github.ref == 'refs/heads/main' &&
       (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
     runs-on: ubuntu-latest
     environment:
-      name: production
-      url: https://draft-docs.safrochain.com
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version-file: .nvmrc
-
-      - name: Download production build
-        uses: actions/download-artifact@v4
-        with:
-          name: docusaurus-build
-          path: build
-
-      - name: Deploy to Vercel
-        env:
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-        run: npx vercel@40.1.0 deploy build --prod --yes --token "$VERCEL_TOKEN"
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

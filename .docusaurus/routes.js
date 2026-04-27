@@ -14,15 +14,15 @@ export default [
   },
   {
     path: '/',
-    component: ComponentCreator('/', '8e6'),
+    component: ComponentCreator('/', 'e5b'),
     routes: [
       {
         path: '/',
-        component: ComponentCreator('/', '963'),
+        component: ComponentCreator('/', 'd77'),
         routes: [
           {
             path: '/',
-            component: ComponentCreator('/', 'cf7'),
+            component: ComponentCreator('/', '120'),
             routes: [
               {
                 path: '/cli/bank',
@@ -68,7 +68,7 @@ export default [
               },
               {
                 path: '/getting-started/quick-links',
-                component: ComponentCreator('/getting-started/quick-links', 'ee0'),
+                component: ComponentCreator('/getting-started/quick-links', '609'),
                 exact: true,
                 sidebar: "docsSidebar"
               },
@@ -248,7 +248,7 @@ export default [
               },
               {
                 path: '/validators/alerting',
-                component: ComponentCreator('/validators/alerting', '126'),
+                component: ComponentCreator('/validators/alerting', 'a98'),
                 exact: true,
                 sidebar: "docsSidebar"
               },

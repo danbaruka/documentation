@@ -25,7 +25,7 @@ const config: Config = {
   trailingSlash: false,
 
   organizationName: 'Safrochain-Org',
-  projectName: 'safrochain-docs',
+  projectName: 'documentation',
 
   onBrokenLinks: 'throw',
   markdown: {

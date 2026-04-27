@@ -10,8 +10,7 @@
     "clear": "docusaurus clear",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
-    "deploy": "bash scripts/deploy.sh",
-    "deploy:vercel": "npx vercel@40.1.0 deploy build --prod --yes"
+    "deploy": "bash scripts/deploy.sh"
   },
   "dependencies": {
     "@docusaurus/core": "^3.8.1",
@@ -39,8 +38,7 @@
     "eslint-plugin-react-hooks": "^7.1.1",
     "globals": "^17.5.0",
     "typescript": "^5.8.3",
-    "typescript-eslint": "^8.59.1",
-    "vercel": "^40.1.0"
+    "typescript-eslint": "^8.59.1"
   },
   "engines": {
     "node": ">=18.0"
