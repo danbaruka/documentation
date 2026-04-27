@@ -1,6 +1,7 @@
 # Safrochain Documentation
 
 [![Build status](https://img.shields.io/badge/build-passing-brightgreen)](#)
+[![CI and Deploy](https://github.com/Safrochain-Org/docs/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/Safrochain-Org/docs/actions/workflows/ci.yml?query=branch%3Amain)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue)](./LICENSE)
 [![Made with Docusaurus](https://img.shields.io/badge/built%20with-Docusaurus-3578E5)](https://docusaurus.io)
 [![Node](https://img.shields.io/badge/node-%E2%89%A520-43853d)](#)
@@ -24,7 +25,7 @@ published at <https://docs.safrochain.com>.
 - [Project layout](#project-layout)
 - [Writing docs](#writing-docs)
 - [Available scripts](#available-scripts)
-- [Deployment](#deployment)
+- [Deployment](#deployment) ([`DEPLOY.md`](./DEPLOY.md) for GitHub + Vercel setup)
 - [Contributing](#contributing)
 - [Community & support](#community--support)
 - [License](#license)
@@ -166,9 +167,13 @@ a markdown file refreshes the browser.
 
 ## Deployment
 
-### Auto deploy (CI)
+First-time GitHub and Vercel setup is step-by-step in
+[`DEPLOY.md`](./DEPLOY.md). Below is a short reference.
 
-On every **push to `main`**, the GitHub Action **CI** (`.github/workflows/ci.yml`):
+### Auto deploy (GitHub Actions)
+
+On every **push to `main`**, the **CI and Deploy** workflow
+(`.github/workflows/ci.yml`):
 
 1. Installs with `npm ci`, runs `typecheck`, `lint`, and `npm run build`.
 2. Uploads the `build/` folder as an artifact.
@@ -188,8 +193,8 @@ want required reviewers or branch rules before the deploy job runs. The
 workflow already targets `environment: production` with
 `https://docs.safrochain.com` as the deployment URL.
 
-**Manual re-deploy:** Actions → **CI** → **Run workflow**, branch `main`.
-That runs the same build + deploy path without a git push.
+**Manual re-deploy:** Actions → **CI and Deploy** → **Run workflow**, branch
+`main`. That runs the same build + deploy path without a git push.
 
 If the same repository is also connected in the Vercel dashboard with
 **production deploys on `main`**, you can get two production deploys per
