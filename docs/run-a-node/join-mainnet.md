@@ -1,0 +1,174 @@
+---
+title: Join mainnet
+description: Sync a Safrochain node against safro-mainnet-1 (Q3 2026).
+sidebar_position: 6
+---
+
+:::info Mainnet target: Q3 2026
+Mainnet is **not** producing blocks yet. The flow below is the procedure
+the foundation will publish on launch day. Endpoints, seed node IDs, and
+genesis SHA-256 are placeholders until the chain is live.
+:::
+
+## Endpoints
+
+See [Networks → Mainnet endpoints](../networks/mainnet-endpoints). Quick
+reference:
+
+| Service | Endpoint |
+| --- | --- |
+| RPC | `https://rpc.safrochain.network` (round-robin between rpc1/rpc2) |
+| REST | `https://api.safrochain.network` |
+| gRPC | `https://grpc.safrochain.network` |
+| gRPC-Web | `https://grpc-web.safrochain.network` |
+| Seeds | `seed.safrochain.network:26666`, `seed2.safrochain.network:26670` |
+| Status | `https://status.safrochain.network` |
+
+## Steps
+
+### 1. Install `safrochaind`
+
+```bash
+git clone https://github.com/Safrochain-Org/safrochain-node
+cd safrochain-node
+git checkout v1.0.0       # exact tag will be published on launch day
+make install
+safrochaind version
+```
+
+### 2. Initialise the home
+
+```bash
+safrochaind init my-moniker --chain-id safro-mainnet-1 --home ~/.safrochain
+```
+
+### 3. Replace genesis
+
+```bash
+curl -L https://raw.githubusercontent.com/Safrochain-Org/safrochain-node/main/networks/safro-mainnet-1/genesis.json \
+  -o ~/.safrochain/config/genesis.json
+
+sha256sum ~/.safrochain/config/genesis.json
+# expected: <HASH-PUBLISHED-ON-LAUNCH-DAY>
+```
+
+### 4. Configure peers
+
+Edit `~/.safrochain/config/config.toml`:
+
+```toml
+[p2p]
+seeds = "<NODEID1>@seed.safrochain.network:26666,<NODEID2>@seed2.safrochain.network:26670"
+persistent_peers = ""
+addr_book_strict = true
+pex = true
+```
+
+The seed node IDs are published in
+[Chain registry](../networks/chain-registry) and on the foundation's GitHub
+release.
+
+### 5. App-level settings (`app.toml`)
+
+```toml
+# config/app.toml
+
+minimum-gas-prices = "0.025usaf"
+
+[api]
+enable = true
+swagger = false
+address = "tcp://0.0.0.0:1317"
+
+[grpc]
+enable = true
+address = "0.0.0.0:9090"
+
+[grpc-web]
+enable = true
+address = "0.0.0.0:9091"
+
+[telemetry]
+enabled = true
+prometheus-retention-time = 60
+
+# pruning
+pruning             = "default"
+pruning-keep-recent = "100"
+pruning-interval    = "10"
+```
+
+For an archive (RPC-2-style) node:
+
+```toml
+pruning = "nothing"
+```
+
+### 6. Set CLI defaults
+
+```bash
+safrochaind config chain-id  safro-mainnet-1
+safrochaind config node      https://rpc.safrochain.network:443
+safrochaind config keyring-backend file
+safrochaind config broadcast-mode sync
+safrochaind config output  json
+```
+
+### 7. (Recommended) Statesync from rpc1/rpc2
+
+Mainnet history won't be huge for the first few months, but statesync
+saves time even at low height. See [Statesync](./statesync).
+
+### 8. Start under systemd
+
+```ini
+# /etc/systemd/system/safrochaind.service
+[Unit]
+Description=Safrochain mainnet node
+After=network-online.target
+
+[Service]
+Type=simple
+User=safrochain
+ExecStart=/home/safrochain/go/bin/safrochaind start --home /var/lib/safrochain
+Restart=on-failure
+RestartSec=5s
+LimitNOFILE=1048576
+TimeoutStopSec=30s
+
+[Install]
+WantedBy=multi-user.target
+```
+
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable --now safrochaind
+sudo journalctl -u safrochaind -f
+```
+
+### 9. Verify
+
+```bash
+curl -s http://127.0.0.1:26657/status \
+  | jq '.result.sync_info | {latest_block_height, catching_up}'
+
+# match against a public RPC
+curl -s https://rpc.safrochain.network/status \
+  | jq '.result.sync_info.latest_block_height'
+```
+
+The two values should converge once you finish catching up.
+
+## Recommended posture
+
+- **Pruned RPC**: `default` pruning, fronted by a TLS-terminating reverse
+  proxy on `:443` if you intend to expose it publicly.
+- **Archive RPC**: `nothing` pruning, behind a private network, used as a
+  source of truth for explorers / indexers.
+- **Validator**: `default` pruning, **no public exposure**, P2P only to
+  your own sentries / private network.
+
+## After your first upgrade
+
+Use **cosmovisor** so your binary swaps automatically at the upgrade
+height. See [Upgrades](./upgrades).

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_safrochain_docs=self.webpackChunk_safrochain_docs||[]).push([["1399"],{6282(e,s,a){a.d(s,{createTreemapServices:()=>c.d});var c=a(6609);a(3345)}}]);

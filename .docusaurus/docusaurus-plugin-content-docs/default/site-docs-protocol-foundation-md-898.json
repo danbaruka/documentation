@@ -1,0 +1,26 @@
+{
+  "id": "protocol/foundation",
+  "title": "Foundation",
+  "description": "Safrochain Foundation overview.",
+  "source": "@site/docs/protocol/foundation.md",
+  "sourceDirName": "protocol",
+  "slug": "/protocol/foundation",
+  "permalink": "/protocol/foundation",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Foundation",
+    "description": "Safrochain Foundation overview."
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "Governance",
+    "permalink": "/protocol/governance"
+  },
+  "next": {
+    "title": "Whitepaper",
+    "permalink": "/resources/whitepaper"
+  }
+}

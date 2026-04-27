@@ -1,0 +1,28 @@
+{
+  "id": "run-a-node/statesync",
+  "title": "Statesync",
+  "description": "Cryptographic light-client catch-up from a recent height, no tarballs.",
+  "source": "@site/docs/run-a-node/statesync.md",
+  "sourceDirName": "run-a-node",
+  "slug": "/run-a-node/statesync",
+  "permalink": "/run-a-node/statesync",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 8,
+  "frontMatter": {
+    "title": "Statesync",
+    "description": "Cryptographic light-client catch-up from a recent height, no tarballs.",
+    "sidebar_position": 8
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "Snapshots",
+    "permalink": "/run-a-node/snapshots"
+  },
+  "next": {
+    "title": "Upgrades (cosmovisor)",
+    "permalink": "/run-a-node/upgrades"
+  }
+}

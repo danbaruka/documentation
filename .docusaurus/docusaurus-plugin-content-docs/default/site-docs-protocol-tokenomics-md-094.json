@@ -1,0 +1,26 @@
+{
+  "id": "protocol/tokenomics",
+  "title": "Tokenomics",
+  "description": "SAF token basics.",
+  "source": "@site/docs/protocol/tokenomics.md",
+  "sourceDirName": "protocol",
+  "slug": "/protocol/tokenomics",
+  "permalink": "/protocol/tokenomics",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Tokenomics",
+    "description": "SAF token basics."
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "CW Hooks",
+    "permalink": "/modules/cw-hooks"
+  },
+  "next": {
+    "title": "Governance",
+    "permalink": "/protocol/governance"
+  }
+}

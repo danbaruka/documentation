@@ -1,0 +1,28 @@
+{
+  "id": "run-a-node/hardware",
+  "title": "Hardware requirements",
+  "description": "CPU, RAM, disk, and network sizing per Safrochain node role.",
+  "source": "@site/docs/run-a-node/hardware.md",
+  "sourceDirName": "run-a-node",
+  "slug": "/run-a-node/hardware",
+  "permalink": "/run-a-node/hardware",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "title": "Hardware requirements",
+    "description": "CPU, RAM, disk, and network sizing per Safrochain node role.",
+    "sidebar_position": 3
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "Install safrochaind",
+    "permalink": "/run-a-node/install"
+  },
+  "next": {
+    "title": "Local testnet",
+    "permalink": "/run-a-node/local-testnet"
+  }
+}

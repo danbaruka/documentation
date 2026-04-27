@@ -1,0 +1,28 @@
+{
+  "id": "networks/chain-registry",
+  "title": "Chain registry",
+  "description": "Cosmos chain-registry style descriptor for Safrochain mainnet and testnet.",
+  "source": "@site/docs/networks/chain-registry.md",
+  "sourceDirName": "networks",
+  "slug": "/networks/chain-registry",
+  "permalink": "/networks/chain-registry",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 4,
+  "frontMatter": {
+    "title": "Chain registry",
+    "description": "Cosmos chain-registry style descriptor for Safrochain mainnet and testnet.",
+    "sidebar_position": 4
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "Testnet endpoints",
+    "permalink": "/networks/testnet-endpoints"
+  },
+  "next": {
+    "title": "Run a node (overview)",
+    "permalink": "/run-a-node/overview"
+  }
+}

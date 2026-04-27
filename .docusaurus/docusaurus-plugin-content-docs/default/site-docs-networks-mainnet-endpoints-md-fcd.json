@@ -1,0 +1,28 @@
+{
+  "id": "networks/mainnet-endpoints",
+  "title": "Mainnet endpoints",
+  "description": "Public RPC, REST, gRPC, gRPC-Web, P2P seeds, status, and Grafana for safro-mainnet-1.",
+  "source": "@site/docs/networks/mainnet-endpoints.md",
+  "sourceDirName": "networks",
+  "slug": "/networks/mainnet-endpoints",
+  "permalink": "/networks/mainnet-endpoints",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "title": "Mainnet endpoints",
+    "description": "Public RPC, REST, gRPC, gRPC-Web, P2P seeds, status, and Grafana for safro-mainnet-1.",
+    "sidebar_position": 1
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "Quick links",
+    "permalink": "/getting-started/quick-links"
+  },
+  "next": {
+    "title": "Testnet endpoints",
+    "permalink": "/networks/testnet-endpoints"
+  }
+}

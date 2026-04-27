@@ -1,0 +1,26 @@
+{
+  "id": "protocol/governance",
+  "title": "Governance",
+  "description": "How Safrochain governance works.",
+  "source": "@site/docs/protocol/governance.md",
+  "sourceDirName": "protocol",
+  "slug": "/protocol/governance",
+  "permalink": "/protocol/governance",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Governance",
+    "description": "How Safrochain governance works."
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "Tokenomics",
+    "permalink": "/protocol/tokenomics"
+  },
+  "next": {
+    "title": "Foundation",
+    "permalink": "/protocol/foundation"
+  }
+}

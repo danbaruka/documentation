@@ -1,0 +1,28 @@
+{
+  "id": "validators/slashing",
+  "title": "Slashing & jail",
+  "description": "Downtime, double-sign, unjailing, and the unbonding period.",
+  "source": "@site/docs/validators/slashing.md",
+  "sourceDirName": "validators",
+  "slug": "/validators/slashing",
+  "permalink": "/validators/slashing",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 6,
+  "frontMatter": {
+    "title": "Slashing & jail",
+    "description": "Downtime, double-sign, unjailing, and the unbonding period.",
+    "sidebar_position": 6
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "Become a validator",
+    "permalink": "/validators/become-a-validator"
+  },
+  "next": {
+    "title": "IBC overview",
+    "permalink": "/ibc/overview"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "id": "getting-started/quick-links",
+  "title": "Quick links",
+  "description": "Official Safrochain URLs and developer endpoints.",
+  "source": "@site/docs/getting-started/quick-links.md",
+  "sourceDirName": "getting-started",
+  "slug": "/getting-started/quick-links",
+  "permalink": "/getting-started/quick-links",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Quick links",
+    "description": "Official Safrochain URLs and developer endpoints."
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "What is Safrochain?",
+    "permalink": "/getting-started/what-is-safrochain"
+  },
+  "next": {
+    "title": "Mainnet endpoints",
+    "permalink": "/networks/mainnet-endpoints"
+  }
+}

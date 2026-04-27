@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_safrochain_docs=self.webpackChunk_safrochain_docs||[]).push([["819"],{5390(c,e,s){s.d(e,{createArchitectureServices:()=>a.S});var a=s(5530);s(3345)}}]);

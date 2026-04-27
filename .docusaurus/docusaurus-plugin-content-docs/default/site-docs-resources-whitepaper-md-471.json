@@ -1,0 +1,26 @@
+{
+  "id": "resources/whitepaper",
+  "title": "Whitepaper",
+  "description": "Read the Safrochain whitepaper.",
+  "source": "@site/docs/resources/whitepaper.md",
+  "sourceDirName": "resources",
+  "slug": "/resources/whitepaper",
+  "permalink": "/resources/whitepaper",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Whitepaper",
+    "description": "Read the Safrochain whitepaper."
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "Foundation",
+    "permalink": "/protocol/foundation"
+  },
+  "next": {
+    "title": "Brand assets",
+    "permalink": "/resources/brand-assets"
+  }
+}

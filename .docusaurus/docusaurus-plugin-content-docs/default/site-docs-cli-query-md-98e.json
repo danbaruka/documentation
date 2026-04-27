@@ -1,0 +1,28 @@
+{
+  "id": "cli/query",
+  "title": "Query",
+  "description": "Every read-only namespace exposed by safrochaind query.",
+  "source": "@site/docs/cli/query.md",
+  "sourceDirName": "cli",
+  "slug": "/cli/query",
+  "permalink": "/cli/query",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 6,
+  "frontMatter": {
+    "title": "Query",
+    "description": "Every read-only namespace exposed by safrochaind query.",
+    "sidebar_position": 6
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "Governance",
+    "permalink": "/cli/governance"
+  },
+  "next": {
+    "title": "Tx",
+    "permalink": "/cli/tx"
+  }
+}

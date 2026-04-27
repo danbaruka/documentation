@@ -1,0 +1,28 @@
+{
+  "id": "cli/governance",
+  "title": "Governance",
+  "description": "Submit proposals, vote, deposit, and query Safrochain on-chain governance.",
+  "source": "@site/docs/cli/governance.md",
+  "sourceDirName": "cli",
+  "slug": "/cli/governance",
+  "permalink": "/cli/governance",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 5,
+  "frontMatter": {
+    "title": "Governance",
+    "description": "Submit proposals, vote, deposit, and query Safrochain on-chain governance.",
+    "sidebar_position": 5
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "Staking",
+    "permalink": "/cli/staking"
+  },
+  "next": {
+    "title": "Query",
+    "permalink": "/cli/query"
+  }
+}

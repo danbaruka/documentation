@@ -1,0 +1,28 @@
+{
+  "id": "cli/staking",
+  "title": "Staking",
+  "description": "Delegate, redelegate, unbond, and run validator operations with safrochaind.",
+  "source": "@site/docs/cli/staking.md",
+  "sourceDirName": "cli",
+  "slug": "/cli/staking",
+  "permalink": "/cli/staking",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 4,
+  "frontMatter": {
+    "title": "Staking",
+    "description": "Delegate, redelegate, unbond, and run validator operations with safrochaind.",
+    "sidebar_position": 4
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "Bank",
+    "permalink": "/cli/bank"
+  },
+  "next": {
+    "title": "Governance",
+    "permalink": "/cli/governance"
+  }
+}

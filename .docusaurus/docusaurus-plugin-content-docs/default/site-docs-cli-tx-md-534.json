@@ -1,0 +1,28 @@
+{
+  "id": "cli/tx",
+  "title": "Tx",
+  "description": "Every signing namespace exposed by safrochaind tx, plus broadcast workflows.",
+  "source": "@site/docs/cli/tx.md",
+  "sourceDirName": "cli",
+  "slug": "/cli/tx",
+  "permalink": "/cli/tx",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 7,
+  "frontMatter": {
+    "title": "Tx",
+    "description": "Every signing namespace exposed by safrochaind tx, plus broadcast workflows.",
+    "sidebar_position": 7
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "Query",
+    "permalink": "/cli/query"
+  },
+  "next": {
+    "title": "Modules overview",
+    "permalink": "/modules/overview"
+  }
+}

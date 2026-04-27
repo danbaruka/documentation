@@ -1,0 +1,26 @@
+{
+  "id": "modules/cw-hooks",
+  "title": "CW Hooks",
+  "description": "CosmWasm hook integration module.",
+  "source": "@site/docs/modules/cw-hooks.md",
+  "sourceDirName": "modules",
+  "slug": "/modules/cw-hooks",
+  "permalink": "/modules/cw-hooks",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "CW Hooks",
+    "description": "CosmWasm hook integration module."
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "Clock",
+    "permalink": "/modules/clock"
+  },
+  "next": {
+    "title": "Tokenomics",
+    "permalink": "/protocol/tokenomics"
+  }
+}

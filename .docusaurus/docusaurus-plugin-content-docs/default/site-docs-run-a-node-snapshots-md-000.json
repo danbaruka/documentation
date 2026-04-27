@@ -1,0 +1,28 @@
+{
+  "id": "run-a-node/snapshots",
+  "title": "Snapshots",
+  "description": "Catch up to chain tip from a tarball snapshot, pruned and archive variants.",
+  "source": "@site/docs/run-a-node/snapshots.md",
+  "sourceDirName": "run-a-node",
+  "slug": "/run-a-node/snapshots",
+  "permalink": "/run-a-node/snapshots",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 7,
+  "frontMatter": {
+    "title": "Snapshots",
+    "description": "Catch up to chain tip from a tarball snapshot, pruned and archive variants.",
+    "sidebar_position": 7
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "Join mainnet",
+    "permalink": "/run-a-node/join-mainnet"
+  },
+  "next": {
+    "title": "Statesync",
+    "permalink": "/run-a-node/statesync"
+  }
+}

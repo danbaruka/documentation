@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_safrochain_docs=self.webpackChunk_safrochain_docs||[]).push([["7207"],{1226(s,c,e){e.d(c,{createInfoServices:()=>a.v});var a=e(3954);e(3345)}}]);

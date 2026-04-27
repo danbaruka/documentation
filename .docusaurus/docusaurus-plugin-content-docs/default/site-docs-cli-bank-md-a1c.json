@@ -1,0 +1,28 @@
+{
+  "id": "cli/bank",
+  "title": "Bank",
+  "description": "Send SAF, query balances, supply, and denoms with safrochaind.",
+  "source": "@site/docs/cli/bank.md",
+  "sourceDirName": "cli",
+  "slug": "/cli/bank",
+  "permalink": "/cli/bank",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "title": "Bank",
+    "description": "Send SAF, query balances, supply, and denoms with safrochaind.",
+    "sidebar_position": 3
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "Keys",
+    "permalink": "/cli/keys"
+  },
+  "next": {
+    "title": "Staking",
+    "permalink": "/cli/staking"
+  }
+}

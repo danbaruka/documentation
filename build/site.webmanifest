@@ -1,0 +1,13 @@
+{
+  "name": "Safrochain",
+  "short_name": "Safrochain",
+  "description": "Built for the Real World. High-performance Layer 1 blockchain.",
+  "icons": [
+    { "src": "/favicon/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "/favicon/web-app-manifest-192x192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "/favicon/web-app-manifest-512x512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "theme_color": "#1D4ED8",
+  "background_color": "#050B18",
+  "display": "standalone"
+}

@@ -1,0 +1,26 @@
+{
+  "id": "modules/feeshare",
+  "title": "FeeShare",
+  "description": "Fee sharing mechanics.",
+  "source": "@site/docs/modules/feeshare.md",
+  "sourceDirName": "modules",
+  "slug": "/modules/feeshare",
+  "permalink": "/modules/feeshare",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "FeeShare",
+    "description": "Fee sharing mechanics."
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "FeePay",
+    "permalink": "/modules/feepay"
+  },
+  "next": {
+    "title": "Drip",
+    "permalink": "/modules/drip"
+  }
+}

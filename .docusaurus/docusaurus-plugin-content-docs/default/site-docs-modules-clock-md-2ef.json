@@ -1,0 +1,26 @@
+{
+  "id": "modules/clock",
+  "title": "Clock",
+  "description": "Time-based logic module.",
+  "source": "@site/docs/modules/clock.md",
+  "sourceDirName": "modules",
+  "slug": "/modules/clock",
+  "permalink": "/modules/clock",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Clock",
+    "description": "Time-based logic module."
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "Drip",
+    "permalink": "/modules/drip"
+  },
+  "next": {
+    "title": "CW Hooks",
+    "permalink": "/modules/cw-hooks"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "id": "getting-started/what-is-safrochain",
+  "title": "What is Safrochain?",
+  "description": "Vision, positioning, and the problem Safrochain solves.",
+  "source": "@site/docs/getting-started/what-is-safrochain.md",
+  "sourceDirName": "getting-started",
+  "slug": "/getting-started/what-is-safrochain",
+  "permalink": "/getting-started/what-is-safrochain",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "What is Safrochain?",
+    "description": "Vision, positioning, and the problem Safrochain solves."
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "Introduction",
+    "permalink": "/intro"
+  },
+  "next": {
+    "title": "Quick links",
+    "permalink": "/getting-started/quick-links"
+  }
+}

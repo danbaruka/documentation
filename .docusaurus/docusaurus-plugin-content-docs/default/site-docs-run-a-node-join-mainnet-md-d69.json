@@ -1,0 +1,28 @@
+{
+  "id": "run-a-node/join-mainnet",
+  "title": "Join mainnet",
+  "description": "Sync a Safrochain node against safro-mainnet-1 (Q3 2026).",
+  "source": "@site/docs/run-a-node/join-mainnet.md",
+  "sourceDirName": "run-a-node",
+  "slug": "/run-a-node/join-mainnet",
+  "permalink": "/run-a-node/join-mainnet",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 6,
+  "frontMatter": {
+    "title": "Join mainnet",
+    "description": "Sync a Safrochain node against safro-mainnet-1 (Q3 2026).",
+    "sidebar_position": 6
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "Join testnet",
+    "permalink": "/run-a-node/join-testnet"
+  },
+  "next": {
+    "title": "Snapshots",
+    "permalink": "/run-a-node/snapshots"
+  }
+}

@@ -1,0 +1,223 @@
+{
+  "docusaurus-plugin-content-docs": {
+    "default": {
+      "path": "/",
+      "versions": [
+        {
+          "name": "current",
+          "label": "Next",
+          "isLast": true,
+          "path": "/",
+          "mainDocId": "intro",
+          "docs": [
+            {
+              "id": "cli/bank",
+              "path": "/cli/bank",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "cli/governance",
+              "path": "/cli/governance",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "cli/keys",
+              "path": "/cli/keys",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "cli/overview",
+              "path": "/cli/overview",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "cli/query",
+              "path": "/cli/query",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "cli/staking",
+              "path": "/cli/staking",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "cli/tx",
+              "path": "/cli/tx",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "getting-started/quick-links",
+              "path": "/getting-started/quick-links",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "getting-started/what-is-safrochain",
+              "path": "/getting-started/what-is-safrochain",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "ibc/channels",
+              "path": "/ibc/channels",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "ibc/hermes-setup",
+              "path": "/ibc/hermes-setup",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "ibc/overview",
+              "path": "/ibc/overview",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "intro",
+              "path": "/intro",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "modules/clock",
+              "path": "/modules/clock",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "modules/cw-hooks",
+              "path": "/modules/cw-hooks",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "modules/drip",
+              "path": "/modules/drip",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "modules/feepay",
+              "path": "/modules/feepay",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "modules/feeshare",
+              "path": "/modules/feeshare",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "modules/overview",
+              "path": "/modules/overview",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "networks/chain-registry",
+              "path": "/networks/chain-registry",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "networks/mainnet-endpoints",
+              "path": "/networks/mainnet-endpoints",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "networks/testnet-endpoints",
+              "path": "/networks/testnet-endpoints",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "protocol/foundation",
+              "path": "/protocol/foundation",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "protocol/governance",
+              "path": "/protocol/governance",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "protocol/tokenomics",
+              "path": "/protocol/tokenomics",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "resources/brand-assets",
+              "path": "/resources/brand-assets",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "resources/faq",
+              "path": "/resources/faq",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "resources/whitepaper",
+              "path": "/resources/whitepaper",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "run-a-node/hardware",
+              "path": "/run-a-node/hardware",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "run-a-node/install",
+              "path": "/run-a-node/install",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "run-a-node/join-mainnet",
+              "path": "/run-a-node/join-mainnet",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "run-a-node/join-testnet",
+              "path": "/run-a-node/join-testnet",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "run-a-node/local-testnet",
+              "path": "/run-a-node/local-testnet",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "run-a-node/overview",
+              "path": "/run-a-node/overview",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "run-a-node/snapshots",
+              "path": "/run-a-node/snapshots",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "run-a-node/statesync",
+              "path": "/run-a-node/statesync",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "run-a-node/upgrades",
+              "path": "/run-a-node/upgrades",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "validators/become-a-validator",
+              "path": "/validators/become-a-validator",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "validators/slashing",
+              "path": "/validators/slashing",
+              "sidebar": "docsSidebar"
+            }
+          ],
+          "draftIds": [],
+          "sidebars": {
+            "docsSidebar": {
+              "link": {
+                "path": "/intro",
+                "label": "intro"
+              }
+            }
+          }
+        }
+      ],
+      "breadcrumbs": true
+    }
+  }
+}

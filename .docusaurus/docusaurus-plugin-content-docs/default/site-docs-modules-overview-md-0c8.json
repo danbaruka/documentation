@@ -1,0 +1,26 @@
+{
+  "id": "modules/overview",
+  "title": "Modules overview",
+  "description": "Safrochain modules and how to navigate their specs.",
+  "source": "@site/docs/modules/overview.md",
+  "sourceDirName": "modules",
+  "slug": "/modules/overview",
+  "permalink": "/modules/overview",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Modules overview",
+    "description": "Safrochain modules and how to navigate their specs."
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "Tx",
+    "permalink": "/cli/tx"
+  },
+  "next": {
+    "title": "FeePay",
+    "permalink": "/modules/feepay"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "resources/faq",
+  "title": "FAQ",
+  "description": "Frequently asked questions about Safrochain.",
+  "source": "@site/docs/resources/faq.md",
+  "sourceDirName": "resources",
+  "slug": "/resources/faq",
+  "permalink": "/resources/faq",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "FAQ",
+    "description": "Frequently asked questions about Safrochain."
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "Brand assets",
+    "permalink": "/resources/brand-assets"
+  }
+}

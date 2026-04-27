@@ -1,0 +1,28 @@
+{
+  "id": "ibc/overview",
+  "title": "IBC overview",
+  "description": "How Safrochain participates in the Cosmos IBC ecosystem.",
+  "source": "@site/docs/ibc/overview.md",
+  "sourceDirName": "ibc",
+  "slug": "/ibc/overview",
+  "permalink": "/ibc/overview",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "title": "IBC overview",
+    "description": "How Safrochain participates in the Cosmos IBC ecosystem.",
+    "sidebar_position": 1
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "Slashing & jail",
+    "permalink": "/validators/slashing"
+  },
+  "next": {
+    "title": "Hermes relayer setup",
+    "permalink": "/ibc/hermes-setup"
+  }
+}

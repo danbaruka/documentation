@@ -1,0 +1,26 @@
+{
+  "id": "resources/brand-assets",
+  "title": "Brand assets",
+  "description": "Official logos and palette.",
+  "source": "@site/docs/resources/brand-assets.md",
+  "sourceDirName": "resources",
+  "slug": "/resources/brand-assets",
+  "permalink": "/resources/brand-assets",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Brand assets",
+    "description": "Official logos and palette."
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "Whitepaper",
+    "permalink": "/resources/whitepaper"
+  },
+  "next": {
+    "title": "FAQ",
+    "permalink": "/resources/faq"
+  }
+}

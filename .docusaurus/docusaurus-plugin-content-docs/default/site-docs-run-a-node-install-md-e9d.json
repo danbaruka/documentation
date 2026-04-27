@@ -1,0 +1,28 @@
+{
+  "id": "run-a-node/install",
+  "title": "Install safrochaind",
+  "description": "Build safrochaind from source on Linux or macOS, and verify the binary.",
+  "source": "@site/docs/run-a-node/install.md",
+  "sourceDirName": "run-a-node",
+  "slug": "/run-a-node/install",
+  "permalink": "/run-a-node/install",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "title": "Install safrochaind",
+    "description": "Build safrochaind from source on Linux or macOS, and verify the binary.",
+    "sidebar_position": 2
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "Run a node (overview)",
+    "permalink": "/run-a-node/overview"
+  },
+  "next": {
+    "title": "Hardware requirements",
+    "permalink": "/run-a-node/hardware"
+  }
+}

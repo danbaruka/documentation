@@ -1,0 +1,26 @@
+{
+  "id": "modules/drip",
+  "title": "Drip",
+  "description": "Drip distribution module.",
+  "source": "@site/docs/modules/drip.md",
+  "sourceDirName": "modules",
+  "slug": "/modules/drip",
+  "permalink": "/modules/drip",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "Drip",
+    "description": "Drip distribution module."
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "FeeShare",
+    "permalink": "/modules/feeshare"
+  },
+  "next": {
+    "title": "Clock",
+    "permalink": "/modules/clock"
+  }
+}

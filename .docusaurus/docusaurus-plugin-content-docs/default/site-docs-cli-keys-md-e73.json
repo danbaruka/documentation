@@ -1,0 +1,28 @@
+{
+  "id": "cli/keys",
+  "title": "Keys",
+  "description": "safrochaind keys, add, list, show, export, import, delete.",
+  "source": "@site/docs/cli/keys.md",
+  "sourceDirName": "cli",
+  "slug": "/cli/keys",
+  "permalink": "/cli/keys",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "title": "Keys",
+    "description": "safrochaind keys, add, list, show, export, import, delete.",
+    "sidebar_position": 2
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "CLI overview",
+    "permalink": "/cli/overview"
+  },
+  "next": {
+    "title": "Bank",
+    "permalink": "/cli/bank"
+  }
+}

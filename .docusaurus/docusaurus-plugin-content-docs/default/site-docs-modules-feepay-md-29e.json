@@ -1,0 +1,26 @@
+{
+  "id": "modules/feepay",
+  "title": "FeePay",
+  "description": "Fee routing and payment behavior.",
+  "source": "@site/docs/modules/feepay.md",
+  "sourceDirName": "modules",
+  "slug": "/modules/feepay",
+  "permalink": "/modules/feepay",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "title": "FeePay",
+    "description": "Fee routing and payment behavior."
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "Modules overview",
+    "permalink": "/modules/overview"
+  },
+  "next": {
+    "title": "FeeShare",
+    "permalink": "/modules/feeshare"
+  }
+}

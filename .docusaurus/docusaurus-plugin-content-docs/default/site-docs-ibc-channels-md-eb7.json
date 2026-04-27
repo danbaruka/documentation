@@ -1,0 +1,28 @@
+{
+  "id": "ibc/channels",
+  "title": "Channels",
+  "description": "Canonical IBC channel registry for Safrochain mainnet, opens at launch (Q3 2026).",
+  "source": "@site/docs/ibc/channels.md",
+  "sourceDirName": "ibc",
+  "slug": "/ibc/channels",
+  "permalink": "/ibc/channels",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "title": "Channels",
+    "description": "Canonical IBC channel registry for Safrochain mainnet, opens at launch (Q3 2026).",
+    "sidebar_position": 3
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "Hermes relayer setup",
+    "permalink": "/ibc/hermes-setup"
+  },
+  "next": {
+    "title": "CLI overview",
+    "permalink": "/cli/overview"
+  }
+}

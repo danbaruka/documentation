@@ -1,0 +1,28 @@
+{
+  "id": "run-a-node/join-testnet",
+  "title": "Join testnet",
+  "description": "Sync a Safrochain node against the live safro-testnet-1 network.",
+  "source": "@site/docs/run-a-node/join-testnet.md",
+  "sourceDirName": "run-a-node",
+  "slug": "/run-a-node/join-testnet",
+  "permalink": "/run-a-node/join-testnet",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 5,
+  "frontMatter": {
+    "title": "Join testnet",
+    "description": "Sync a Safrochain node against the live safro-testnet-1 network.",
+    "sidebar_position": 5
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "Local testnet",
+    "permalink": "/run-a-node/local-testnet"
+  },
+  "next": {
+    "title": "Join mainnet",
+    "permalink": "/run-a-node/join-mainnet"
+  }
+}

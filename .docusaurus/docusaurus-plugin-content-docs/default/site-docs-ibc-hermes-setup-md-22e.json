@@ -1,0 +1,28 @@
+{
+  "id": "ibc/hermes-setup",
+  "title": "Hermes relayer setup",
+  "description": "Full Hermes config template, systemd unit, and health checks for relaying Safrochain.",
+  "source": "@site/docs/ibc/hermes-setup.md",
+  "sourceDirName": "ibc",
+  "slug": "/ibc/hermes-setup",
+  "permalink": "/ibc/hermes-setup",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "title": "Hermes relayer setup",
+    "description": "Full Hermes config template, systemd unit, and health checks for relaying Safrochain.",
+    "sidebar_position": 2
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "IBC overview",
+    "permalink": "/ibc/overview"
+  },
+  "next": {
+    "title": "Channels",
+    "permalink": "/ibc/channels"
+  }
+}

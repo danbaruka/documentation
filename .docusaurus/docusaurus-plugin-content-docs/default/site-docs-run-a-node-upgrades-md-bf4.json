@@ -1,0 +1,28 @@
+{
+  "id": "run-a-node/upgrades",
+  "title": "Upgrades (cosmovisor)",
+  "description": "Coordinated chain upgrades for Safrochain validators and full nodes.",
+  "source": "@site/docs/run-a-node/upgrades.md",
+  "sourceDirName": "run-a-node",
+  "slug": "/run-a-node/upgrades",
+  "permalink": "/run-a-node/upgrades",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 9,
+  "frontMatter": {
+    "title": "Upgrades (cosmovisor)",
+    "description": "Coordinated chain upgrades for Safrochain validators and full nodes.",
+    "sidebar_position": 9
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "Statesync",
+    "permalink": "/run-a-node/statesync"
+  },
+  "next": {
+    "title": "Become a validator",
+    "permalink": "/validators/become-a-validator"
+  }
+}
