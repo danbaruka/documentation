@@ -14,15 +14,15 @@ export default [
   },
   {
     path: '/',
-    component: ComponentCreator('/', 'dbc'),
+    component: ComponentCreator('/', '8e6'),
     routes: [
       {
         path: '/',
-        component: ComponentCreator('/', 'd5c'),
+        component: ComponentCreator('/', '963'),
         routes: [
           {
             path: '/',
-            component: ComponentCreator('/', 'cec'),
+            component: ComponentCreator('/', 'cf7'),
             routes: [
               {
                 path: '/cli/bank',
@@ -248,61 +248,61 @@ export default [
               },
               {
                 path: '/validators/alerting',
-                component: ComponentCreator('/validators/alerting', '6af'),
+                component: ComponentCreator('/validators/alerting', '126'),
                 exact: true,
                 sidebar: "docsSidebar"
               },
               {
                 path: '/validators/become-a-validator',
-                component: ComponentCreator('/validators/become-a-validator', '935'),
+                component: ComponentCreator('/validators/become-a-validator', 'a44'),
                 exact: true,
                 sidebar: "docsSidebar"
               },
               {
                 path: '/validators/disaster-recovery',
-                component: ComponentCreator('/validators/disaster-recovery', '04e'),
+                component: ComponentCreator('/validators/disaster-recovery', 'eb8'),
                 exact: true,
                 sidebar: "docsSidebar"
               },
               {
                 path: '/validators/key-management',
-                component: ComponentCreator('/validators/key-management', 'b6b'),
+                component: ComponentCreator('/validators/key-management', 'c09'),
                 exact: true,
                 sidebar: "docsSidebar"
               },
               {
                 path: '/validators/monitoring',
-                component: ComponentCreator('/validators/monitoring', '0a8'),
+                component: ComponentCreator('/validators/monitoring', 'ce2'),
                 exact: true,
                 sidebar: "docsSidebar"
               },
               {
                 path: '/validators/operations',
-                component: ComponentCreator('/validators/operations', '003'),
+                component: ComponentCreator('/validators/operations', '2d9'),
                 exact: true,
                 sidebar: "docsSidebar"
               },
               {
                 path: '/validators/overview',
-                component: ComponentCreator('/validators/overview', '32d'),
+                component: ComponentCreator('/validators/overview', 'a2d'),
                 exact: true,
                 sidebar: "docsSidebar"
               },
               {
                 path: '/validators/remote-signing',
-                component: ComponentCreator('/validators/remote-signing', 'd0c'),
+                component: ComponentCreator('/validators/remote-signing', '614'),
                 exact: true,
                 sidebar: "docsSidebar"
               },
               {
                 path: '/validators/security',
-                component: ComponentCreator('/validators/security', '114'),
+                component: ComponentCreator('/validators/security', '58b'),
                 exact: true,
                 sidebar: "docsSidebar"
               },
               {
                 path: '/validators/sentry-architecture',
-                component: ComponentCreator('/validators/sentry-architecture', 'bc9'),
+                component: ComponentCreator('/validators/sentry-architecture', '7d4'),
                 exact: true,
                 sidebar: "docsSidebar"
               },

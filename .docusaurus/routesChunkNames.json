@@ -12,17 +12,17 @@
     },
     "config": "5e9f5e1a"
   },
-  "/-dbc": {
+  "/-8e6": {
     "__comp": "5e95c892",
     "__context": {
       "plugin": "aba21aa0"
     }
   },
-  "/-d5c": {
+  "/-963": {
     "__comp": "a7bd4aaa",
     "__props": "22dd74f7"
   },
-  "/-cec": {
+  "/-cf7": {
     "__comp": "a94703ab"
   },
   "/cli/bank-2ce": {
@@ -173,43 +173,43 @@
     "__comp": "17896441",
     "content": "bf40f6eb"
   },
-  "/validators/alerting-6af": {
+  "/validators/alerting-126": {
     "__comp": "17896441",
     "content": "32bcbf83"
   },
-  "/validators/become-a-validator-935": {
+  "/validators/become-a-validator-a44": {
     "__comp": "17896441",
     "content": "05460ad7"
   },
-  "/validators/disaster-recovery-04e": {
+  "/validators/disaster-recovery-eb8": {
     "__comp": "17896441",
     "content": "d0c387a0"
   },
-  "/validators/key-management-b6b": {
+  "/validators/key-management-c09": {
     "__comp": "17896441",
     "content": "ecd26439"
   },
-  "/validators/monitoring-0a8": {
+  "/validators/monitoring-ce2": {
     "__comp": "17896441",
     "content": "5e50aa5e"
   },
-  "/validators/operations-003": {
+  "/validators/operations-2d9": {
     "__comp": "17896441",
     "content": "0b60d864"
   },
-  "/validators/overview-32d": {
+  "/validators/overview-a2d": {
     "__comp": "17896441",
     "content": "f6addb2b"
   },
-  "/validators/remote-signing-d0c": {
+  "/validators/remote-signing-614": {
     "__comp": "17896441",
     "content": "4f7a2643"
   },
-  "/validators/security-114": {
+  "/validators/security-58b": {
     "__comp": "17896441",
     "content": "bcd9d779"
   },
-  "/validators/sentry-architecture-bc9": {
+  "/validators/sentry-architecture-7d4": {
     "__comp": "17896441",
     "content": "0a1d42fd"
   },

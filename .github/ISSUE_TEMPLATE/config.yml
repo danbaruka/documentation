@@ -1,0 +1,9 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Safrochain Discord
+    url: https://discord.gg/safrochain
+    about: Real-time help for node operators, validators, and builders.
+  - name: Security reports
+    url: https://docs.safrochain.com
+    about: Do not file security issues publicly. Email security@safrochain.com instead.
+
