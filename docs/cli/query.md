@@ -39,7 +39,7 @@ safrochaind query --help
 ### Account & sequence number
 
 ```bash
-safrochaind query auth account safro1abc... -o json \
+safrochaind query auth account addr_safro1abc... -o json \
   | jq '.account.value | {address, account_number, sequence}'
 ```
 
@@ -67,9 +67,9 @@ safrochaind query tx "$TX" -o json | jq '.code, .raw_log, .gas_used, .gas_wanted
 
 ```bash
 # all sends to a given recipient in the last block window
-safrochaind query txs --query "transfer.recipient='safro1abc...'" --limit 50
+safrochaind query txs --query "transfer.recipient='addr_safro1abc...'" --limit 50
 # all delegations from a given delegator
-safrochaind query txs --query "delegate.delegator='safro1abc...'" --limit 50
+safrochaind query txs --query "delegate.delegator='addr_safro1abc...'" --limit 50
 # all proposals created
 safrochaind query txs --query "submit_proposal.proposal_id>=1"
 ```

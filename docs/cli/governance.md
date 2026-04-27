@@ -91,7 +91,7 @@ safrochaind query gov proposals --status voting_period
 safrochaind query gov proposal 12
 safrochaind query gov tally 12
 safrochaind query gov votes 12
-safrochaind query gov vote 12 safro1abc...
+safrochaind query gov vote 12 addr_safro1abc...
 safrochaind query gov deposits 12
 ```
 
@@ -113,7 +113,7 @@ For a software upgrade, `messages[0]` looks like:
 ```json
 {
   "@type": "/cosmos.upgrade.v1beta1.MsgSoftwareUpgrade",
-  "authority": "safro10d07y265gmmuvt4z0w9aw880jnsr700jr4l8tn",
+  "authority": "addr_safro10d07y265gmmuvt4z0w9aw880jnsr700jr4l8tn",
   "plan": {
     "name": "v1.1.0",
     "time": "0001-01-01T00:00:00Z",

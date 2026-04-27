@@ -10,7 +10,7 @@
   "unlisted": false,
   "tags": [],
   "version": "current",
-  "lastUpdatedAt": 1777284667000,
+  "lastUpdatedAt": 1777285288000,
   "frontMatter": {
     "title": "Safrochain modules overview",
     "description": "Safrochain modules — clock, cw-hooks, drip, feepay, feeshare, tokenfactory, and more — with friendly entry points and links to module specs.",

@@ -18,7 +18,7 @@ schema so that wallets, explorers, and relayers can auto-configure.
   "website": "https://safrochain.com",
   "pretty_name": "Safrochain",
   "chain_id": "safro-mainnet-1",
-  "bech32_prefix": "safro",
+  "bech32_prefix": "addr_safro",
   "daemon_name": "safrochaind",
   "node_home": "$HOME/.safrochain",
   "key_algos": ["secp256k1"],
@@ -31,8 +31,8 @@ schema so that wallets, explorers, and relayers can auto-configure.
   "staking": { "staking_tokens": [{ "denom": "usaf" }] },
   "codebase": {
     "git_repo": "https://github.com/Safrochain-Org/safrochain-node",
-    "recommended_version": "v1.0.0",
-    "compatible_versions": ["v1.0.0"],
+    "recommended_version": "v0.2.0",
+    "compatible_versions": ["v0.2.0"],
     "binaries": {},
     "cosmos_sdk_version": "0.50",
     "consensus": { "type": "cometbft", "version": "0.38" }
@@ -76,11 +76,18 @@ schema so that wallets, explorers, and relayers can auto-configure.
   "network_type": "testnet",
   "pretty_name": "Safrochain Testnet",
   "chain_id": "safro-testnet-1",
-  "bech32_prefix": "safro",
+  "bech32_prefix": "addr_safro",
   "daemon_name": "safrochaind",
   "slip44": 118,
   "fees": { "fee_tokens": [{ "denom": "usaf", "low_gas_price": 0.01, "average_gas_price": 0.025, "high_gas_price": 0.04 }] },
   "staking": { "staking_tokens": [{ "denom": "usaf" }] },
+  "codebase": {
+    "git_repo": "https://github.com/Safrochain-Org/safrochain-node",
+    "recommended_version": "v0.2.0",
+    "compatible_versions": ["v0.2.0"],
+    "cosmos_sdk_version": "0.50",
+    "consensus": { "type": "cometbft", "version": "0.38" }
+  },
   "apis": {
     "rpc":  [{ "address": "https://rpc.testnet.safrochain.com",  "provider": "Safrochain Foundation" }],
     "rest": [{ "address": "https://rest.testnet.safrochain.com", "provider": "Safrochain Foundation" }],

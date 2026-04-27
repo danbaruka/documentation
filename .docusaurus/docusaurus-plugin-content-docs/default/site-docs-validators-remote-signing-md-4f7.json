@@ -1,0 +1,31 @@
+{
+  "id": "validators/remote-signing",
+  "title": "Remote signing (TMKMS & Horcrux)",
+  "description": "Move the Safrochain consensus key off the validator host with TMKMS or Horcrux threshold signing.",
+  "source": "@site/docs/validators/remote-signing.md",
+  "sourceDirName": "validators",
+  "slug": "/validators/remote-signing",
+  "permalink": "/validators/remote-signing",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedAt": 1539502055000,
+  "sidebarPosition": 4,
+  "frontMatter": {
+    "title": "Remote signing (TMKMS & Horcrux)",
+    "description": "Move the Safrochain consensus key off the validator host with TMKMS or Horcrux threshold signing.",
+    "sidebar_position": 4,
+    "keywords": [
+      "remote signing",
+      "TMKMS",
+      "Horcrux",
+      "threshold signing",
+      "cosmos consensus key",
+      "YubiHSM",
+      "validator security",
+      "HSM",
+      "priv_validator_key.json"
+    ]
+  }
+}

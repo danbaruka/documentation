@@ -30,7 +30,7 @@ resolve only inside the foundation network.
 | Display denom | `SAF` |
 | Conversion | `1 SAF = 1_000_000 usaf` |
 | Total supply | `1,000,000,000 SAF` (fixed) |
-| Bech32 prefix | `safro` |
+| Bech32 prefix | `addr_safro` |
 
 ## RPC (CometBFT JSON-RPC over HTTPS)
 

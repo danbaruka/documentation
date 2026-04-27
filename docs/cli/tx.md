@@ -93,7 +93,7 @@ safrochaind tx feegrant grant alice <bob-address> \
   --from alice -y
 
 # bob now signs a tx and asks the chain to charge alice's fees
-safrochaind tx bank send bob safro1ccc... 1000usaf \
+safrochaind tx bank send bob addr_safro1ccc... 1000usaf \
   --fee-granter <alice-address> \
   --from bob --fees 5000usaf -y
 
@@ -109,7 +109,7 @@ For air-gapped signing or multisig, decompose the standard flow:
 
 ```bash
 # 1. build unsigned tx
-safrochaind tx bank send alice safro1bbb... 1000000usaf \
+safrochaind tx bank send alice addr_safro1bbb... 1000000usaf \
   --chain-id safro-mainnet-1 --node https://rpc.safrochain.network:443 \
   --gas 200000 --fees 5000usaf \
   --generate-only > unsigned.json

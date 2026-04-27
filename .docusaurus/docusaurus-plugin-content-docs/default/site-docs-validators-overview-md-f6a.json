@@ -1,0 +1,29 @@
+{
+  "id": "validators/overview",
+  "title": "Validators overview",
+  "description": "What a Safrochain validator does, the full lifecycle from setup to retirement, and where to start in this section.",
+  "source": "@site/docs/validators/overview.md",
+  "sourceDirName": "validators",
+  "slug": "/validators/overview",
+  "permalink": "/validators/overview",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "lastUpdatedAt": 1539502055000,
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "title": "Validators overview",
+    "description": "What a Safrochain validator does, the full lifecycle from setup to retirement, and where to start in this section.",
+    "sidebar_position": 1,
+    "keywords": [
+      "Safrochain validator",
+      "validator overview",
+      "validator lifecycle",
+      "CometBFT consensus",
+      "proof of stake",
+      "Cosmos validator",
+      "validator operations"
+    ]
+  }
+}

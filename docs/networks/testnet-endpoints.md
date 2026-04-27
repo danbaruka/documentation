@@ -26,7 +26,7 @@ The testnet is currently live and is the easiest way to experiment with
 | Base denom | `usaf` |
 | Display denom | `SAF` (test) |
 | Conversion | `1 SAF = 1_000_000 usaf` |
-| Bech32 prefix | `safro` |
+| Bech32 prefix | `addr_safro` |
 
 ## Public endpoints
 
@@ -70,12 +70,12 @@ If your wallet supports manual chain registration, use:
   "rest": "https://rest.testnet.safrochain.com",
   "stakeCurrency": { "coinDenom": "SAF", "coinMinimalDenom": "usaf", "coinDecimals": 6 },
   "bech32Config": {
-    "bech32PrefixAccAddr": "safro",
-    "bech32PrefixAccPub": "safropub",
-    "bech32PrefixValAddr": "safrovaloper",
-    "bech32PrefixValPub": "safrovaloperpub",
-    "bech32PrefixConsAddr": "safrovalcons",
-    "bech32PrefixConsPub": "safrovalconspub"
+    "bech32PrefixAccAddr": "addr_safro",
+    "bech32PrefixAccPub": "addr_safropub",
+    "bech32PrefixValAddr": "addr_safrovaloper",
+    "bech32PrefixValPub": "addr_safrovaloperpub",
+    "bech32PrefixConsAddr": "addr_safrovalcons",
+    "bech32PrefixConsPub": "addr_safrovalconspub"
   },
   "currencies": [{ "coinDenom": "SAF", "coinMinimalDenom": "usaf", "coinDecimals": 6 }],
   "feeCurrencies": [{ "coinDenom": "SAF", "coinMinimalDenom": "usaf", "coinDecimals": 6 }],

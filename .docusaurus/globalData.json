@@ -201,6 +201,26 @@
               "sidebar": "docsSidebar"
             },
             {
+              "id": "validators/key-management",
+              "path": "/validators/key-management"
+            },
+            {
+              "id": "validators/monitoring",
+              "path": "/validators/monitoring"
+            },
+            {
+              "id": "validators/overview",
+              "path": "/validators/overview"
+            },
+            {
+              "id": "validators/remote-signing",
+              "path": "/validators/remote-signing"
+            },
+            {
+              "id": "validators/sentry-architecture",
+              "path": "/validators/sentry-architecture"
+            },
+            {
               "id": "validators/slashing",
               "path": "/validators/slashing",
               "sidebar": "docsSidebar"

@@ -49,12 +49,12 @@ move via SCP/email to a colleague who has the passphrase out-of-band.
 
 | Bech32 prefix | Purpose | Example |
 | --- | --- | --- |
-| `safro1…` | account address (send/receive) | `safro1qxy2k...` |
-| `safropub…` | account public key | rare in CLI use |
-| `safrovaloper1…` | validator operator | passed to `tx staking …` |
-| `safrovaloperpub…` | validator operator pubkey | rare |
-| `safrovalcons1…` | validator consensus address | derived from `priv_validator_key.json` |
-| `safrovalconspub…` | validator consensus pubkey | passed to `tx staking create-validator --pubkey` |
+| `addr_safro1…` | account address (send/receive) | `addr_safro1qxy2k...` |
+| `addr_safropub…` | account public key | rare in CLI use |
+| `addr_safrovaloper1…` | validator operator | passed to `tx staking …` |
+| `addr_safrovaloperpub…` | validator operator pubkey | rare |
+| `addr_safrovalcons1…` | validator consensus address | derived from `priv_validator_key.json` |
+| `addr_safrovalconspub…` | validator consensus pubkey | passed to `tx staking create-validator --pubkey` |
 
 Translate between them:
 
@@ -63,7 +63,7 @@ Translate between them:
 safrochaind keys show validator --bech val -a
 
 # valcons from priv_validator_key.json
-safrochaind comet show-address    # safrovalcons1...
+safrochaind comet show-address    # addr_safrovalcons1...
 ```
 
 ## HD path / SLIP-44

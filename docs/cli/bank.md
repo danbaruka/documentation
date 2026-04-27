@@ -12,10 +12,10 @@ Safrochain's base denom is **`usaf`** (1 SAF = 10^6 usaf). Display denom is
 
 ```bash
 # all balances of an address
-safrochaind query bank balances safro1abc...
+safrochaind query bank balances addr_safro1abc...
 
 # balance of one denom
-safrochaind query bank balance safro1abc... usaf
+safrochaind query bank balance addr_safro1abc... usaf
 
 # total supply across all denoms (returns ICS-20 IBC denoms too)
 safrochaind query bank total
@@ -49,7 +49,7 @@ safrochaind tx bank send <from-key-or-address> <to-address> <amount><denom> \
 Example: send 1.5 SAF (= 1 500 000 usaf):
 
 ```bash
-safrochaind tx bank send alice safro1bob... 1500000usaf \
+safrochaind tx bank send alice addr_safro1bob... 1500000usaf \
   --chain-id safro-mainnet-1 -y
 ```
 
@@ -59,7 +59,7 @@ Send to multiple recipients in a single tx. Useful for treasury payouts:
 
 ```bash
 safrochaind tx bank multi-send sender \
-  safro1aaa... safro1bbb... safro1ccc... \
+  addr_safro1aaa... addr_safro1bbb... addr_safro1ccc... \
   3000000usaf \
   --chain-id safro-mainnet-1 -y
 ```
