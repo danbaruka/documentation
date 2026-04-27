@@ -1,7 +1,7 @@
 import { themes as prismThemes } from 'prism-react-renderer';
 import type { Config } from '@docusaurus/types';
 
-const SITE_URL = 'https://docs.safrochain.com';
+const SITE_URL = 'https://draft-docs.safrochain.com';
 const SITE_TITLE = 'Safrochain Docs';
 const SITE_DESCRIPTION =
   'Build, validate, and operate Safrochain — a Cosmos SDK Layer-1 ' +

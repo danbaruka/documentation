@@ -37,7 +37,7 @@ These are read by the **Deploy to Vercel (production)** job in
 ### 4. Production environment (optional)
 
 The workflow uses GitHub **Environment** `production` and URL
-`https://docs.safrochain.com`. GitHub creates the environment on first run.
+`https://draft-docs.safrochain.com`. GitHub creates the environment on first run.
 
 To require approval before a deploy, use **Environments** → `production` →
 **Required reviewers** or **Deployment branches**.

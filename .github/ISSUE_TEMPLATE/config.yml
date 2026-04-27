@@ -4,6 +4,6 @@ contact_links:
     url: https://discord.gg/safrochain
     about: Real-time help for node operators, validators, and builders.
   - name: Security reports
-    url: https://docs.safrochain.com
+    url: https://draft-docs.safrochain.com
     about: Do not file security issues publicly. Email security@safrochain.com instead.
 

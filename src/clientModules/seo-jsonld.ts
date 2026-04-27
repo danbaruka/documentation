@@ -19,7 +19,7 @@
 declare const document: Document;
 declare const window: Window & typeof globalThis;
 
-const SITE_URL = 'https://docs.safrochain.com';
+const SITE_URL = 'https://draft-docs.safrochain.com';
 const BREADCRUMB_SCRIPT_ID = 'safro-breadcrumb-jsonld';
 
 function ensureMeta(selector: string, attrs: Record<string, string>): void {

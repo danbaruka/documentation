@@ -9,7 +9,7 @@
 
 The official documentation for **Safrochain** — an Africa-first Layer-1
 blockchain built on the Cosmos SDK and CometBFT consensus. The site is
-published at <https://docs.safrochain.com>.
+published at <https://draft-docs.safrochain.com>.
 
 > Looking for the chain itself? See
 > [`Safrochain-Org/safrochain-node`](https://github.com/Safrochain-Org).
@@ -191,7 +191,7 @@ On every **push to `main`**, the **CI and Deploy** workflow
 Create a GitHub **Environment** named `production` (optional) if you
 want required reviewers or branch rules before the deploy job runs. The
 workflow already targets `environment: production` with
-`https://docs.safrochain.com` as the deployment URL.
+`https://draft-docs.safrochain.com` as the deployment URL.
 
 **Manual re-deploy:** Actions → **CI and Deploy** → **Run workflow**, branch
 `main`. That runs the same build + deploy path without a git push.

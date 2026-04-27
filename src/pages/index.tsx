@@ -438,14 +438,14 @@ export default function Home(): React.JSX.Element {
   const homeJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    '@id': 'https://docs.safrochain.com/#home',
-    url: 'https://docs.safrochain.com/',
+    '@id': 'https://draft-docs.safrochain.com/#home',
+    url: 'https://draft-docs.safrochain.com/',
     name: 'Safrochain Documentation',
     description: homepageDescription,
     inLanguage: 'en',
-    isPartOf: { '@id': 'https://docs.safrochain.com/#website' },
+    isPartOf: { '@id': 'https://draft-docs.safrochain.com/#website' },
     about: { '@id': 'https://safrochain.com/#organization' },
-    primaryImageOfPage: 'https://docs.safrochain.com/img/og.png',
+    primaryImageOfPage: 'https://draft-docs.safrochain.com/img/og.png',
   };
 
   return (
@@ -453,14 +453,14 @@ export default function Home(): React.JSX.Element {
       <Head>
         <title>Safrochain Docs — Cosmos SDK Layer-1 for mobile-first payments</title>
         <meta name="description" content={homepageDescription} />
-        <link rel="canonical" href="https://docs.safrochain.com/" />
+        <link rel="canonical" href="https://draft-docs.safrochain.com/" />
         <meta
           name="keywords"
           content="Safrochain, Safrochain docs, Cosmos SDK, Layer-1, blockchain, validator, IBC, CometBFT, SAF, mobile-first payments, remittances, African blockchain, RPC, REST, gRPC, staking, governance"
         />
         <meta property="og:title" content="Safrochain Docs — Cosmos SDK Layer-1" />
         <meta property="og:description" content={homepageDescription} />
-        <meta property="og:url" content="https://docs.safrochain.com/" />
+        <meta property="og:url" content="https://draft-docs.safrochain.com/" />
         <meta name="twitter:title" content="Safrochain Docs — Cosmos SDK Layer-1" />
         <meta name="twitter:description" content={homepageDescription} />
         <script type="application/ld+json">
