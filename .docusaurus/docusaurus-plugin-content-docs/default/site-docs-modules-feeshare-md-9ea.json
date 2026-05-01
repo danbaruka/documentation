@@ -1,7 +1,7 @@
 {
   "id": "modules/feeshare",
   "title": "FeeShare",
-  "description": "Fee sharing mechanics.",
+  "description": "Route a share of smart-contract execution fees to deployers and withdrawers: queries and registration transactions.",
   "source": "@site/docs/modules/feeshare.md",
   "sourceDirName": "modules",
   "slug": "/modules/feeshare",
@@ -13,7 +13,7 @@
   "lastUpdatedAt": 1777284667000,
   "frontMatter": {
     "title": "FeeShare",
-    "description": "Fee sharing mechanics."
+    "description": "Route a share of smart-contract execution fees to deployers and withdrawers: queries and registration transactions."
   },
   "sidebar": "docsSidebar",
   "previous": {

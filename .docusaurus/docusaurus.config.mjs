@@ -333,6 +333,42 @@ export default {
       },
       "items": [
         {
+          "type": "doc",
+          "docId": "intro",
+          "label": "Introduction",
+          "position": "left"
+        },
+        {
+          "type": "doc",
+          "docId": "networks/testnet-endpoints",
+          "label": "Networks",
+          "position": "left"
+        },
+        {
+          "type": "doc",
+          "docId": "run-a-node/overview",
+          "label": "Run a node",
+          "position": "left"
+        },
+        {
+          "type": "doc",
+          "docId": "validators/overview",
+          "label": "Validators",
+          "position": "left"
+        },
+        {
+          "type": "doc",
+          "docId": "developers/quickstart",
+          "label": "Developers",
+          "position": "left"
+        },
+        {
+          "type": "doc",
+          "docId": "modules/overview",
+          "label": "Modules",
+          "position": "left"
+        },
+        {
           "type": "search",
           "position": "right"
         },

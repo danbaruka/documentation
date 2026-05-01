@@ -15,7 +15,7 @@ The foundation publishes two kinds of snapshots:
 | Pruned (default) | `default` | running a normal full node |
 | Archive | `nothing` | running an explorer / indexer / archive RPC |
 
-Snapshot endpoint (post-launch): `https://snapshots.safrochain.network`.
+Snapshot endpoint (post-launch): [https://snapshots.safrochain.network](https://snapshots.safrochain.network).
 Each snapshot ships with:
 
 - `safrochain-<chain-id>-<height>-<kind>.tar.lz4`

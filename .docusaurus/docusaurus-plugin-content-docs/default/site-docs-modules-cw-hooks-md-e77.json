@@ -1,7 +1,7 @@
 {
   "id": "modules/cw-hooks",
   "title": "CW Hooks",
-  "description": "CosmWasm hook integration module.",
+  "description": "Register CosmWasm contracts for staking and governance sudo hooks: queries and register or unregister transactions.",
   "source": "@site/docs/modules/cw-hooks.md",
   "sourceDirName": "modules",
   "slug": "/modules/cw-hooks",
@@ -13,7 +13,7 @@
   "lastUpdatedAt": 1777284667000,
   "frontMatter": {
     "title": "CW Hooks",
-    "description": "CosmWasm hook integration module."
+    "description": "Register CosmWasm contracts for staking and governance sudo hooks: queries and register or unregister transactions."
   },
   "sidebar": "docsSidebar",
   "previous": {
@@ -21,7 +21,7 @@
     "permalink": "/modules/clock"
   },
   "next": {
-    "title": "Safrochain tokenomics — the SAF token",
-    "permalink": "/protocol/tokenomics"
+    "title": "Auth",
+    "permalink": "/modules/auth"
   }
 }

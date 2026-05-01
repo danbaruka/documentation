@@ -28,15 +28,22 @@ The testnet is currently live and is the easiest way to experiment with
 | Conversion | `1 SAF = 1_000_000 usaf` |
 | Bech32 prefix | `addr_safro` |
 
+## Network versions
+
+| Network | Chain ID | safrochain-node tag | Go |
+| --- | --- | --- | --- |
+| Testnet | `safro-testnet-1` | `v0.1.0` | `1.25.8` |
+| Mainnet | `safro-mainnet-1` | `v0.2.0` | `1.25.8` |
+
 ## Public endpoints
 
 | Service | Endpoint |
 | --- | --- |
-| RPC (CometBFT JSON-RPC) | `https://rpc.testnet.safrochain.com` |
-| REST (Cosmos LCD) | `https://rest.testnet.safrochain.com` |
-| gRPC (HTTP/2) | `https://grpc.testnet.safrochain.com/` |
-| Faucet | `https://faucet.safrochain.com/` |
-| Explorer | `https://explorer.safrochain.com/` |
+| RPC (CometBFT JSON-RPC) | [https://rpc.testnet.safrochain.com](https://rpc.testnet.safrochain.com) |
+| REST (Cosmos LCD) | [https://rest.testnet.safrochain.com](https://rest.testnet.safrochain.com) |
+| gRPC (HTTP/2) | [https://grpc.testnet.safrochain.com/](https://grpc.testnet.safrochain.com/) |
+| Faucet | [https://faucet.safrochain.com/](https://faucet.safrochain.com/) |
+| Explorer | [https://explorer.safrochain.com/](https://explorer.safrochain.com/) |
 
 ## Quickstart
 
@@ -57,6 +64,24 @@ safrochaind keys add me
 ADDR=$(safrochaind keys show -a me)
 echo "Drip me into $ADDR via https://faucet.safrochain.com/"
 ```
+
+## Faucet: Discord Faucet Bot
+
+Steps:
+
+1. Join the Safrochain Discord.
+2. Navigate to the **#testnet-faucet** channel.
+3. Use the command below, replacing `addr_safroxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` with your wallet address:
+
+```text
+!faucet addr_safroxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+```
+
+- Receive: **10,000,000 `usaf`** (10 SAF)
+- Cooldown: **24 hours**
+
+Note: `usaf` is the micro-denomination of SAF, where `1 SAF = 1,000,000 usaf`.
+Ensure your wallet address is valid and starts with `addr_safro` to receive tokens successfully.
 
 ## Wallet connection (Keplr / Leap)
 

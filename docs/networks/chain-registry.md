@@ -83,8 +83,8 @@ schema so that wallets, explorers, and relayers can auto-configure.
   "staking": { "staking_tokens": [{ "denom": "usaf" }] },
   "codebase": {
     "git_repo": "https://github.com/Safrochain-Org/safrochain-node",
-    "recommended_version": "v0.2.0",
-    "compatible_versions": ["v0.2.0"],
+    "recommended_version": "v0.1.0",
+    "compatible_versions": ["v0.1.0"],
     "cosmos_sdk_version": "0.50",
     "consensus": { "type": "cometbft", "version": "0.38" }
   },

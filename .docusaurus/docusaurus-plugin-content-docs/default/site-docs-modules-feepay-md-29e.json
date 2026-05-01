@@ -1,7 +1,7 @@
 {
   "id": "modules/feepay",
   "title": "FeePay",
-  "description": "Fee routing and payment behavior.",
+  "description": "FeePay registers CosmWasm contracts that can pay fees on behalf of users, with eligibility and usage queries.",
   "source": "@site/docs/modules/feepay.md",
   "sourceDirName": "modules",
   "slug": "/modules/feepay",
@@ -13,12 +13,12 @@
   "lastUpdatedAt": 1777284667000,
   "frontMatter": {
     "title": "FeePay",
-    "description": "Fee routing and payment behavior."
+    "description": "FeePay registers CosmWasm contracts that can pay fees on behalf of users, with eligibility and usage queries."
   },
   "sidebar": "docsSidebar",
   "previous": {
-    "title": "Safrochain modules overview",
-    "permalink": "/modules/overview"
+    "title": "Global fee",
+    "permalink": "/modules/globalfee"
   },
   "next": {
     "title": "FeeShare",

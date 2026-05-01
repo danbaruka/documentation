@@ -10,6 +10,13 @@ the foundation will publish on launch day. Endpoints, seed node IDs, and
 genesis SHA-256 are placeholders until the chain is live.
 :::
 
+## Network versions
+
+| Network | Chain ID | safrochain-node tag | Go |
+| --- | --- | --- | --- |
+| Mainnet | `safro-mainnet-1` | `v0.2.0` | `1.25.8` |
+| Testnet | `safro-testnet-1` | `v0.1.0` | `1.25.8` |
+
 ## Endpoints
 
 See [Networks → Mainnet endpoints](../networks/mainnet-endpoints). Quick
@@ -17,12 +24,12 @@ reference:
 
 | Service | Endpoint |
 | --- | --- |
-| RPC | `https://rpc.safrochain.network` (round-robin between rpc1/rpc2) |
-| REST | `https://api.safrochain.network` |
-| gRPC | `https://grpc.safrochain.network` |
-| gRPC-Web | `https://grpc-web.safrochain.network` |
+| RPC | [https://rpc.safrochain.network](https://rpc.safrochain.network) (round-robin between rpc1/rpc2) |
+| REST | [https://api.safrochain.network](https://api.safrochain.network) |
+| gRPC | [https://grpc.safrochain.network](https://grpc.safrochain.network) |
+| gRPC-Web | [https://grpc-web.safrochain.network](https://grpc-web.safrochain.network) |
 | Seeds | `seed.safrochain.network:26666`, `seed2.safrochain.network:26670` |
-| Status | `https://status.safrochain.network` |
+| Status | [https://status.safrochain.network](https://status.safrochain.network) |
 
 ## Steps
 
@@ -31,7 +38,7 @@ reference:
 ```bash
 git clone https://github.com/Safrochain-Org/safrochain-node
 cd safrochain-node
-git checkout v1.0.0       # exact tag will be published on launch day
+git checkout v0.2.0
 make install
 safrochaind version
 ```
@@ -52,6 +59,22 @@ sha256sum ~/.safrochain/config/genesis.json
 # expected: <HASH-PUBLISHED-ON-LAUNCH-DAY>
 ```
 
+Source of truth at launch:
+
+- The GitHub **release** for tag `v0.2.0` will publish:
+  - `genesis.json`
+  - `genesis.json.sha256`
+
+Verify using the published checksum:
+
+```bash
+curl -fsSL https://github.com/Safrochain-Org/safrochain-node/releases/download/v0.2.0/genesis.json \
+  -o ~/.safrochain/config/genesis.json
+curl -fsSL https://github.com/Safrochain-Org/safrochain-node/releases/download/v0.2.0/genesis.json.sha256 \
+  -o /tmp/genesis.json.sha256
+( cd ~/.safrochain/config && shasum -a 256 -c /tmp/genesis.json.sha256 )
+```
+
 ### 4. Configure peers
 
 Edit `~/.safrochain/config/config.toml`:
@@ -64,9 +87,16 @@ addr_book_strict = true
 pex = true
 ```
 
-The seed node IDs are published in
-[Chain registry](../networks/chain-registry) and on the foundation's GitHub
-release.
+The seed node IDs are published in:
+
+- [Chain registry](../networks/chain-registry) (field `peers.seeds[].id`)
+- the `v0.2.0` GitHub release notes
+
+At launch, you will replace `<NODEID1>` and `<NODEID2>` with 40-hex-char node IDs:
+
+```text
+<node_id_1>@seed.safrochain.network:26666,<node_id_2>@seed2.safrochain.network:26670
+```
 
 ### 5. App-level settings (`app.toml`)
 

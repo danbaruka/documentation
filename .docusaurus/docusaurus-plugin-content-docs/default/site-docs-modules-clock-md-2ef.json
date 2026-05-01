@@ -1,7 +1,7 @@
 {
   "id": "modules/clock",
   "title": "Clock",
-  "description": "Time-based logic module.",
+  "description": "Register CosmWasm contracts for periodic clock ticks: queries and register, unregister, unjail transactions.",
   "source": "@site/docs/modules/clock.md",
   "sourceDirName": "modules",
   "slug": "/modules/clock",
@@ -13,7 +13,7 @@
   "lastUpdatedAt": 1777284667000,
   "frontMatter": {
     "title": "Clock",
-    "description": "Time-based logic module."
+    "description": "Register CosmWasm contracts for periodic clock ticks: queries and register, unregister, unjail transactions."
   },
   "sidebar": "docsSidebar",
   "previous": {

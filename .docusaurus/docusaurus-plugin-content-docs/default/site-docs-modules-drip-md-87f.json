@@ -1,7 +1,7 @@
 {
   "id": "modules/drip",
   "title": "Drip",
-  "description": "Drip distribution module.",
+  "description": "Drip distributes tokens to stakers; module params and the distribute-tokens transaction.",
   "source": "@site/docs/modules/drip.md",
   "sourceDirName": "modules",
   "slug": "/modules/drip",
@@ -13,7 +13,7 @@
   "lastUpdatedAt": 1777284667000,
   "frontMatter": {
     "title": "Drip",
-    "description": "Drip distribution module."
+    "description": "Drip distributes tokens to stakers; module params and the distribute-tokens transaction."
   },
   "sidebar": "docsSidebar",
   "previous": {

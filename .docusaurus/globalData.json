@@ -46,6 +46,21 @@
               "sidebar": "docsSidebar"
             },
             {
+              "id": "developers/cosmjs",
+              "path": "/developers/cosmjs",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "developers/ibc-transfer",
+              "path": "/developers/ibc-transfer",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "developers/quickstart",
+              "path": "/developers/quickstart",
+              "sidebar": "docsSidebar"
+            },
+            {
               "id": "getting-started/quick-links",
               "path": "/getting-started/quick-links",
               "sidebar": "docsSidebar"
@@ -76,8 +91,33 @@
               "sidebar": "docsSidebar"
             },
             {
+              "id": "modules/auth",
+              "path": "/modules/auth",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "modules/authz",
+              "path": "/modules/authz",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "modules/bank",
+              "path": "/modules/bank",
+              "sidebar": "docsSidebar"
+            },
+            {
               "id": "modules/clock",
               "path": "/modules/clock",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "modules/consensus",
+              "path": "/modules/consensus",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "modules/crisis",
+              "path": "/modules/crisis",
               "sidebar": "docsSidebar"
             },
             {
@@ -86,8 +126,23 @@
               "sidebar": "docsSidebar"
             },
             {
+              "id": "modules/distribution",
+              "path": "/modules/distribution",
+              "sidebar": "docsSidebar"
+            },
+            {
               "id": "modules/drip",
               "path": "/modules/drip",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "modules/evidence",
+              "path": "/modules/evidence",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "modules/feegrant",
+              "path": "/modules/feegrant",
               "sidebar": "docsSidebar"
             },
             {
@@ -101,8 +156,93 @@
               "sidebar": "docsSidebar"
             },
             {
+              "id": "modules/globalfee",
+              "path": "/modules/globalfee",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "modules/gov",
+              "path": "/modules/gov",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "modules/ibc-core",
+              "path": "/modules/ibc-core",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "modules/ibc-fee",
+              "path": "/modules/ibc-fee",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "modules/ibc-hooks",
+              "path": "/modules/ibc-hooks",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "modules/ibc-transfer-app",
+              "path": "/modules/ibc-transfer-app",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "modules/interchain-accounts",
+              "path": "/modules/interchain-accounts",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "modules/interchain-query",
+              "path": "/modules/interchain-query",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "modules/mint",
+              "path": "/modules/mint",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "modules/nft",
+              "path": "/modules/nft",
+              "sidebar": "docsSidebar"
+            },
+            {
               "id": "modules/overview",
               "path": "/modules/overview",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "modules/params",
+              "path": "/modules/params",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "modules/slashing",
+              "path": "/modules/slashing",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "modules/staking",
+              "path": "/modules/staking",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "modules/tokenfactory",
+              "path": "/modules/tokenfactory",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "modules/upgrade",
+              "path": "/modules/upgrade",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "modules/vesting",
+              "path": "/modules/vesting",
+              "sidebar": "docsSidebar"
+            },
+            {
+              "id": "modules/wasm",
+              "path": "/modules/wasm",
               "sidebar": "docsSidebar"
             },
             {

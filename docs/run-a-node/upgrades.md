@@ -31,10 +31,10 @@ source ~/.bashrc
 
 ```text
 ~/.safrochain/cosmovisor/
-  current -> upgrades/v1.0.0          # symlink, cosmovisor manages it
+  current -> upgrades/v0.2.0          # symlink, cosmovisor manages it
   genesis/bin/safrochaind             # the binary you launched the chain with
-  upgrades/v1.0.0/bin/safrochaind     # current release
-  upgrades/v1.1.0/bin/safrochaind     # staged for the next upgrade
+  upgrades/v0.2.0/bin/safrochaind     # current release
+  upgrades/v0.3.0/bin/safrochaind     # staged for the next upgrade
 ```
 
 Bootstrap with the binary you have today:
@@ -76,10 +76,10 @@ sudo journalctl -u safrochaind -f
 
 ## 4 · Stage a new release before the upgrade height
 
-When the foundation announces a release tag (for example `v1.1.0`):
+When the foundation announces a release tag (for example `v0.3.0`):
 
 ```bash
-RELEASE=v1.1.0
+RELEASE=v0.3.0
 
 # verify the binary against the published checksum
 URL="https://github.com/Safrochain-Org/safrochain-node/releases/download/${RELEASE}/safrochaind-${RELEASE}-linux-amd64.tar.gz"

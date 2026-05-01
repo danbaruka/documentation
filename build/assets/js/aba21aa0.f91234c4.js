@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk_safrochain_docs=self.webpackChunk_safrochain_docs||[]).push([["3747"],{7093(s){s.exports=JSON.parse('{"name":"docusaurus-plugin-content-docs","id":"default"}')}}]);

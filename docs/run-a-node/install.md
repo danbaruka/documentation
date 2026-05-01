@@ -15,7 +15,7 @@ blocks straight into a terminal.
 
 | Tool | Version |
 | --- | --- |
-| Go | 1.22+ |
+| Go | **1.25.8** |
 | make | any |
 | git | any |
 | C toolchain | `build-essential` (Linux) or Xcode CLI tools (macOS) |
@@ -49,13 +49,13 @@ brew install git curl jq make
   </TabItem>
 </Tabs>
 
-## 2 · Install Go 1.22
+## 2 · Install Go 1.25.8
 
 <Tabs groupId="os" defaultValue="ubuntu">
   <TabItem value="ubuntu" label="Ubuntu / Debian">
 
 ```bash
-GO_VERSION=1.22.5
+GO_VERSION=1.25.8
 ARCH=$(dpkg --print-architecture)        # amd64 or arm64
 curl -fsSL "https://go.dev/dl/go${GO_VERSION}.linux-${ARCH}.tar.gz" \
   | sudo tar -C /usr/local -xz
@@ -73,7 +73,7 @@ go version
   <TabItem value="rhel" label="Fedora / RHEL">
 
 ```bash
-GO_VERSION=1.22.5
+GO_VERSION=1.25.8
 ARCH=$(uname -m | sed 's/x86_64/amd64/;s/aarch64/arm64/')
 curl -fsSL "https://go.dev/dl/go${GO_VERSION}.linux-${ARCH}.tar.gz" \
   | sudo tar -C /usr/local -xz
@@ -91,10 +91,14 @@ go version
   <TabItem value="macos" label="macOS">
 
 ```bash
-brew install go
+GO_VERSION=1.25.8
+ARCH=$(uname -m | sed 's/x86_64/amd64/;s/arm64/arm64/')
+curl -fsSL "https://go.dev/dl/go${GO_VERSION}.darwin-${ARCH}.tar.gz" \
+  | sudo tar -C /usr/local -xz
 
 cat <<'EOF' >> ~/.zshrc
-export PATH=$PATH:$(go env GOPATH)/bin
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:$HOME/go/bin
 EOF
 source ~/.zshrc
 
@@ -104,7 +108,7 @@ go version
   </TabItem>
 </Tabs>
 
-You should see something like `go version go1.22.5 darwin/arm64` (or
+You should see something like `go version go1.25.8 darwin/arm64` (or
 `linux/amd64`).
 
 ## 3 · Build `safrochaind` from source
@@ -116,7 +120,7 @@ You should see something like `go version go1.22.5 darwin/arm64` (or
 git clone https://github.com/Safrochain-Org/safrochain-node ~/safrochain-node
 cd ~/safrochain-node
 git fetch --tags
-git checkout $(git describe --tags --abbrev=0)   # latest release tag
+git checkout v0.1.0   # testnet release tag
 make install
 safrochaind version --long | head -5
 ```
@@ -128,13 +132,22 @@ safrochaind version --long | head -5
 git clone https://github.com/Safrochain-Org/safrochain-node ~/safrochain-node
 cd ~/safrochain-node
 git fetch --tags
-git checkout $(git describe --tags --abbrev=0)
+git checkout v0.1.0
 make install
 safrochaind version --long | head -5
 ```
 
   </TabItem>
 </Tabs>
+
+To build for **mainnet**, check out **`v0.2.0`** instead:
+
+```bash
+cd ~/safrochain-node
+git fetch --tags
+git checkout v0.2.0
+make install
+```
 
 `make install` puts the binary in `$GOBIN` (defaults to `~/go/bin`). If
 `safrochaind` is not on your `$PATH`, run:

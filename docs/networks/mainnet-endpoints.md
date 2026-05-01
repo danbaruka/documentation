@@ -17,9 +17,16 @@ keywords:
 
 :::info Mainnet target
 **Target launch:** **Q3 2026.** The endpoints below are the canonical names that
-will be served the moment the chain produces its first block. Until then they
-resolve only inside the foundation network.
+will be served the moment the chain produces its first block. Until then treat
+them as **reserved DNS names** (they may not resolve publicly).
 :::
+
+## Network versions
+
+| Network | Chain ID | safrochain-node tag | Go |
+| --- | --- | --- | --- |
+| Mainnet | `safro-mainnet-1` | `v0.2.0` | `1.25.8` |
+| Testnet | `safro-testnet-1` | `v0.1.0` | `1.25.8` |
 
 ## Chain identity
 
@@ -36,9 +43,9 @@ resolve only inside the foundation network.
 
 | Name | Endpoint | Role |
 | --- | --- | --- |
-| `rpc1` | `https://rpc1.safrochain.network` | primary public RPC |
-| `rpc2` | `https://rpc2.safrochain.network` | secondary public RPC (archive) |
-| `rpc`  | `https://rpc.safrochain.network`  | aggregated alias (round-robins between rpc1/rpc2) |
+| `rpc1` | [https://rpc1.safrochain.network](https://rpc1.safrochain.network) | primary public RPC |
+| `rpc2` | [https://rpc2.safrochain.network](https://rpc2.safrochain.network) | secondary public RPC (archive) |
+| `rpc`  | [https://rpc.safrochain.network](https://rpc.safrochain.network) | aggregated alias (round-robins between rpc1/rpc2) |
 
 Common paths:
 
@@ -58,9 +65,9 @@ blocked by the public proxy.
 
 | Name | Endpoint | Role |
 | --- | --- | --- |
-| `api1` | `https://api1.safrochain.network` | primary REST/LCD |
-| `api2` | `https://api2.safrochain.network` | secondary REST/LCD (archive) |
-| `api`  | `https://api.safrochain.network`  | aggregated alias |
+| `api1` | [https://api1.safrochain.network](https://api1.safrochain.network) | primary REST/LCD |
+| `api2` | [https://api2.safrochain.network](https://api2.safrochain.network) | secondary REST/LCD (archive) |
+| `api`  | [https://api.safrochain.network](https://api.safrochain.network) | aggregated alias |
 
 Examples:
 
@@ -75,10 +82,10 @@ curl -s https://api.safrochain.network/cosmos/bank/v1beta1/supply
 
 | Name | Endpoint | Notes |
 | --- | --- | --- |
-| `grpc1` | `https://grpc1.safrochain.network` | primary gRPC (HTTP/2, TLS required) |
-| `grpc2` | `https://grpc2.safrochain.network` | secondary gRPC (HTTP/2, TLS required) |
-| `grpc`  | `https://grpc.safrochain.network`  | aggregated alias |
-| `grpc-web` | `https://grpc-web.safrochain.network` | browser-friendly gRPC-Web (CosmJS) |
+| `grpc1` | [https://grpc1.safrochain.network](https://grpc1.safrochain.network) | primary gRPC (HTTP/2, TLS required) |
+| `grpc2` | [https://grpc2.safrochain.network](https://grpc2.safrochain.network) | secondary gRPC (HTTP/2, TLS required) |
+| `grpc`  | [https://grpc.safrochain.network](https://grpc.safrochain.network) | aggregated alias |
+| `grpc-web` | [https://grpc-web.safrochain.network](https://grpc-web.safrochain.network) | browser-friendly gRPC-Web (CosmJS) |
 
 ```bash
 grpcurl grpc.safrochain.network:443 \
@@ -89,7 +96,7 @@ grpcurl grpc.safrochain.network:443 \
 
 | Name | Endpoint | Port | Purpose |
 | --- | --- | --- | --- |
-| `seed`  | `seed.safrochain.network:26666`  | 26666 | primary public seed/sentry |
+| `seed`  | `seed.safrochain.network:26666` | 26666 | primary public seed/sentry |
 | `seed2` | `seed2.safrochain.network:26670` | 26670 | secondary public seed/sentry |
 
 Validators **never** accept inbound public P2P; only the public seed nodes
@@ -99,7 +106,7 @@ listed above are reachable from the open internet.
 
 | Name | Endpoint | Access |
 | --- | --- | --- |
-| `status`  | `https://status.safrochain.network` | public (read-only) |
+| `status` | [https://status.safrochain.network](https://status.safrochain.network) | public (read-only) |
 
 ## TLS, CORS, and rate limits
 
@@ -114,7 +121,7 @@ listed above are reachable from the open internet.
 
 | Name | Endpoint | Purpose |
 | --- | --- | --- |
-| `snapshots` | `https://snapshots.safrochain.network` | downloadable snapshot artifacts |
+| `snapshots` | [https://snapshots.safrochain.network](https://snapshots.safrochain.network) | downloadable snapshot artifacts |
 
 Snapshots come with a manifest (`height` + `sha256`). Archive snapshots come
 from `rpc2` and grow over time.

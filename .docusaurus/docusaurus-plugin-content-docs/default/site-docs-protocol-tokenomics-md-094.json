@@ -27,8 +27,8 @@
   },
   "sidebar": "docsSidebar",
   "previous": {
-    "title": "CW Hooks",
-    "permalink": "/modules/cw-hooks"
+    "title": "CosmWasm (`wasm`)",
+    "permalink": "/modules/wasm"
   },
   "next": {
     "title": "Governance",

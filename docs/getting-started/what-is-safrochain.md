@@ -1,6 +1,6 @@
 ---
 title: What is Safrochain?
-description: Vision, positioning, and the problem Safrochain solves — a Cosmos SDK Layer-1 for mobile-first payments, remittances, and IBC-connected African economies.
+description: "Vision, positioning, and what Safrochain solves: a Cosmos SDK Layer-1 for mobile-first payments, local currencies, stablecoins, remittances, and IBC-connected economies."
 keywords:
   - what is Safrochain
   - Cosmos SDK Layer-1
@@ -15,9 +15,10 @@ keywords:
 Safrochain empowers communities through **fast, affordable, and accessible
 blockchain infrastructure** tailored for real-world use cases. It is a
 **Cosmos SDK Layer-1** built for mobile-first users, everyday payments, and
-real utility, connecting local African economies to global assets with
-sovereign block space, predictable fees, and IBC rails to the wider Cosmos
-ecosystem.
+real utility. Alongside global assets, it supports everyday pricing in
+**local currencies** and practical settlement using **non-USD denominated
+stablecoins**, connecting African economies to global markets with sovereign
+block space, predictable fees, and IBC rails to the wider Cosmos ecosystem.
 
 ## Why Safrochain
 

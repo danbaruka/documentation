@@ -18,9 +18,10 @@ Safrochain empowers communities through **fast, affordable, and accessible
 blockchain infrastructure** tailored for real-world use cases.
 
 A **Cosmos SDK Layer-1** built for mobile-first users, everyday payments, and
-real utility. Safrochain connects local African economies to global assets
-with sovereign block space, predictable fees, and IBC rails to the wider
-Cosmos ecosystem.
+real utility. Safrochain connects **local economies** to global markets while
+making room for **local currencies** and **non-USD denominated stablecoins**
+(so prices feel familiar, not “always in dollars”), with sovereign block space,
+predictable fees, and IBC rails to the wider Cosmos ecosystem.
 
 ## What you’ll find here
 
@@ -41,6 +42,6 @@ Cosmos ecosystem.
 
 - **Website**: `https://safrochain.com`
 - **Explorer**: `https://explorer.safrochain.com/`
-- **Faucet**: `https://faucet.safrochain.com/`
+- **Faucet**: [faucet.safrochain.com](https://faucet.safrochain.com/)
 - **GitHub org**: `https://github.com/Safrochain-Org`
 

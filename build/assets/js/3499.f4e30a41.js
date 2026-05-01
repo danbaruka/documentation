@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk_safrochain_docs=self.webpackChunk_safrochain_docs||[]).push([["3499"],{2422(a,s,c){c.d(s,{createRadarServices:()=>e.f});var e=c(2480);c(3345)}}]);

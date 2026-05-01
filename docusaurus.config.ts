@@ -221,6 +221,44 @@ const config: Config = {
         height: 38,
       },
       items: [
+        // Left rail (desktop) + listed first in the mobile drawer so navigation
+        // is visible on the homepage (custom page has no doc sidebar panel).
+        {
+          type: 'doc',
+          docId: 'intro',
+          label: 'Introduction',
+          position: 'left',
+        },
+        {
+          type: 'doc',
+          docId: 'networks/testnet-endpoints',
+          label: 'Networks',
+          position: 'left',
+        },
+        {
+          type: 'doc',
+          docId: 'run-a-node/overview',
+          label: 'Run a node',
+          position: 'left',
+        },
+        {
+          type: 'doc',
+          docId: 'validators/overview',
+          label: 'Validators',
+          position: 'left',
+        },
+        {
+          type: 'doc',
+          docId: 'developers/quickstart',
+          label: 'Developers',
+          position: 'left',
+        },
+        {
+          type: 'doc',
+          docId: 'modules/overview',
+          label: 'Modules',
+          position: 'left',
+        },
         {
           type: 'search',
           position: 'right',

@@ -31,8 +31,8 @@
   },
   "sidebar": "docsSidebar",
   "previous": {
-    "title": "Channels",
-    "permalink": "/ibc/channels"
+    "title": "IBC transfers for apps (ICS-20)",
+    "permalink": "/developers/ibc-transfer"
   },
   "next": {
     "title": "Keys",

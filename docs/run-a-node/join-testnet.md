@@ -7,6 +7,13 @@ sidebar_position: 5
 The Safrochain testnet (`safro-testnet-1`) is live and is the easiest way to
 exercise the full validator + node + wallet stack end-to-end.
 
+## Network versions
+
+| Network | Chain ID | safrochain-node tag | Go |
+| --- | --- | --- | --- |
+| Testnet | `safro-testnet-1` | `v0.1.0` | `1.25.8` |
+| Mainnet | `safro-mainnet-1` | `v0.2.0` | `1.25.8` |
+
 ## Endpoints
 
 See [Networks → Testnet endpoints](../networks/testnet-endpoints) for the
@@ -14,17 +21,26 @@ canonical list. Quick reference:
 
 | Service | Endpoint |
 | --- | --- |
-| RPC | `https://rpc.testnet.safrochain.com` |
-| REST | `https://rest.testnet.safrochain.com` |
-| gRPC | `https://grpc.testnet.safrochain.com/` |
-| Faucet | `https://faucet.safrochain.com/` |
-| Explorer | `https://explorer.safrochain.com/` |
+| RPC | [https://rpc.testnet.safrochain.com](https://rpc.testnet.safrochain.com) |
+| REST | [https://rest.testnet.safrochain.com](https://rest.testnet.safrochain.com) |
+| gRPC | [https://grpc.testnet.safrochain.com/](https://grpc.testnet.safrochain.com/) |
+| Faucet | [https://faucet.safrochain.com/](https://faucet.safrochain.com/) |
+| Explorer | [https://explorer.safrochain.com/](https://explorer.safrochain.com/) |
 
 ## Steps
 
 ### 1. Install `safrochaind`
 
 If you haven't yet, follow [Install](./install).
+
+If you are building from source for testnet, use:
+
+```bash
+cd ~/safrochain-node
+git fetch --tags
+git checkout v0.1.0
+make install
+```
 
 ### 2. Initialise the home directory
 

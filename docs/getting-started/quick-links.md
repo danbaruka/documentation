@@ -5,19 +5,19 @@ description: Official Safrochain URLs and developer endpoints.
 
 ## Primary
 
-- **Website**: `https://safrochain.com`
-- **Docs**: `https://draft-docs.safrochain.com`
-- **GitHub**: `https://github.com/Safrochain-Org`
+- **Website**: [safrochain.com](https://safrochain.com)
+- **Docs**: [draft-docs.safrochain.com](https://draft-docs.safrochain.com)
+- **GitHub**: [github.com/Safrochain-Org](https://github.com/Safrochain-Org)
 
 ## Network tools
 
-- **Explorer**: `https://explorer.safrochain.com/`
-- **Faucet**: `https://faucet.safrochain.com/`
+- **Explorer**: [explorer.safrochain.com](https://explorer.safrochain.com/)
+- **Faucet**: [faucet.safrochain.com](https://faucet.safrochain.com/)
 
 ## Community
 
-- **Discord**: `https://discord.gg/fe2XAm6ENQ`
-- **Telegram**: `https://t.me/safrochainannonce`
-- **X**: `https://x.com/safrochain`
-- **Medium**: `https://medium.com/@safrochain`
+- **Discord**: [discord.gg/fe2XAm6ENQ](https://discord.gg/fe2XAm6ENQ)
+- **Telegram**: [t.me/safrochainannonce](https://t.me/safrochainannonce)
+- **X**: [x.com/safrochain](https://x.com/safrochain)
+- **Medium**: [medium.com/@safrochain](https://medium.com/@safrochain)
 

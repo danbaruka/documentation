@@ -23,7 +23,7 @@
     "permalink": "/ibc/hermes-setup"
   },
   "next": {
-    "title": "safrochaind CLI overview",
-    "permalink": "/cli/overview"
+    "title": "Build on Safrochain: developer quickstart",
+    "permalink": "/developers/quickstart"
   }
 }

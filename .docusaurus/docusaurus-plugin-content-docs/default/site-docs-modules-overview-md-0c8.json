@@ -1,7 +1,7 @@
 {
   "id": "modules/overview",
   "title": "Safrochain modules overview",
-  "description": "Safrochain modules — clock, cw-hooks, drip, feepay, feeshare, tokenfactory, and more — with friendly entry points and links to module specs.",
+  "description": "Every module wired into safrochaind: Safrochain extensions, Cosmos SDK core, IBC, and CosmWasm, with CLI entry points and links to per-module reference pages.",
   "source": "@site/docs/modules/overview.md",
   "sourceDirName": "modules",
   "slug": "/modules/overview",
@@ -13,17 +13,14 @@
   "lastUpdatedAt": 1777285288000,
   "frontMatter": {
     "title": "Safrochain modules overview",
-    "description": "Safrochain modules — clock, cw-hooks, drip, feepay, feeshare, tokenfactory, and more — with friendly entry points and links to module specs.",
+    "description": "Every module wired into safrochaind: Safrochain extensions, Cosmos SDK core, IBC, and CosmWasm, with CLI entry points and links to per-module reference pages.",
     "keywords": [
       "Safrochain modules",
-      "Cosmos SDK modules",
-      "x/clock",
-      "cw-hooks",
-      "feepay",
-      "feeshare",
-      "tokenfactory",
-      "drip",
-      "module spec"
+      "Cosmos SDK",
+      "safrochaind CLI",
+      "x/tokenfactory",
+      "IBC",
+      "CosmWasm"
     ]
   },
   "sidebar": "docsSidebar",
@@ -32,7 +29,7 @@
     "permalink": "/cli/tx"
   },
   "next": {
-    "title": "FeePay",
-    "permalink": "/modules/feepay"
+    "title": "Safrochain modules overview",
+    "permalink": "/modules/overview"
   }
 }
