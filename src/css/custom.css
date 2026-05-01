@@ -225,35 +225,12 @@ h5 {
   color: #ffffff;
 }
 
-/* Mobile drawer: doc links + search must read clearly on navy (homepage has no
-   desktop sidebar, so these items are the primary navigation in the hamburger). */
-.navbar-sidebar {
-  background: var(--safro-navy);
-}
+/* Mobile drawer: theme-aware. Light mode must use a light panel + dark text so
+   doc sidebar links (theme variables) are not dark-on-navy. Dark mode keeps the
+   navy shell + light link text. */
 .navbar-sidebar .menu__list {
   padding: 0.35rem 0.25rem 1rem;
   gap: 0.15rem;
-}
-.navbar-sidebar .menu__link {
-  color: rgba(255, 255, 255, 0.92);
-  font-weight: 500;
-  border-radius: 10px;
-}
-.navbar-sidebar .menu__link:hover,
-.navbar-sidebar .menu__link:active {
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.08);
-}
-.navbar-sidebar .navbar__search input,
-.navbar-sidebar input[type='search'] {
-  background: rgba(255, 255, 255, 0.08);
-  color: rgba(255, 255, 255, 0.95);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 10px;
-}
-.navbar-sidebar .navbar__search input::placeholder,
-.navbar-sidebar input[type='search']::placeholder {
-  color: rgba(255, 255, 255, 0.45);
 }
 .navbar-sidebar .safro-cta-hub {
   width: 100%;
@@ -267,12 +244,100 @@ h5 {
   padding: 0.35rem 0 0.75rem;
 }
 
-/* Desktop: keep many doc links from crowding the top bar */
-@media (min-width: 997px) and (max-width: 1399px) {
-  .navbar__items:not(.navbar__items--right) .navbar__item .navbar__link {
-    padding-left: 0.45rem;
-    padding-right: 0.45rem;
-    font-size: 0.84rem;
+html[data-theme='light'] .navbar-sidebar__brand {
+  background: var(--safro-bg);
+  color: var(--safro-fg);
+  border-bottom: 1px solid var(--safro-border);
+  box-shadow: none;
+}
+/* Wordmark is white SVG; on light drawer header render as dark for contrast */
+html[data-theme='light'] .navbar-sidebar__brand .navbar__logo img {
+  filter: brightness(0) saturate(100%);
+  opacity: 0.92;
+}
+html[data-theme='light'] .navbar-sidebar {
+  background: var(--safro-bg);
+  color: var(--safro-fg);
+  box-shadow: var(--ifm-global-shadow-md);
+}
+html[data-theme='light'] .navbar-sidebar .navbar__link,
+html[data-theme='light'] .navbar-sidebar .navbar-sidebar__close,
+html[data-theme='light'] .navbar-sidebar .clean-btn {
+  color: var(--safro-fg);
+}
+html[data-theme='light'] .navbar-sidebar [class*='colorModeToggle'] button {
+  color: var(--safro-fg);
+}
+html[data-theme='light'] .navbar-sidebar [class*='colorModeToggle'] button:hover {
+  background: var(--safro-surface-2);
+}
+html[data-theme='light'] .navbar-sidebar .menu__link {
+  color: var(--safro-fg);
+  font-weight: 500;
+  border-radius: 10px;
+}
+html[data-theme='light'] .navbar-sidebar .menu__link:hover,
+html[data-theme='light'] .navbar-sidebar .menu__link:active {
+  color: var(--safro-fg);
+  background: var(--safro-surface-2);
+}
+html[data-theme='light'] .navbar-sidebar .navbar__search input,
+html[data-theme='light'] .navbar-sidebar input[type='search'] {
+  background: var(--safro-surface);
+  color: var(--safro-fg);
+  border: 1px solid var(--safro-border);
+  border-radius: 10px;
+}
+html[data-theme='light'] .navbar-sidebar .navbar__search input::placeholder,
+html[data-theme='light'] .navbar-sidebar input[type='search']::placeholder {
+  color: var(--safro-muted);
+}
+html[data-theme='light'] .navbar-sidebar .safro-social {
+  color: var(--safro-muted);
+  border-color: var(--safro-border);
+}
+html[data-theme='light'] .navbar-sidebar .safro-social:hover {
+  color: var(--safro-fg);
+  background: var(--safro-surface-2);
+  border-color: rgba(74, 127, 219, 0.35);
+}
+html[data-theme='light'] .navbar-sidebar .navbar-sidebar__back {
+  color: var(--safro-fg);
+  background: var(--safro-surface);
+}
+html[data-theme='light'] .navbar-sidebar .theme-doc-sidebar-container {
+  background: transparent;
+}
+
+html[data-theme='dark'] .navbar-sidebar {
+  background: var(--safro-navy);
+}
+html[data-theme='dark'] .navbar-sidebar .menu__link {
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 500;
+  border-radius: 10px;
+}
+html[data-theme='dark'] .navbar-sidebar .menu__link:hover,
+html[data-theme='dark'] .navbar-sidebar .menu__link:active {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+}
+html[data-theme='dark'] .navbar-sidebar .navbar__search input,
+html[data-theme='dark'] .navbar-sidebar input[type='search'] {
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 10px;
+}
+html[data-theme='dark'] .navbar-sidebar .navbar__search input::placeholder,
+html[data-theme='dark'] .navbar-sidebar input[type='search']::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* Doc shortcuts: show in the mobile drawer only (desktop navbar stays logo + actions). */
+@media (min-width: 997px) {
+  .navbar__inner a.navbar__link.safro-navbar-mobile-only {
+    display: none !important;
   }
 }
 /* Color-mode toggle on dark navbar */

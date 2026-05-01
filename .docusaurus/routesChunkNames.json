@@ -12,17 +12,17 @@
     },
     "config": "5e9f5e1a"
   },
-  "/-0cb": {
+  "/-8e8": {
     "__comp": "5e95c892",
     "__context": {
       "plugin": "aba21aa0"
     }
   },
-  "/-baa": {
+  "/-a4c": {
     "__comp": "a7bd4aaa",
     "__props": "22dd74f7"
   },
-  "/-65a": {
+  "/-b5e": {
     "__comp": "a94703ab"
   },
   "/cli/bank-2ce": {
@@ -53,23 +53,23 @@
     "__comp": "17896441",
     "content": "534ed58d"
   },
-  "/developers/cosmjs-07e": {
+  "/developers/cosmjs-22b": {
     "__comp": "17896441",
     "content": "61d1d762"
   },
-  "/developers/ibc-transfer-a5d": {
+  "/developers/ibc-transfer-9d3": {
     "__comp": "17896441",
     "content": "cbc346ae"
   },
-  "/developers/quickstart-a49": {
+  "/developers/quickstart-ca3": {
     "__comp": "17896441",
     "content": "49f8e256"
   },
-  "/getting-started/quick-links-609": {
+  "/getting-started/quick-links-923": {
     "__comp": "17896441",
     "content": "e5dca322"
   },
-  "/getting-started/what-is-safrochain-a01": {
+  "/getting-started/what-is-safrochain-4df": {
     "__comp": "17896441",
     "content": "dac14025"
   },
@@ -85,143 +85,143 @@
     "__comp": "17896441",
     "content": "f6d0e3e9"
   },
-  "/intro-c3b": {
+  "/intro-9b9": {
     "__comp": "17896441",
     "content": "0e384e19"
   },
-  "/modules/auth-7e7": {
+  "/modules/auth-c91": {
     "__comp": "17896441",
     "content": "2b28abc2"
   },
-  "/modules/authz-488": {
+  "/modules/authz-692": {
     "__comp": "17896441",
     "content": "deaffbb5"
   },
-  "/modules/bank-656": {
+  "/modules/bank-b20": {
     "__comp": "17896441",
     "content": "0d3cebf5"
   },
-  "/modules/clock-de9": {
+  "/modules/clock-493": {
     "__comp": "17896441",
     "content": "2ef9b453"
   },
-  "/modules/consensus-95f": {
+  "/modules/consensus-7e0": {
     "__comp": "17896441",
     "content": "83232cf6"
   },
-  "/modules/crisis-2fa": {
+  "/modules/crisis-958": {
     "__comp": "17896441",
     "content": "e894e89f"
   },
-  "/modules/cw-hooks-7d6": {
+  "/modules/cw-hooks-473": {
     "__comp": "17896441",
     "content": "e77654f6"
   },
-  "/modules/distribution-a17": {
+  "/modules/distribution-f49": {
     "__comp": "17896441",
     "content": "3835928a"
   },
-  "/modules/drip-07a": {
+  "/modules/drip-ca6": {
     "__comp": "17896441",
     "content": "87f5fe8a"
   },
-  "/modules/evidence-695": {
+  "/modules/evidence-fb3": {
     "__comp": "17896441",
     "content": "dbef62dd"
   },
-  "/modules/feegrant-c39": {
+  "/modules/feegrant-c75": {
     "__comp": "17896441",
     "content": "02047a83"
   },
-  "/modules/feepay-0be": {
+  "/modules/feepay-3fa": {
     "__comp": "17896441",
     "content": "29e50b41"
   },
-  "/modules/feeshare-767": {
+  "/modules/feeshare-df7": {
     "__comp": "17896441",
     "content": "9eaebb35"
   },
-  "/modules/globalfee-bcf": {
+  "/modules/globalfee-b27": {
     "__comp": "17896441",
     "content": "c857a8fc"
   },
-  "/modules/gov-c0e": {
+  "/modules/gov-5e9": {
     "__comp": "17896441",
     "content": "cc94b561"
   },
-  "/modules/ibc-core-e8c": {
+  "/modules/ibc-core-1d0": {
     "__comp": "17896441",
     "content": "79ac90d8"
   },
-  "/modules/ibc-fee-8f1": {
+  "/modules/ibc-fee-c42": {
     "__comp": "17896441",
     "content": "f93e5b98"
   },
-  "/modules/ibc-hooks-bfc": {
+  "/modules/ibc-hooks-c46": {
     "__comp": "17896441",
     "content": "c531a3e9"
   },
-  "/modules/ibc-transfer-app-75d": {
+  "/modules/ibc-transfer-app-5a7": {
     "__comp": "17896441",
     "content": "7f5c301c"
   },
-  "/modules/interchain-accounts-d2c": {
+  "/modules/interchain-accounts-6f5": {
     "__comp": "17896441",
     "content": "7a9f5a13"
   },
-  "/modules/interchain-query-3eb": {
+  "/modules/interchain-query-444": {
     "__comp": "17896441",
     "content": "042ed32e"
   },
-  "/modules/mint-df9": {
+  "/modules/mint-7d7": {
     "__comp": "17896441",
     "content": "cbc030f6"
   },
-  "/modules/nft-6a9": {
+  "/modules/nft-a44": {
     "__comp": "17896441",
     "content": "2c24d7f0"
   },
-  "/modules/overview-b6b": {
+  "/modules/overview-5e3": {
     "__comp": "17896441",
     "content": "0c8680ed"
   },
-  "/modules/params-b13": {
+  "/modules/params-d93": {
     "__comp": "17896441",
     "content": "baa63c54"
   },
-  "/modules/slashing-4b5": {
+  "/modules/slashing-f0d": {
     "__comp": "17896441",
     "content": "00787a99"
   },
-  "/modules/staking-ec7": {
+  "/modules/staking-5c0": {
     "__comp": "17896441",
     "content": "a64ff61b"
   },
-  "/modules/tokenfactory-3a7": {
+  "/modules/tokenfactory-b91": {
     "__comp": "17896441",
     "content": "0359cdc5"
   },
-  "/modules/upgrade-095": {
+  "/modules/upgrade-aa8": {
     "__comp": "17896441",
     "content": "7f10115b"
   },
-  "/modules/vesting-2b8": {
+  "/modules/vesting-b6f": {
     "__comp": "17896441",
     "content": "781dd9e3"
   },
-  "/modules/wasm-7e9": {
+  "/modules/wasm-ae6": {
     "__comp": "17896441",
     "content": "5830130d"
   },
-  "/networks/chain-registry-de1": {
+  "/networks/chain-registry-078": {
     "__comp": "17896441",
     "content": "4fe92cd7"
   },
-  "/networks/mainnet-endpoints-729": {
+  "/networks/mainnet-endpoints-867": {
     "__comp": "17896441",
     "content": "fcd2f1d9"
   },
-  "/networks/testnet-endpoints-6a3": {
+  "/networks/testnet-endpoints-d44": {
     "__comp": "17896441",
     "content": "68c18103"
   },
@@ -253,15 +253,15 @@
     "__comp": "17896441",
     "content": "68d8c6b7"
   },
-  "/run-a-node/install-2da": {
+  "/run-a-node/install-2f8": {
     "__comp": "17896441",
     "content": "e9d0b5e2"
   },
-  "/run-a-node/join-mainnet-6aa": {
+  "/run-a-node/join-mainnet-e39": {
     "__comp": "17896441",
     "content": "d69ffaf3"
   },
-  "/run-a-node/join-testnet-da0": {
+  "/run-a-node/join-testnet-f99": {
     "__comp": "17896441",
     "content": "176b5ef2"
   },
@@ -273,7 +273,7 @@
     "__comp": "17896441",
     "content": "da060b36"
   },
-  "/run-a-node/snapshots-9c8": {
+  "/run-a-node/snapshots-aad": {
     "__comp": "17896441",
     "content": "000360c1"
   },
@@ -281,7 +281,7 @@
     "__comp": "17896441",
     "content": "55c801fe"
   },
-  "/run-a-node/upgrades-17c": {
+  "/run-a-node/upgrades-473": {
     "__comp": "17896441",
     "content": "bf40f6eb"
   },

@@ -221,43 +221,49 @@ const config: Config = {
         height: 38,
       },
       items: [
-        // Left rail (desktop) + listed first in the mobile drawer so navigation
-        // is visible on the homepage (custom page has no doc sidebar panel).
+        // Same items are hidden on desktop (see `.safro-navbar-mobile-only` in
+        // custom.css) but stay in the hamburger menu on narrow viewports.
         {
           type: 'doc',
           docId: 'intro',
           label: 'Introduction',
           position: 'left',
+          className: 'safro-navbar-mobile-only',
         },
         {
           type: 'doc',
           docId: 'networks/testnet-endpoints',
           label: 'Networks',
           position: 'left',
+          className: 'safro-navbar-mobile-only',
         },
         {
           type: 'doc',
           docId: 'run-a-node/overview',
           label: 'Run a node',
           position: 'left',
+          className: 'safro-navbar-mobile-only',
         },
         {
           type: 'doc',
           docId: 'validators/overview',
           label: 'Validators',
           position: 'left',
+          className: 'safro-navbar-mobile-only',
         },
         {
           type: 'doc',
           docId: 'developers/quickstart',
           label: 'Developers',
           position: 'left',
+          className: 'safro-navbar-mobile-only',
         },
         {
           type: 'doc',
           docId: 'modules/overview',
           label: 'Modules',
           position: 'left',
+          className: 'safro-navbar-mobile-only',
         },
         {
           type: 'search',

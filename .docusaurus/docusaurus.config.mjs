@@ -336,37 +336,43 @@ export default {
           "type": "doc",
           "docId": "intro",
           "label": "Introduction",
-          "position": "left"
+          "position": "left",
+          "className": "safro-navbar-mobile-only"
         },
         {
           "type": "doc",
           "docId": "networks/testnet-endpoints",
           "label": "Networks",
-          "position": "left"
+          "position": "left",
+          "className": "safro-navbar-mobile-only"
         },
         {
           "type": "doc",
           "docId": "run-a-node/overview",
           "label": "Run a node",
-          "position": "left"
+          "position": "left",
+          "className": "safro-navbar-mobile-only"
         },
         {
           "type": "doc",
           "docId": "validators/overview",
           "label": "Validators",
-          "position": "left"
+          "position": "left",
+          "className": "safro-navbar-mobile-only"
         },
         {
           "type": "doc",
           "docId": "developers/quickstart",
           "label": "Developers",
-          "position": "left"
+          "position": "left",
+          "className": "safro-navbar-mobile-only"
         },
         {
           "type": "doc",
           "docId": "modules/overview",
           "label": "Modules",
-          "position": "left"
+          "position": "left",
+          "className": "safro-navbar-mobile-only"
         },
         {
           "type": "search",
