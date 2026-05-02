@@ -214,6 +214,7 @@ export default {
     "/Users/bdan/Projects/SAFROCHAIN/node/Docs/src/clientModules/seo-jsonld.ts"
   ],
   "plugins": [
+    "/Users/bdan/Projects/SAFROCHAIN/node/Docs/plugins/silence-bundler-warnings.js",
     [
       "/Users/bdan/Projects/SAFROCHAIN/node/Docs/node_modules/@easyops-cn/docusaurus-search-local/dist/server/server/index.js",
       {

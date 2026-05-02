@@ -145,6 +145,7 @@ const config: Config = {
   ],
 
   plugins: [
+    require.resolve('./plugins/silence-bundler-warnings.js'),
     [
       require.resolve('@easyops-cn/docusaurus-search-local'),
       {

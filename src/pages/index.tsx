@@ -63,6 +63,30 @@ function ArrowIcon(): React.JSX.Element {
   );
 }
 
+function SocialIconDiscord(): React.JSX.Element {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M20.317 4.369a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.211.375-.444.864-.608 1.249-1.845-.276-3.68-.276-5.486 0-.164-.393-.406-.874-.617-1.249a.077.077 0 0 0-.079-.037 19.736 19.736 0 0 0-4.885 1.515.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.056 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.027c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.12 13.12 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.125-.094.25-.192.368-.291a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.061 0a.073.073 0 0 1 .078.009c.119.099.243.198.369.292a.077.077 0 0 1-.006.127 12.4 12.4 0 0 1-1.873.892.077.077 0 0 0-.04.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.88 19.88 0 0 0 6.002-3.03.077.077 0 0 0 .032-.055c.5-5.177-.838-9.673-3.548-13.66a.061.061 0 0 0-.031-.028zM8.02 15.331c-1.183 0-2.157-1.086-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.095 2.157 2.419 0 1.333-.955 2.419-2.157 2.419zm7.975 0c-1.183 0-2.157-1.086-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.095 2.157 2.419 0 1.333-.946 2.419-2.157 2.419z" />
+    </svg>
+  );
+}
+
+function SocialIconX(): React.JSX.Element {
+  return (
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+    </svg>
+  );
+}
+
+function SocialIconTelegram(): React.JSX.Element {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M9.04 15.47 8.9 19.2c.5 0 .72-.22.98-.48l2.35-2.25 4.86 3.56c.89.49 1.52.23 1.76-.82l3.19-14.96h0c.29-1.35-.49-1.88-1.34-1.56L1.9 10.02c-1.31.51-1.29 1.24-.24 1.57l4.88 1.52L18.1 6.06c.54-.33 1.03-.15.62.18" />
+    </svg>
+  );
+}
+
 function Hero(): React.JSX.Element {
   return (
     <header className="safro-hero" style={{ padding: '4rem 0 1.75rem' }}>
@@ -121,10 +145,12 @@ function Hero(): React.JSX.Element {
             Safrochain empowers communities through fast, affordable, and accessible
             blockchain infrastructure tailored for real-world use cases. A Cosmos SDK
             Layer-1 built for mobile-first users, everyday payments, and real utility,
-            with support for local currencies and non-USD denominated stablecoins so
-            everyday prices map to the economy people actually use, connecting local
-            economies to global markets with sovereign block space, predictable fees,
-            and IBC rails to the wider Cosmos ecosystem.
+            with support for{' '}
+            <strong>local currencies</strong> and{' '}
+            <strong>non-USD denominated stablecoins</strong>
+            {' '}so everyday prices map to the economy people actually use, connecting
+            local economies to global markets with sovereign block space, predictable
+            fees, and IBC rails to the wider Cosmos ecosystem.
           </p>
 
           <div
@@ -285,6 +311,7 @@ function Architecture(): React.JSX.Element {
               <span className="safro-mod-chip">IBC</span>
               <span className="safro-mod-chip">ICA</span>
               <span className="safro-mod-chip">CosmWasm</span>
+              <span className="safro-mod-chip safro-mod-chip--accent">Token factory</span>
               <span className="safro-mod-chip safro-mod-chip--accent">FeePay</span>
               <span className="safro-mod-chip safro-mod-chip--accent">FeeShare</span>
               <span className="safro-mod-chip safro-mod-chip--accent">Drip</span>
@@ -403,22 +430,38 @@ function CommunityCTA(): React.JSX.Element {
                 announced on Telegram and X.
               </div>
             </div>
-            <div className="safro-social-row">
-              <a href="https://discord.gg/fe2XAm6ENQ" target="_blank" rel="noopener noreferrer">
-                Discord
+            <div className="safro-social-row safro-social-row--icons">
+              <a
+                href="https://discord.gg/fe2XAm6ENQ"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Safrochain on Discord"
+              >
+                <SocialIconDiscord />
               </a>
-              <a href="https://x.com/safrochain" target="_blank" rel="noopener noreferrer">
-                X
+              <a
+                href="https://x.com/safrochain"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Safrochain on X"
+              >
+                <SocialIconX />
               </a>
-              <a href="https://t.me/safrochainannonce" target="_blank" rel="noopener noreferrer">
-                Telegram
+              <a
+                href="https://t.me/safrochainannonce"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Safrochain on Telegram"
+              >
+                <SocialIconTelegram />
               </a>
               <a
                 href="https://github.com/Safrochain-Org"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Safrochain on GitHub"
               >
-                GitHub
+                <GitHubIcon />
               </a>
             </div>
           </div>

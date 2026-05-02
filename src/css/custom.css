@@ -857,6 +857,12 @@ html[data-theme='dark'] {
   margin-right: 0.4rem;
 }
 
+/* Infima `.navbar__items` uses `min-width: 0`; without this, long dropdowns can clip or composite oddly. */
+nav.navbar .navbar__items,
+nav.navbar .navbar__items--right {
+  overflow: visible !important;
+}
+
 /* Input: wider, with a leading magnifying-glass icon (inline SVG) */
 .navbar__search-input {
   width: 240px;
@@ -941,36 +947,132 @@ html[data-theme='dark'] {
 }
 
 /* ---------------------------------------------------------------------------
- * Search dropdown / suggestion panel
- * (Selectors target the plugin's autocomplete output; CSS-module scoped
- * classes are styled via the --search-local-* variables above.)
+ * Search dropdown / suggestion panel (@easyops-cn/docusaurus-search-local)
+ *
+ * Infima only styles `.navbar__search-input`; the plugin ships hashed CSS modules.
+ * Problems we fix here:
+ *  - Scrolled / nested regions showed the page behind (transparent rows + parent paint).
+ *  - Flex navbar rows (`min-width: 0`) can clip tall overlays unless overflow is visible.
+ *  - No internal scroll: list grows with results; the page scrolls if the list is long.
  * --------------------------------------------------------------------------- */
 
-/* Panel itself */
 .aa-DetachedFormContainer,
 .algolia-autocomplete .ds-dropdown-menu,
-.navbar__search ~ * .algolia-autocomplete,
-.navbar__search [class*='dropdownMenu'] {
+.navbar__search ~ * .algolia-autocomplete {
   border: 1px solid var(--safro-border) !important;
   border-radius: 14px !important;
-  background: var(--search-local-modal-background) !important;
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  background-image: none !important;
+  box-shadow: var(--search-local-modal-shadow) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  mix-blend-mode: normal !important;
+  opacity: 1 !important;
+  z-index: 320 !important;
 }
 
-/* Suggestion rows */
-.navbar__search [class*='suggestion'] {
-  border-radius: 10px !important;
+html[data-theme='dark'] .aa-DetachedFormContainer,
+html[data-theme='dark'] .algolia-autocomplete .ds-dropdown-menu {
+  background: #0a1330 !important;
+  background-color: #0a1330 !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+/* Autocomplete listbox + immediate wrappers (dataset / empty nodes): each gets an opaque fill
+   so WebKit/Firefox never composite the homepage hero through the overlay. */
+.navbar__search span[role='listbox'],
+.navbar__search span[role='listbox'] > * {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  background-image: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+html[data-theme='dark'] .navbar__search span[role='listbox'],
+html[data-theme='dark'] .navbar__search span[role='listbox'] > * {
+  background: #0a1330 !important;
+  background-color: #0a1330 !important;
+}
+
+html[data-theme='light'] .navbar-sidebar .navbar__search span[role='listbox'],
+html[data-theme='light'] .navbar-sidebar .navbar__search span[role='listbox'] > * {
+  background: #f4f4f5 !important;
+  background-color: #f4f4f5 !important;
+}
+
+/* Outer listbox: full height of content (no max-height / no overflow scroll inside the panel). */
+.navbar__search span[role='listbox'] {
+  border: 1px solid var(--safro-border) !important;
+  border-radius: 14px !important;
+  box-shadow: var(--search-local-modal-shadow) !important;
+  mix-blend-mode: normal !important;
+  opacity: 1 !important;
+  isolation: isolate;
+  z-index: 320 !important;
+  overflow: visible !important;
+}
+
+html[data-theme='dark'] .navbar__search span[role='listbox'] {
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+html[data-theme='light'] .navbar-sidebar .navbar__search span[role='listbox'] {
+  border-color: var(--safro-border) !important;
+}
+
+/* Hit rows only: use role=option — NOT [class*='suggestion'], which also matches the
+   autocomplete.js list wrapper class (*suggestions*) and capped the whole list to one row height. */
+.navbar__search span[role='listbox'] [role='option'] {
+  border-radius: 0 !important;
+  margin-bottom: 0 !important;
   padding: 0 14px !important;
   height: var(--search-local-hit-height) !important;
-  border: 1px solid transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  mix-blend-mode: normal !important;
   transition:
     background 120ms ease,
-    border-color 120ms ease,
     color 120ms ease !important;
 }
-.navbar__search [class*='suggestion']:hover {
-  border-color: rgba(96, 165, 250, 0.30) !important;
+
+.navbar__search span[role='listbox'] [role='option'] ~ [role='option'] {
+  border-top: 1px solid var(--safro-border) !important;
 }
-.navbar__search [class*='suggestion'][class*='cursor'] {
+
+html[data-theme='dark'] .navbar__search span[role='listbox'] [role='option'] ~ [role='option'] {
+  border-top-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.navbar__search span[role='listbox'] [role='option']:not([class*='cursor']) {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+}
+
+html[data-theme='dark'] .navbar__search span[role='listbox'] [role='option']:not([class*='cursor']) {
+  background: #0a1330 !important;
+  background-color: #0a1330 !important;
+}
+
+html[data-theme='light'] .navbar-sidebar .navbar__search span[role='listbox'] [role='option']:not([class*='cursor']) {
+  background: #f4f4f5 !important;
+  background-color: #f4f4f5 !important;
+}
+
+.navbar__search span[role='listbox'] [role='option']:not([class*='cursor']):hover {
+  background: rgba(74, 127, 219, 0.1) !important;
+}
+
+html[data-theme='dark'] .navbar__search span[role='listbox'] [role='option']:not([class*='cursor']):hover {
+  background: rgba(96, 165, 250, 0.16) !important;
+}
+
+html[data-theme='light'] .navbar-sidebar .navbar__search span[role='listbox'] [role='option']:not([class*='cursor']):hover {
+  background: rgba(74, 127, 219, 0.08) !important;
+}
+
+.navbar__search span[role='listbox'] [role='option'][class*='cursor'] {
   background: linear-gradient(
     90deg,
     var(--safro-accent) 0%,
@@ -979,32 +1081,67 @@ html[data-theme='dark'] {
   color: #ffffff !important;
   border-color: transparent !important;
 }
-.navbar__search [class*='suggestion'] [class*='hitTitle'] {
+
+.navbar__search span[role='listbox'] [role='option'] [class*='hitTitle'] {
   font-size: 0.92rem;
   font-weight: 600;
 }
-.navbar__search [class*='suggestion'] [class*='hitPath'] {
+
+.navbar__search span[role='listbox'] [role='option'] [class*='hitPath'] {
   font-size: 0.78rem;
   opacity: 0.85;
 }
-.navbar__search [class*='suggestion'] mark {
+
+.navbar__search span[role='listbox'] [role='option'] mark {
   background: transparent !important;
   color: var(--search-local-highlight-color) !important;
   font-weight: 700;
 }
-.navbar__search [class*='suggestion'][class*='cursor'] mark {
+
+.navbar__search span[role='listbox'] [role='option'][class*='cursor'] mark {
   color: #ffffff !important;
   text-decoration: underline;
 }
 
-/* Footer ("More results" link) */
+/* Stack hits vertically (wrapper name contains "suggestions"). */
+.navbar__search span[role='listbox'] [class*='suggestions'] {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+}
+
+/* Footer ("See all results") */
+.navbar__search span[role='listbox'] > [class*='hitFooter'],
 .navbar__search [class*='hitFooter'] {
   font-size: 0.82rem;
   color: var(--ifm-color-content-secondary);
-  padding-top: 8px;
+  padding-top: 10px;
+  padding-bottom: 4px;
   border-top: 1px solid var(--safro-border);
-  margin-top: 6px;
+  margin-top: 0 !important;
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  position: relative !important;
+  z-index: 2 !important;
+  box-shadow: 0 -8px 16px rgba(248, 250, 252, 0.95);
 }
+
+html[data-theme='dark'] .navbar__search span[role='listbox'] > [class*='hitFooter'],
+html[data-theme='dark'] .navbar__search [class*='hitFooter'] {
+  color: rgba(255, 255, 255, 0.68);
+  border-top-color: rgba(255, 255, 255, 0.12);
+  background: #0a1330 !important;
+  background-color: #0a1330 !important;
+  box-shadow: 0 -10px 22px rgba(10, 19, 48, 0.98);
+}
+
+html[data-theme='light'] .navbar-sidebar .navbar__search span[role='listbox'] > [class*='hitFooter'],
+html[data-theme='light'] .navbar-sidebar .navbar__search [class*='hitFooter'] {
+  background: #f4f4f5 !important;
+  background-color: #f4f4f5 !important;
+  box-shadow: 0 -8px 16px #f4f4f5;
+}
+
 .navbar__search [class*='hitFooter'] a {
   color: var(--safro-accent-light);
   text-decoration: none;
@@ -1513,5 +1650,19 @@ html[data-theme='light'] .safro-tier--core .safro-node {
   transform: translateY(-1px);
   color: var(--ifm-font-color-base);
   border-color: rgba(74, 127, 219, 0.35);
+}
+
+/* Icon-only variant (homepage CommunityCTA) */
+.safro-social-row--icons {
+  gap: 0.45rem;
+}
+.safro-social-row--icons a {
+  padding: 0.65rem;
+  justify-content: center;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+}
+.safro-social-row--icons svg {
+  display: block;
 }
 
