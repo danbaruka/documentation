@@ -606,6 +606,37 @@ pre code {
   border-top: 1px solid var(--safro-border);
   background: var(--safro-bg);
   padding: 2.6rem 0 1.2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Footer watermark (filigram): big low-opacity Safrochain under content */
+.footer::before {
+  content: 'Safrochain';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--ifm-heading-font-family);
+  font-weight: 800;
+  font-size: clamp(84px, 14vw, 220px);
+  letter-spacing: 0.04em;
+  line-height: 0.9;
+  text-transform: none;
+  color: rgba(255, 255, 255, 0.05);
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+  z-index: 0;
+}
+
+.footer .container {
+  position: relative;
+  z-index: 1;
+}
+
+html[data-theme='light'] .footer::before {
+  color: rgba(10, 10, 10, 0.06);
 }
 .footer .container {
   max-width: 1240px;
