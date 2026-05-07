@@ -5,7 +5,9 @@ description: "Inflation and minting parameters: query mint (transactions are gov
 
 The **mint** module defines **inflation**, **annual provisions**, and minting **parameters** for the staking denom.
 
-**Current inflation**: **5%** (0.05).
+**Current inflation (genesis target)**: **7%** (0.07).
+
+**Bounds**: **3%–14%** (min/max; governance adjustable).
 
 **CLI root**: `safrochaind query mint`
 

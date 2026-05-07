@@ -52,7 +52,7 @@ safrochaind query bank total --denom usaf
 ### Inflation & community-pool size
 
 ```bash
-# Inflation is currently 5% (0.05).
+# Inflation target is 7% (0.07); bounds are 3%–14%.
 safrochaind query mint inflation
 safrochaind query distribution community-pool
 ```
