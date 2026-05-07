@@ -52,6 +52,7 @@ safrochaind query bank total --denom usaf
 ### Inflation & community-pool size
 
 ```bash
+# Inflation is currently 5% (0.05).
 safrochaind query mint inflation
 safrochaind query distribution community-pool
 ```

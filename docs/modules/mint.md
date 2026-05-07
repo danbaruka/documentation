@@ -5,6 +5,8 @@ description: "Inflation and minting parameters: query mint (transactions are gov
 
 The **mint** module defines **inflation**, **annual provisions**, and minting **parameters** for the staking denom.
 
+**Current inflation**: **5%** (0.05).
+
 **CLI root**: `safrochaind query mint`
 
 The standard binary exposes **query only** for mint (parameter changes go through **governance**, not ad hoc user transactions).
