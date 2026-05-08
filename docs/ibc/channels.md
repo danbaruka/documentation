@@ -10,7 +10,7 @@ values, port handshakes, and IBC denoms will be filled in once the channel
 handshake completes on-chain. Until then this page is a registry of intent.
 :::
 
-## Mainnet: `safro-mainnet-1`
+## Mainnet: `safrochain-1`
 
 ### ICS-20 transfer channels (planned)
 

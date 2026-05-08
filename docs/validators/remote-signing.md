@@ -99,17 +99,17 @@ shred -u ~/.safrochain/config/priv_validator_key.json
 
 ```toml
 [[chain]]
-id = "safro-mainnet-1"
+id = "safrochain-1"
 key_format = { type = "bech32", account_key_prefix = "addr_safropub", consensus_key_prefix = "addr_safrovalconspub" }
 state_file = "/etc/tmkms/safro_state.json"
 
 [[providers.softsign]]
-chain_ids = ["safro-mainnet-1"]
+chain_ids = ["safrochain-1"]
 key_type = "consensus"
 path = "/etc/tmkms/safro_consensus.key"
 
 [[validator]]
-chain_id = "safro-mainnet-1"
+chain_id = "safrochain-1"
 addr = "tcp://10.0.0.10:26659"   # validator's privval_laddr
 secret_key = "/etc/tmkms/cosmos-validator-tmkms.id"
 protocol_version = "v0.34"

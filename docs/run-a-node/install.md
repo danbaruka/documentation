@@ -189,7 +189,7 @@ curl -fsSL https://raw.githubusercontent.com/Safrochain-Org/safrochain-node/main
 For **mainnet** (post-launch):
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/Safrochain-Org/safrochain-node/main/networks/safro-mainnet-1/genesis.json \
+curl -fsSL https://raw.githubusercontent.com/Safrochain-Org/safrochain-node/main/networks/safrochain-1/genesis.json \
   -o ~/.safrochain/config/genesis.json
 ```
 

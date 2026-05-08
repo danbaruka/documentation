@@ -92,7 +92,7 @@ Sign with `--ledger` on every `tx`:
 ```bash
 safrochaind tx staking edit-validator --commission-rate 0.06 \
   --from validator --ledger --keyring-backend file \
-  --chain-id safro-mainnet-1 --gas auto --gas-adjustment 1.3 \
+  --chain-id safrochain-1 --gas auto --gas-adjustment 1.3 \
   --fees 5000usaf --yes
 ```
 

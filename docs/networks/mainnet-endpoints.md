@@ -1,10 +1,10 @@
 ---
 title: Safrochain mainnet endpoints (RPC, REST, gRPC)
-description: Public RPC, REST (LCD), gRPC, gRPC-Web, P2P seeds, status, and Grafana endpoints for safro-mainnet-1.
+description: Public RPC, REST (LCD), gRPC, gRPC-Web, P2P seeds, status, and Grafana endpoints for safrochain-1.
 sidebar_position: 1
 keywords:
   - Safrochain mainnet
-  - safro-mainnet-1
+  - safrochain-1
   - public RPC
   - REST API
   - LCD
@@ -25,14 +25,14 @@ them as **reserved DNS names** (they may not resolve publicly).
 
 | Network | Chain ID | safrochain-node tag | Go |
 | --- | --- | --- | --- |
-| Mainnet | `safro-mainnet-1` | `v0.2.0` | `1.25.8` |
+| Mainnet | `safrochain-1` | `v0.2.0` | `1.25.8` |
 | Testnet | `safro-testnet-1` | `v0.1.0` | `1.25.8` |
 
 ## Chain identity
 
 | Field | Value |
 | --- | --- |
-| Chain ID | `safro-mainnet-1` |
+| Chain ID | `safrochain-1` |
 | Base denom | `usaf` |
 | Display denom | `SAF` |
 | Conversion | `1 SAF = 1_000_000 usaf` |

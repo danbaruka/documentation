@@ -104,7 +104,7 @@ same six pillars.
 
 | Network | Chain ID | Status | Validator slots |
 | --- | --- | --- | --- |
-| Mainnet | `safro-mainnet-1` | upcoming (Q3 2026) | confirmed in genesis |
+| Mainnet | `safrochain-1` | upcoming (Q3 2026) | confirmed in genesis |
 | Testnet | `safro-testnet-1` | live | open, faucet-funded |
 
 Always validate on testnet first. Every page in this section assumes you

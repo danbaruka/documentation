@@ -38,7 +38,7 @@ safrochaind query ibc-transfer denom-trace 27A6394C3F9...
 
 ```bash
 safrochaind tx bank send <from-key-or-address> <to-address> <amount><denom> \
-  --chain-id safro-mainnet-1 \
+  --chain-id safrochain-1 \
   --node https://rpc.safrochain.network:443 \
   --keyring-backend file \
   --gas auto --gas-adjustment 1.3 \
@@ -50,7 +50,7 @@ Example: send 1.5 SAF (= 1 500 000 usaf):
 
 ```bash
 safrochaind tx bank send alice addr_safro1bob... 1500000usaf \
-  --chain-id safro-mainnet-1 -y
+  --chain-id safrochain-1 -y
 ```
 
 ## Multi-send
@@ -61,7 +61,7 @@ Send to multiple recipients in a single tx. Useful for treasury payouts:
 safrochaind tx bank multi-send sender \
   addr_safro1aaa... addr_safro1bbb... addr_safro1ccc... \
   3000000usaf \
-  --chain-id safro-mainnet-1 -y
+  --chain-id safrochain-1 -y
 ```
 
 The amount (`3000000usaf` here) is sent **to each** recipient, deducted from

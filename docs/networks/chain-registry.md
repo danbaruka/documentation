@@ -7,7 +7,7 @@ sidebar_position: 4
 These descriptors follow the [`cosmos/chain-registry`](https://github.com/cosmos/chain-registry)
 schema so that wallets, explorers, and relayers can auto-configure.
 
-## Mainnet: `safro-mainnet-1` (Q3 2026)
+## Mainnet: `safrochain-1` (Q3 2026)
 
 ```json
 {
@@ -17,7 +17,7 @@ schema so that wallets, explorers, and relayers can auto-configure.
   "network_type": "mainnet",
   "website": "https://safrochain.com",
   "pretty_name": "Safrochain",
-  "chain_id": "safro-mainnet-1",
+  "chain_id": "safrochain-1",
   "bech32_prefix": "addr_safro",
   "daemon_name": "safrochaind",
   "node_home": "$HOME/.safrochain",

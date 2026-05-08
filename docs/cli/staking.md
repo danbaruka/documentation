@@ -26,7 +26,7 @@ safrochaind query staking validators --limit 200 -o json \
 ```bash
 safrochaind tx staking delegate <validator-operator-addr> <amount>usaf \
   --from <delegator-key> \
-  --chain-id safro-mainnet-1 \
+  --chain-id safrochain-1 \
   --gas auto --gas-adjustment 1.3 --fees 5000usaf \
   -y
 ```
@@ -35,7 +35,7 @@ safrochaind tx staking delegate <validator-operator-addr> <amount>usaf \
 
 ```bash
 safrochaind tx staking redelegate <src-valoper> <dst-valoper> <amount>usaf \
-  --from <delegator-key> --chain-id safro-mainnet-1 -y
+  --from <delegator-key> --chain-id safrochain-1 -y
 ```
 
 You can only redelegate **between two validators at most once per
@@ -45,7 +45,7 @@ unbonding period**, a chain-side anti-frontrun guard.
 
 ```bash
 safrochaind tx staking unbond <validator-operator-addr> <amount>usaf \
-  --from <delegator-key> --chain-id safro-mainnet-1 -y
+  --from <delegator-key> --chain-id safrochain-1 -y
 ```
 
 Stake enters the unbonding queue. It earns no rewards but **can still be
@@ -55,7 +55,7 @@ slashed** for offences that happened before the unbond began.
 
 ```bash
 safrochaind tx staking cancel-unbond <validator-operator-addr> <amount>usaf <creation-height> \
-  --from <delegator-key> --chain-id safro-mainnet-1 -y
+  --from <delegator-key> --chain-id safrochain-1 -y
 ```
 
 `creation-height` is the block height where the original unbond was

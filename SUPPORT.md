@@ -10,7 +10,7 @@ trying to do.
 
 Include in your message:
 
-- chain id (`safro-testnet-1` or `safro-mainnet-1`)
+- chain id (`safro-testnet-1` or `safrochain-1`)
 - your `safrochaind version`
 - your OS and CPU architecture
 - the last ~50 lines of logs around the failure

@@ -28,6 +28,7 @@ Key fields:
 | Field | Meaning |
 | --- | --- |
 | `min_deposit` | tokens that must be staked to start voting |
+| `expedited_min_deposit` | separate floor for expedited proposals (mainnet genesis target: `10000000000usaf`) |
 | `voting_period` | how long voting lasts once `min_deposit` is reached |
 | `quorum` | turnout floor for the proposal to be considered valid |
 | `threshold` | yes-vote ratio for the proposal to pass |
@@ -42,14 +43,14 @@ cat > proposal.json <<EOF
 {
   "messages": [],
   "metadata": "ipfs://Qm.../proposal.md",
-  "deposit": "10000000usaf",
-  "title": "Reduce min_gas_prices to 0.01 usaf",
-  "summary": "Cut the min gas price floor to make sub-cent payments cheaper."
+  "deposit": "5000000000usaf",
+  "title": "Example: match mainnet min_deposit",
+  "summary": "Initial deposit must reach min_deposit before voting (mainnet genesis target: 5000000000usaf)."
 }
 EOF
 
 safrochaind tx gov submit-proposal proposal.json \
-  --from alice --chain-id safro-mainnet-1 \
+  --from alice --chain-id safrochain-1 \
   --gas auto --gas-adjustment 1.3 --fees 5000usaf -y
 ```
 
@@ -62,8 +63,8 @@ If `deposit` < `min_deposit`, the proposal sits in deposit period until it
 is funded:
 
 ```bash
-safrochaind tx gov deposit <proposal-id> 5000000usaf \
-  --from alice --chain-id safro-mainnet-1 -y
+safrochaind tx gov deposit <proposal-id> 2500000000usaf \
+  --from alice --chain-id safrochain-1 -y
 ```
 
 Once `min_deposit` is reached, voting begins and the timer for
@@ -73,7 +74,7 @@ Once `min_deposit` is reached, voting begins and the timer for
 
 ```bash
 safrochaind tx gov vote <proposal-id> <yes|no|abstain|no_with_veto> \
-  --from alice --chain-id safro-mainnet-1 -y
+  --from alice --chain-id safrochain-1 -y
 ```
 
 `weighted-vote` lets you split your stake:

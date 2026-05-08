@@ -46,7 +46,7 @@ For an exhaustive build/run guide, see
 `~/.safrochain/config/client.toml`:
 
 ```bash
-safrochaind config chain-id  safro-mainnet-1
+safrochaind config chain-id  safrochain-1
 safrochaind config node      https://rpc.safrochain.network:443
 safrochaind config keyring-backend file
 safrochaind config broadcast-mode sync
@@ -61,7 +61,7 @@ After this, you can drop `--chain-id`, `--node`, `--keyring-backend`,
 | Flag | Purpose |
 | --- | --- |
 | `--node URL` | RPC to use. Mainnet: `https://rpc.safrochain.network:443`. Testnet: `https://rpc.testnet.safrochain.com:443`. |
-| `--chain-id ID` | `safro-mainnet-1` or `safro-testnet-1`. |
+| `--chain-id ID` | `safrochain-1` or `safro-testnet-1`. |
 | `--keyring-backend KIND` | `file` (recommended) / `os` / `test` (sandbox only). |
 | `--from KEY` | which signer key to use. |
 | `--gas auto --gas-adjustment 1.3` | safe default; override with a fixed number for known-cheap txs. |

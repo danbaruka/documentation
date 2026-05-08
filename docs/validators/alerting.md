@@ -238,7 +238,7 @@ below: keep it short, action-first, and version-controlled.
    ```bash
    safrochaind tx slashing unjail \
      --from validator --keyring-backend file \
-     --chain-id safro-mainnet-1 \
+     --chain-id safrochain-1 \
      --gas auto --gas-adjustment 1.3 --fees 5000usaf \
      --node https://rpc.safrochain.network:443 --yes
    ```

@@ -1,7 +1,7 @@
 {
   "id": "networks/mainnet-endpoints",
   "title": "Safrochain mainnet endpoints (RPC, REST, gRPC)",
-  "description": "Public RPC, REST (LCD), gRPC, gRPC-Web, P2P seeds, status, and Grafana endpoints for safro-mainnet-1.",
+  "description": "Public RPC, REST (LCD), gRPC, gRPC-Web, P2P seeds, status, and Grafana endpoints for safrochain-1.",
   "source": "@site/docs/networks/mainnet-endpoints.md",
   "sourceDirName": "networks",
   "slug": "/networks/mainnet-endpoints",
@@ -14,11 +14,11 @@
   "sidebarPosition": 1,
   "frontMatter": {
     "title": "Safrochain mainnet endpoints (RPC, REST, gRPC)",
-    "description": "Public RPC, REST (LCD), gRPC, gRPC-Web, P2P seeds, status, and Grafana endpoints for safro-mainnet-1.",
+    "description": "Public RPC, REST (LCD), gRPC, gRPC-Web, P2P seeds, status, and Grafana endpoints for safrochain-1.",
     "sidebar_position": 1,
     "keywords": [
       "Safrochain mainnet",
-      "safro-mainnet-1",
+      "safrochain-1",
       "public RPC",
       "REST API",
       "LCD",

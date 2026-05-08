@@ -28,7 +28,7 @@ assumes:
 
 ```bash
 export VALADDR=$(safrochaind keys show validator --bech val -a --keyring-backend file)
-export CHAIN_ID=safro-mainnet-1
+export CHAIN_ID=safrochain-1
 export NODE=https://rpc.safrochain.network:443
 export FEES="--gas auto --gas-adjustment 1.3 --fees 5000usaf"
 ```

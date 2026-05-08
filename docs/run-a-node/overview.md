@@ -39,7 +39,7 @@ This section covers running a Safrochain full node with **`safrochaind`**.
 2. [Hardware requirements](./hardware): sizing per role (validator, sentry, RPC, archive).
 3. [Local testnet](./local-testnet): single-process sandbox.
 4. [Join testnet](./join-testnet): live `safro-testnet-1`.
-5. [Join mainnet](./join-mainnet): `safro-mainnet-1` (opens Q3 2026).
+5. [Join mainnet](./join-mainnet): `safrochain-1` (opens Q3 2026).
 6. [Snapshots](./snapshots): fast catch-up via tarballs.
 7. [Statesync](./statesync): cryptographic light-client sync.
 8. [Upgrades](./upgrades): cosmovisor flow for chain upgrades.

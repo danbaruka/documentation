@@ -174,7 +174,7 @@ safrochaind tx staking create-validator validator.json \
 ```bash
 safrochaind tx staking create-validator validator.json \
   --from validator \
-  --chain-id safro-mainnet-1 \
+  --chain-id safrochain-1 \
   --gas auto --gas-adjustment 1.3 \
   --fees 5000usaf \
   --keyring-backend file \

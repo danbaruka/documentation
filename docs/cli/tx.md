@@ -34,7 +34,7 @@ safrochaind tx --help
 
 ```bash
 --from <key>                  # keyring entry
---chain-id safro-mainnet-1
+--chain-id safrochain-1
 --node https://rpc.safrochain.network:443
 --keyring-backend file
 --gas auto --gas-adjustment 1.3
@@ -110,13 +110,13 @@ For air-gapped signing or multisig, decompose the standard flow:
 ```bash
 # 1. build unsigned tx
 safrochaind tx bank send alice addr_safro1bbb... 1000000usaf \
-  --chain-id safro-mainnet-1 --node https://rpc.safrochain.network:443 \
+  --chain-id safrochain-1 --node https://rpc.safrochain.network:443 \
   --gas 200000 --fees 5000usaf \
   --generate-only > unsigned.json
 
 # 2. sign offline (or by another keyring)
 safrochaind tx sign unsigned.json \
-  --from alice --chain-id safro-mainnet-1 \
+  --from alice --chain-id safrochain-1 \
   --offline --account-number <N> --sequence <S> \
   --keyring-backend file > signed.json
 

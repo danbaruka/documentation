@@ -163,7 +163,7 @@ global:
   scrape_interval: 15s
   evaluation_interval: 30s
   external_labels:
-    chain: safro-mainnet-1
+    chain: safrochain-1
 
 rule_files:
   - /etc/prometheus/alerts.yml

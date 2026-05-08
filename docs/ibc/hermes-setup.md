@@ -66,7 +66,7 @@ port = 3001
 # Safrochain (mainnet, uncomment for production)
 # ----------------------------------------------------------------------------
 [[chains]]
-id = 'safro-mainnet-1'
+id = 'safrochain-1'
 type = 'CosmosSdk'
 rpc_addr = 'https://rpc1.safrochain.network:443'
 grpc_addr = 'https://grpc1.safrochain.network:443'
@@ -130,7 +130,7 @@ denom = 'usaf'
 ```bash
 # Safrochain
 hermes keys add \
-  --chain safro-mainnet-1 \
+  --chain safrochain-1 \
   --mnemonic-file <(echo "your 24-word mnemonic")
 
 # Counterparty (example: Cosmos Hub)
@@ -142,8 +142,8 @@ hermes keys add \
 Verify:
 
 ```bash
-hermes keys list --chain safro-mainnet-1
-hermes keys balance --chain safro-mainnet-1
+hermes keys list --chain safrochain-1
+hermes keys balance --chain safrochain-1
 ```
 
 ## Validate the config
@@ -160,7 +160,7 @@ period vs unbonding period.
 
 ```bash
 hermes create channel \
-  --a-chain safro-mainnet-1 \
+  --a-chain safrochain-1 \
   --b-chain cosmoshub-4 \
   --a-port transfer \
   --b-port transfer \
@@ -204,7 +204,7 @@ sudo journalctl -u hermes -f
 # from another machine
 safrochaind tx ibc-transfer transfer transfer channel-0 \
   cosmos1abc... 1000000usaf \
-  --from sender --chain-id safro-mainnet-1 \
+  --from sender --chain-id safrochain-1 \
   --node https://rpc.safrochain.network:443 \
   --gas auto --gas-adjustment 1.3 --fees 5000usaf -y
 ```
@@ -212,7 +212,7 @@ safrochaind tx ibc-transfer transfer transfer channel-0 \
 Watch Hermes log:
 
 ```text
-INFO ibc::relay::link::relay_path: relayed packets: src_chain=safro-mainnet-1 dst_chain=cosmoshub-4 ...
+INFO ibc::relay::link::relay_path: relayed packets: src_chain=safrochain-1 dst_chain=cosmoshub-4 ...
 ```
 
 Verify on the counterparty:

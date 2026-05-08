@@ -5,6 +5,8 @@ description: "Chain-wide minimum gas prices via the globalfee module: CLI querie
 
 The **globalfee** module exposes **minimum gas prices** enforced across the network (aligned with the Cosmos SDK fee market expectations used by validators). Governance updates module parameters; everyday users mainly **query** current minimums.
 
+Published mainnet genesis is expected to ship with a chain-wide minimum of **`0.075usaf`** in the globalfee module. Validators should set matching `minimum-gas-prices` in `app.toml` so node policy and network policy stay aligned.
+
 **CLI root**: `safrochaind query globalfee` and `safrochaind tx globalfee`
 
 ## Query commands

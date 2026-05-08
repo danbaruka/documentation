@@ -1,6 +1,6 @@
 ---
 title: Join mainnet
-description: Sync a Safrochain node against safro-mainnet-1 (Q3 2026).
+description: Sync a Safrochain node against safrochain-1 (Q3 2026).
 sidebar_position: 6
 ---
 
@@ -14,7 +14,7 @@ genesis SHA-256 are placeholders until the chain is live.
 
 | Network | Chain ID | safrochain-node tag | Go |
 | --- | --- | --- | --- |
-| Mainnet | `safro-mainnet-1` | `v0.2.0` | `1.25.8` |
+| Mainnet | `safrochain-1` | `v0.2.0` | `1.25.8` |
 | Testnet | `safro-testnet-1` | `v0.1.0` | `1.25.8` |
 
 ## Endpoints
@@ -46,13 +46,13 @@ safrochaind version
 ### 2. Initialise the home
 
 ```bash
-safrochaind init my-moniker --chain-id safro-mainnet-1 --home ~/.safrochain
+safrochaind init my-moniker --chain-id safrochain-1 --home ~/.safrochain
 ```
 
 ### 3. Replace genesis
 
 ```bash
-curl -L https://raw.githubusercontent.com/Safrochain-Org/safrochain-node/main/networks/safro-mainnet-1/genesis.json \
+curl -L https://raw.githubusercontent.com/Safrochain-Org/safrochain-node/main/networks/safrochain-1/genesis.json \
   -o ~/.safrochain/config/genesis.json
 
 sha256sum ~/.safrochain/config/genesis.json
@@ -137,7 +137,7 @@ pruning = "nothing"
 ### 6. Set CLI defaults
 
 ```bash
-safrochaind config chain-id  safro-mainnet-1
+safrochaind config chain-id  safrochain-1
 safrochaind config node      https://rpc.safrochain.network:443
 safrochaind config keyring-backend file
 safrochaind config broadcast-mode sync

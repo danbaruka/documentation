@@ -12,7 +12,7 @@ exercise the full validator + node + wallet stack end-to-end.
 | Network | Chain ID | safrochain-node tag | Go |
 | --- | --- | --- | --- |
 | Testnet | `safro-testnet-1` | `v0.1.0` | `1.25.8` |
-| Mainnet | `safro-mainnet-1` | `v0.2.0` | `1.25.8` |
+| Mainnet | `safrochain-1` | `v0.2.0` | `1.25.8` |
 
 ## Endpoints
 

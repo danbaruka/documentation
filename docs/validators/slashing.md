@@ -19,6 +19,8 @@ parameters from the chain before depending on them:
 safrochaind query slashing params --node https://rpc.safrochain.network:443
 ```
 
+**Planned mainnet defaults** (published genesis; confirm on-chain): `signed_blocks_window` **10000**, **`min_signed_per_window` 0.8** (validators must sign at least **80%** of blocks in the window to avoid downtime slash), **`downtime_jail_duration` 3600s** (one hour before `unjail` is accepted). Evidence limits in consensus params target a **14-day** maximum age, aligned with the **14-day** staking unbonding period.
+
 ## Why downtime happens
 
 - Validator process crashed (OOM, panic, disk full)
@@ -60,7 +62,7 @@ safrochaind query staking validator "$VALADDR" \
 # 3. submit unjail
 safrochaind tx slashing unjail \
   --from validator \
-  --chain-id safro-mainnet-1 \
+  --chain-id safrochain-1 \
   --gas auto --gas-adjustment 1.3 \
   --fees 5000usaf \
   --node https://rpc.safrochain.network:443 \

@@ -32,7 +32,7 @@ mkdir -p ~/.safrochain/data
 
 # Download (use the archive variant if you want full history)
 HEIGHT=2500000
-TAR="safrochain-safro-mainnet-1-$HEIGHT-default.tar.lz4"
+TAR="safrochain-safrochain-1-$HEIGHT-default.tar.lz4"
 curl -O "https://snapshots.safrochain.network/$TAR"
 curl -O "https://snapshots.safrochain.network/$TAR.sha256"
 
