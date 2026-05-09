@@ -31,9 +31,9 @@ source ~/.bashrc
 
 ```text
 ~/.safrochain/cosmovisor/
-  current -> upgrades/v0.2.0          # symlink, cosmovisor manages it
+  current -> upgrades/v0.2.1          # symlink, cosmovisor manages it
   genesis/bin/safrochaind             # the binary you launched the chain with
-  upgrades/v0.2.0/bin/safrochaind     # current release
+  upgrades/v0.2.1/bin/safrochaind     # current release
   upgrades/v0.3.0/bin/safrochaind     # staged for the next upgrade
 ```
 

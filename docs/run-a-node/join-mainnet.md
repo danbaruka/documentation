@@ -14,8 +14,8 @@ genesis SHA-256 are placeholders until the chain is live.
 
 | Network | Chain ID | safrochain-node tag | Go |
 | --- | --- | --- | --- |
-| Mainnet | `safrochain-1` | `v0.2.0` | `1.25.8` |
-| Testnet | `safro-testnet-1` | `v0.1.0` | `1.25.8` |
+| Mainnet | `safrochain-1` | `v0.2.1` | `1.25.8` |
+| Testnet | `safro-testnet-1` | `release/v0.1.0` | `1.23.9` |
 
 ## Endpoints
 
@@ -33,14 +33,58 @@ reference:
 
 ## Steps
 
-### 1. Install `safrochaind`
+### 1. Install `safrochaind` (mainnet)
+
+Follow the **Mainnet** track in [Install](./install) (Go **1.25.8** + tag
+**`v0.2.1`**), or run the consolidated copy-paste block below.
 
 ```bash
-git clone https://github.com/Safrochain-Org/safrochain-node
-cd safrochain-node
-git checkout v0.2.0
+# =============================================================================
+# Mainnet — Go 1.25.8 + safrochaind v0.2.1 (Ubuntu / Debian)
+# Chain ID: safrochain-1
+# =============================================================================
+
+# Update package lists and install dependencies
+sudo apt update
+sudo apt install -y git make jq build-essential wget curl
+
+# Download and install Go 1.25.8
+wget https://go.dev/dl/go1.25.8.linux-amd64.tar.gz
+sudo rm -rf /usr/local/go
+sudo tar -C /usr/local -xzf go1.25.8.linux-amd64.tar.gz
+rm go1.25.8.linux-amd64.tar.gz
+
+# Configure Go environment
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+mkdir -p $GOPATH
+
+# Persist environment variables
+echo 'export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin' >> $HOME/.bashrc
+source $HOME/.bashrc
+
+# Verify Go installation
+if go version | grep -q "go1.25.8"; then
+    echo "Go 1.25.8 installed successfully."
+else
+    echo "Error: Go 1.25.8 not installed. Check installation steps."
+    exit 1
+fi
+
+# Build safrochaind v0.2.1 (mainnet tag)
+git clone https://github.com/Safrochain-Org/safrochain-node ~/safrochain-node
+cd ~/safrochain-node
+git fetch --tags
+git checkout v0.2.1
 make install
-safrochaind version
+
+# Verify — expected output:
+#   safrochaind   v0.2.1
+#   Cosmos SDK    v0.50.14
+#   CometBFT      v0.38.21
+#   Go runtime    go1.25.8 ...
+safrochaind version --long | head -5
 ```
 
 ### 2. Initialise the home
@@ -61,16 +105,16 @@ sha256sum ~/.safrochain/config/genesis.json
 
 Source of truth at launch:
 
-- The GitHub **release** for tag `v0.2.0` will publish:
+- The GitHub **release** for tag `v0.2.1` will publish:
   - `genesis.json`
   - `genesis.json.sha256`
 
 Verify using the published checksum:
 
 ```bash
-curl -fsSL https://github.com/Safrochain-Org/safrochain-node/releases/download/v0.2.0/genesis.json \
+curl -fsSL https://github.com/Safrochain-Org/safrochain-node/releases/download/v0.2.1/genesis.json \
   -o ~/.safrochain/config/genesis.json
-curl -fsSL https://github.com/Safrochain-Org/safrochain-node/releases/download/v0.2.0/genesis.json.sha256 \
+curl -fsSL https://github.com/Safrochain-Org/safrochain-node/releases/download/v0.2.1/genesis.json.sha256 \
   -o /tmp/genesis.json.sha256
 ( cd ~/.safrochain/config && shasum -a 256 -c /tmp/genesis.json.sha256 )
 ```
@@ -90,7 +134,7 @@ pex = true
 The seed node IDs are published in:
 
 - [Chain registry](../networks/chain-registry) (field `peers.seeds[].id`)
-- the `v0.2.0` GitHub release notes
+- the `v0.2.1` GitHub release notes
 
 At launch, you will replace `<NODEID1>` and `<NODEID2>` with 40-hex-char node IDs:
 

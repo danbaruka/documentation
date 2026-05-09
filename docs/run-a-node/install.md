@@ -13,13 +13,21 @@ blocks straight into a terminal.
 
 ## Prerequisites
 
-| Tool | Version |
-| --- | --- |
-| Go | **1.25.8** |
-| make | any |
-| git | any |
-| C toolchain | `build-essential` (Linux) or Xcode CLI tools (macOS) |
-| OS | Linux x86_64 / arm64, macOS (Intel or Apple Silicon) |
+| Tool | Mainnet | Testnet |
+| --- | --- | --- |
+| Go | **1.25.8** | **1.23.9** |
+| safrochain-node tag | **`v0.2.1`** | **`release/v0.1.0`** |
+| make | any | any |
+| git | any | any |
+| C toolchain | `build-essential` (Linux) or Xcode CLI tools (macOS) | same |
+| OS | Linux x86_64 / arm64, macOS (Intel or Apple Silicon) | same |
+
+:::warning Pick the right network
+Mainnet and testnet **do not share a Go toolchain**. Mainnet (`safrochain-1`)
+requires **Go 1.25.8** and tag `v0.2.1`. Testnet (`safro-testnet-1`) requires
+**Go 1.23.9** and tag `release/v0.1.0`. Mixing them produces a binary that
+will fail to start with `Apphash mismatch` or refuse to build.
+:::
 
 ## 1 · Install build tools
 
@@ -28,14 +36,14 @@ blocks straight into a terminal.
 
 ```bash
 sudo apt update
-sudo apt install -y build-essential git curl jq make pkg-config libssl-dev
+sudo apt install -y build-essential git curl jq make pkg-config libssl-dev wget
 ```
 
   </TabItem>
   <TabItem value="rhel" label="Fedora / RHEL">
 
 ```bash
-sudo dnf install -y @development-tools git curl jq make openssl-devel
+sudo dnf install -y @development-tools git curl jq make openssl-devel wget
 ```
 
   </TabItem>
@@ -43,111 +51,243 @@ sudo dnf install -y @development-tools git curl jq make openssl-devel
 
 ```bash
 xcode-select --install || true
-brew install git curl jq make
+brew install git curl jq make wget
 ```
 
   </TabItem>
 </Tabs>
 
-## 2 · Install Go 1.25.8
+---
+
+## 2 · Install Go and build `safrochaind`
+
+Pick **one** of the two flows below. Do not run both on the same machine
+unless you understand how to manage multiple Go toolchains side-by-side.
+
+<Tabs groupId="network" defaultValue="mainnet">
+
+<TabItem value="mainnet" label="Mainnet (safrochain-1)">
+
+### 2.a — Install Go **1.25.8** for mainnet
 
 <Tabs groupId="os" defaultValue="ubuntu">
   <TabItem value="ubuntu" label="Ubuntu / Debian">
 
 ```bash
-GO_VERSION=1.25.8
-ARCH=$(dpkg --print-architecture)        # amd64 or arm64
-curl -fsSL "https://go.dev/dl/go${GO_VERSION}.linux-${ARCH}.tar.gz" \
-  | sudo tar -C /usr/local -xz
+# =============================================================================
+# Mainnet — Go 1.25.8 install (Ubuntu / Debian)
+# Required for: safrochain-1, safrochain-node tag v0.2.1
+# =============================================================================
 
-cat <<'EOF' >> ~/.bashrc
+# Update package lists and install dependencies
+sudo apt update
+sudo apt install -y git make jq build-essential wget curl
+
+# Download and install Go 1.25.8
+wget https://go.dev/dl/go1.25.8.linux-amd64.tar.gz
+sudo rm -rf /usr/local/go
+sudo tar -C /usr/local -xzf go1.25.8.linux-amd64.tar.gz
+rm go1.25.8.linux-amd64.tar.gz
+
+# Configure Go environment
 export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:$HOME/go/bin
-EOF
-source ~/.bashrc
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+mkdir -p $GOPATH
 
-go version
+# Persist environment variables
+echo 'export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin' >> $HOME/.bashrc
+source $HOME/.bashrc
+
+# Verify Go installation
+if go version | grep -q "go1.25.8"; then
+    echo "Go 1.25.8 installed successfully."
+else
+    echo "Error: Go 1.25.8 not installed. Check installation steps."
+    exit 1
+fi
 ```
 
   </TabItem>
   <TabItem value="rhel" label="Fedora / RHEL">
 
 ```bash
-GO_VERSION=1.25.8
+# =============================================================================
+# Mainnet — Go 1.25.8 install (Fedora / RHEL)
+# =============================================================================
+sudo dnf install -y @development-tools git curl jq make openssl-devel wget
+
 ARCH=$(uname -m | sed 's/x86_64/amd64/;s/aarch64/arm64/')
-curl -fsSL "https://go.dev/dl/go${GO_VERSION}.linux-${ARCH}.tar.gz" \
-  | sudo tar -C /usr/local -xz
+wget "https://go.dev/dl/go1.25.8.linux-${ARCH}.tar.gz"
+sudo rm -rf /usr/local/go
+sudo tar -C /usr/local -xzf "go1.25.8.linux-${ARCH}.tar.gz"
+rm "go1.25.8.linux-${ARCH}.tar.gz"
 
-cat <<'EOF' >> ~/.bashrc
-export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:$HOME/go/bin
-EOF
-source ~/.bashrc
+echo 'export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin' >> $HOME/.bashrc
+source $HOME/.bashrc
 
-go version
+go version | grep -q "go1.25.8" && echo "Go 1.25.8 OK" || { echo "Go 1.25.8 missing"; exit 1; }
 ```
 
   </TabItem>
   <TabItem value="macos" label="macOS">
 
 ```bash
-GO_VERSION=1.25.8
+# =============================================================================
+# Mainnet — Go 1.25.8 install (macOS, Intel or Apple Silicon)
+# =============================================================================
 ARCH=$(uname -m | sed 's/x86_64/amd64/;s/arm64/arm64/')
-curl -fsSL "https://go.dev/dl/go${GO_VERSION}.darwin-${ARCH}.tar.gz" \
-  | sudo tar -C /usr/local -xz
+curl -fsSL "https://go.dev/dl/go1.25.8.darwin-${ARCH}.tar.gz" -o go1.25.8.darwin.tar.gz
+sudo rm -rf /usr/local/go
+sudo tar -C /usr/local -xzf go1.25.8.darwin.tar.gz
+rm go1.25.8.darwin.tar.gz
 
-cat <<'EOF' >> ~/.zshrc
-export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:$HOME/go/bin
-EOF
-source ~/.zshrc
+echo 'export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin' >> $HOME/.zshrc
+source $HOME/.zshrc
 
-go version
+go version | grep -q "go1.25.8" && echo "Go 1.25.8 OK" || { echo "Go 1.25.8 missing"; exit 1; }
 ```
 
   </TabItem>
 </Tabs>
 
-You should see something like `go version go1.25.8 darwin/arm64` (or
-`linux/amd64`).
+You should see `go version go1.25.8 linux/amd64` (or `darwin/arm64`).
 
-## 3 · Build `safrochaind` from source
+### 2.b — Build `safrochaind` for **mainnet** (tag `v0.2.1`)
+
+```bash
+# =============================================================================
+# Mainnet — clone, checkout v0.2.1, build
+# Chain ID: safrochain-1
+# =============================================================================
+git clone https://github.com/Safrochain-Org/safrochain-node ~/safrochain-node
+cd ~/safrochain-node
+git fetch --tags
+
+# IMPORTANT: mainnet uses tag v0.2.1 (NOT v0.2.0, NOT release/v0.1.0)
+git checkout v0.2.1
+
+make install
+
+# Verify — expected output:
+#   safrochaind   v0.2.1
+#   Cosmos SDK    v0.50.14
+#   CometBFT      v0.38.21
+#   Go runtime    go1.25.8 ...
+safrochaind version --long | head -5
+```
+
+</TabItem>
+
+<TabItem value="testnet" label="Testnet (safro-testnet-1)">
+
+### 2.a — Install Go **1.23.9** for testnet
 
 <Tabs groupId="os" defaultValue="ubuntu">
-  <TabItem value="ubuntu" label="Linux">
+  <TabItem value="ubuntu" label="Ubuntu / Debian">
 
 ```bash
-git clone https://github.com/Safrochain-Org/safrochain-node ~/safrochain-node
-cd ~/safrochain-node
-git fetch --tags
-git checkout v0.1.0   # testnet release tag
-make install
-safrochaind version --long | head -5
+# =============================================================================
+# Testnet — Go 1.23.9 install (Ubuntu / Debian)
+# Required for: safro-testnet-1, safrochain-node tag release/v0.1.0
+# =============================================================================
+
+# Update package lists and install dependencies
+sudo apt update
+sudo apt install -y git make jq build-essential
+
+# Download and install Go 1.23.9
+wget https://go.dev/dl/go1.23.9.linux-amd64.tar.gz
+sudo rm -rf /usr/local/go
+sudo tar -C /usr/local -xzf go1.23.9.linux-amd64.tar.gz
+rm go1.23.9.linux-amd64.tar.gz
+
+# Configure Go environment
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+mkdir -p $GOPATH
+
+# Persist environment variables
+echo 'export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin' >> $HOME/.bashrc
+source $HOME/.bashrc
+
+# Verify Go installation
+if go version | grep -q "go1.23.9"; then
+    echo "Go 1.23.9 installed successfully."
+else
+    echo "Error: Go 1.23.9 not installed. Check installation steps."
+    exit 1
+fi
+```
+
+  </TabItem>
+  <TabItem value="rhel" label="Fedora / RHEL">
+
+```bash
+# =============================================================================
+# Testnet — Go 1.23.9 install (Fedora / RHEL)
+# =============================================================================
+sudo dnf install -y @development-tools git curl jq make openssl-devel wget
+
+ARCH=$(uname -m | sed 's/x86_64/amd64/;s/aarch64/arm64/')
+wget "https://go.dev/dl/go1.23.9.linux-${ARCH}.tar.gz"
+sudo rm -rf /usr/local/go
+sudo tar -C /usr/local -xzf "go1.23.9.linux-${ARCH}.tar.gz"
+rm "go1.23.9.linux-${ARCH}.tar.gz"
+
+echo 'export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin' >> $HOME/.bashrc
+source $HOME/.bashrc
+
+go version | grep -q "go1.23.9" && echo "Go 1.23.9 OK" || { echo "Go 1.23.9 missing"; exit 1; }
 ```
 
   </TabItem>
   <TabItem value="macos" label="macOS">
 
 ```bash
-git clone https://github.com/Safrochain-Org/safrochain-node ~/safrochain-node
-cd ~/safrochain-node
-git fetch --tags
-git checkout v0.1.0
-make install
-safrochaind version --long | head -5
+# =============================================================================
+# Testnet — Go 1.23.9 install (macOS, Intel or Apple Silicon)
+# =============================================================================
+ARCH=$(uname -m | sed 's/x86_64/amd64/;s/arm64/arm64/')
+curl -fsSL "https://go.dev/dl/go1.23.9.darwin-${ARCH}.tar.gz" -o go1.23.9.darwin.tar.gz
+sudo rm -rf /usr/local/go
+sudo tar -C /usr/local -xzf go1.23.9.darwin.tar.gz
+rm go1.23.9.darwin.tar.gz
+
+echo 'export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin' >> $HOME/.zshrc
+source $HOME/.zshrc
+
+go version | grep -q "go1.23.9" && echo "Go 1.23.9 OK" || { echo "Go 1.23.9 missing"; exit 1; }
 ```
 
   </TabItem>
 </Tabs>
 
-To build for **mainnet**, check out **`v0.2.0`** instead:
+You should see `go version go1.23.9 linux/amd64` (or `darwin/arm64`).
+
+### 2.b — Build `safrochaind` for **testnet** (tag `release/v0.1.0`)
 
 ```bash
+# =============================================================================
+# Testnet — clone, checkout release/v0.1.0, build
+# Chain ID: safro-testnet-1
+# =============================================================================
+git clone https://github.com/Safrochain-Org/safrochain-node ~/safrochain-node
 cd ~/safrochain-node
 git fetch --tags
-git checkout v0.2.0
+
+# IMPORTANT: testnet uses the release/v0.1.0 branch (NOT v0.2.1)
+git checkout release/v0.1.0
+
 make install
+
+safrochaind version --long | head -5
 ```
+
+</TabItem>
+
+</Tabs>
 
 `make install` puts the binary in `$GOBIN` (defaults to `~/go/bin`). If
 `safrochaind` is not on your `$PATH`, run:
@@ -261,7 +401,7 @@ in a `launchd` plist.
 ```bash
 cd ~/safrochain-node
 git fetch --tags
-git checkout v<next-release>
+git checkout v<next-release>          # mainnet: e.g. v0.2.1, then v0.3.0, ...
 make install
 sudo systemctl restart safrochaind   # Linux only
 safrochaind version

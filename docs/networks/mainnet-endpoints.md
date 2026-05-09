@@ -25,8 +25,8 @@ them as **reserved DNS names** (they may not resolve publicly).
 
 | Network | Chain ID | safrochain-node tag | Go |
 | --- | --- | --- | --- |
-| Mainnet | `safrochain-1` | `v0.2.0` | `1.25.8` |
-| Testnet | `safro-testnet-1` | `v0.1.0` | `1.25.8` |
+| Mainnet | `safrochain-1` | `v0.2.1` | `1.25.8` |
+| Testnet | `safro-testnet-1` | `release/v0.1.0` | `1.23.9` |
 
 ## Chain identity
 

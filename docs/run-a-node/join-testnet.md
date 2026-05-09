@@ -11,8 +11,8 @@ exercise the full validator + node + wallet stack end-to-end.
 
 | Network | Chain ID | safrochain-node tag | Go |
 | --- | --- | --- | --- |
-| Testnet | `safro-testnet-1` | `v0.1.0` | `1.25.8` |
-| Mainnet | `safrochain-1` | `v0.2.0` | `1.25.8` |
+| Testnet | `safro-testnet-1` | `release/v0.1.0` | `1.23.9` |
+| Mainnet | `safrochain-1` | `v0.2.1` | `1.25.8` |
 
 ## Endpoints
 
@@ -29,18 +29,58 @@ canonical list. Quick reference:
 
 ## Steps
 
-### 1. Install `safrochaind`
+### 1. Install `safrochaind` (testnet)
 
-If you haven't yet, follow [Install](./install).
-
-If you are building from source for testnet, use:
+Follow the **Testnet** track in [Install](./install) (Go **1.23.9** + branch
+**`release/v0.1.0`**), or run the consolidated copy-paste block below.
 
 ```bash
+# =============================================================================
+# Testnet — Go 1.23.9 + safrochaind release/v0.1.0 (Ubuntu / Debian)
+# Chain ID: safro-testnet-1
+# =============================================================================
+
+# Update package lists and install dependencies
+sudo apt update
+sudo apt install -y git make jq build-essential
+
+# Download and install Go 1.23.9
+wget https://go.dev/dl/go1.23.9.linux-amd64.tar.gz
+sudo rm -rf /usr/local/go
+sudo tar -C /usr/local -xzf go1.23.9.linux-amd64.tar.gz
+rm go1.23.9.linux-amd64.tar.gz
+
+# Configure Go environment
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+mkdir -p $GOPATH
+
+# Persist environment variables
+echo 'export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin' >> $HOME/.bashrc
+source $HOME/.bashrc
+
+# Verify Go installation
+if go version | grep -q "go1.23.9"; then
+    echo "Go 1.23.9 installed successfully."
+else
+    echo "Error: Go 1.23.9 not installed. Check installation steps."
+    exit 1
+fi
+
+# Build safrochaind release/v0.1.0 (testnet branch — NOT v0.2.x)
+git clone https://github.com/Safrochain-Org/safrochain-node ~/safrochain-node
 cd ~/safrochain-node
 git fetch --tags
-git checkout v0.1.0
+git checkout release/v0.1.0
 make install
+safrochaind version --long | head -5
 ```
+
+:::warning
+Do **not** check out `v0.2.1` for testnet — that tag is for mainnet
+(`safrochain-1`) and requires Go 1.25.8.
+:::
 
 ### 2. Initialise the home directory
 
