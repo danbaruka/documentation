@@ -16,7 +16,7 @@ blocks straight into a terminal.
 | Tool | Mainnet | Testnet |
 | --- | --- | --- |
 | Go | **1.25.8** | **1.23.9** |
-| safrochain-node tag | **`v0.2.1`** | **`release/v0.1.0`** |
+| safrochain-node tag | **`v0.2.2`** | **`release/v0.1.0`** |
 | make | any | any |
 | git | any | any |
 | C toolchain | `build-essential` (Linux) or Xcode CLI tools (macOS) | same |
@@ -24,7 +24,7 @@ blocks straight into a terminal.
 
 :::warning Pick the right network
 Mainnet and testnet **do not share a Go toolchain**. Mainnet (`safrochain-1`)
-requires **Go 1.25.8** and tag `v0.2.1`. Testnet (`safro-testnet-1`) requires
+requires **Go 1.25.8** and tag `v0.2.2`. Testnet (`safro-testnet-1`) requires
 **Go 1.23.9** and tag `release/v0.1.0`. Mixing them produces a binary that
 will fail to start with `Apphash mismatch` or refuse to build.
 :::
@@ -76,7 +76,7 @@ unless you understand how to manage multiple Go toolchains side-by-side.
 ```bash
 # =============================================================================
 # Mainnet — Go 1.25.8 install (Ubuntu / Debian)
-# Required for: safrochain-1, safrochain-node tag v0.2.1
+# Required for: safrochain-1, safrochain-node tag v0.2.2
 # =============================================================================
 
 # Update package lists and install dependencies
@@ -153,28 +153,40 @@ go version | grep -q "go1.25.8" && echo "Go 1.25.8 OK" || { echo "Go 1.25.8 miss
 
 You should see `go version go1.25.8 linux/amd64` (or `darwin/arm64`).
 
-### 2.b — Build `safrochaind` for **mainnet** (tag `v0.2.1`)
+### 2.b — Build `safrochaind` for **mainnet** (tag `v0.2.2`)
 
 ```bash
 # =============================================================================
-# Mainnet — clone, checkout v0.2.1, build
+# Mainnet — clone, checkout v0.2.2, build
 # Chain ID: safrochain-1
 # =============================================================================
 git clone https://github.com/Safrochain-Org/safrochain-node ~/safrochain-node
 cd ~/safrochain-node
 git fetch --tags
 
-# IMPORTANT: mainnet uses tag v0.2.1 (NOT v0.2.0, NOT release/v0.1.0)
-git checkout v0.2.1
+# IMPORTANT: mainnet uses tag v0.2.2 (NOT v0.2.0, NOT release/v0.1.0)
+git checkout v0.2.2
 
 make install
+```
 
-# Verify — expected output:
-#   safrochaind   v0.2.1
-#   Cosmos SDK    v0.50.14
-#   CometBFT      v0.38.21
-#   Go runtime    go1.25.8 ...
-safrochaind version --long | head -5
+After **`make install`**, you should see the **install complete** banner (same layout as [Join mainnet](./join-mainnet)). For **`v0.2.2`** the key lines match:
+
+```text
+│   ●  safrochaind   v0.2.2
+│   ●  Cosmos SDK    v0.50.14
+│   ●  CometBFT      v0.38.21
+│   ●  Go runtime    go1.25.8 darwin/arm64
+│   ●  Build tags    netgo,ledger
+```
+
+On Linux AMD64, **Go runtime** is typically `go1.25.8 linux/amd64`.
+
+Verify the binary:
+
+```bash
+safrochaind version
+safrochaind version --long | grep -E '^version:|^cosmos_sdk_version:|^go:|^build_tags:|^commit:'
 ```
 
 </TabItem>
@@ -277,12 +289,13 @@ git clone https://github.com/Safrochain-Org/safrochain-node ~/safrochain-node
 cd ~/safrochain-node
 git fetch --tags
 
-# IMPORTANT: testnet uses the release/v0.1.0 branch (NOT v0.2.1)
+# IMPORTANT: testnet uses the release/v0.1.0 branch (NOT v0.2.2)
 git checkout release/v0.1.0
 
 make install
 
-safrochaind version --long | head -5
+safrochaind version
+safrochaind version --long | grep -E '^version:|^cosmos_sdk_version:|^go:|^build_tags:|^commit:'
 ```
 
 </TabItem>
@@ -401,7 +414,7 @@ in a `launchd` plist.
 ```bash
 cd ~/safrochain-node
 git fetch --tags
-git checkout v<next-release>          # mainnet: e.g. v0.2.1, then v0.3.0, ...
+git checkout v<next-release>          # mainnet: e.g. v0.2.2, then v0.3.0, ...
 make install
 sudo systemctl restart safrochaind   # Linux only
 safrochaind version

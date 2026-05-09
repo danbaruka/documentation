@@ -25,14 +25,20 @@ schema so that wallets, explorers, and relayers can auto-configure.
   "slip44": 118,
   "fees": {
     "fee_tokens": [
-      { "denom": "usaf", "low_gas_price": 0.01, "average_gas_price": 0.025, "high_gas_price": 0.04 }
+      {
+        "denom": "usaf",
+        "fixed_min_gas_price": 100000,
+        "low_gas_price": 100000,
+        "average_gas_price": 100000,
+        "high_gas_price": 100000
+      }
     ]
   },
   "staking": { "staking_tokens": [{ "denom": "usaf" }] },
   "codebase": {
     "git_repo": "https://github.com/Safrochain-Org/safrochain-node",
-    "recommended_version": "v0.2.1",
-    "compatible_versions": ["v0.2.1"],
+    "recommended_version": "v0.2.2",
+    "compatible_versions": ["v0.2.2"],
     "binaries": {},
     "cosmos_sdk_version": "0.50",
     "consensus": { "type": "cometbft", "version": "0.38" }
@@ -79,7 +85,17 @@ schema so that wallets, explorers, and relayers can auto-configure.
   "bech32_prefix": "addr_safro",
   "daemon_name": "safrochaind",
   "slip44": 118,
-  "fees": { "fee_tokens": [{ "denom": "usaf", "low_gas_price": 0.01, "average_gas_price": 0.025, "high_gas_price": 0.04 }] },
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "usaf",
+        "fixed_min_gas_price": 100000,
+        "low_gas_price": 100000,
+        "average_gas_price": 100000,
+        "high_gas_price": 100000
+      }
+    ]
+  },
   "staking": { "staking_tokens": [{ "denom": "usaf" }] },
   "codebase": {
     "git_repo": "https://github.com/Safrochain-Org/safrochain-node",

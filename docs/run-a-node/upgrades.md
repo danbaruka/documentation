@@ -31,9 +31,9 @@ source ~/.bashrc
 
 ```text
 ~/.safrochain/cosmovisor/
-  current -> upgrades/v0.2.1          # symlink, cosmovisor manages it
+  current -> upgrades/v0.2.2          # symlink, cosmovisor manages it
   genesis/bin/safrochaind             # the binary you launched the chain with
-  upgrades/v0.2.1/bin/safrochaind     # current release
+  upgrades/v0.2.2/bin/safrochaind     # current release
   upgrades/v0.3.0/bin/safrochaind     # staged for the next upgrade
 ```
 
@@ -90,7 +90,8 @@ curl -fsSL "${URL}.sha256" -o /tmp/safrochaind.tar.gz.sha256
 # extract and install under cosmovisor
 mkdir -p ~/.safrochain/cosmovisor/upgrades/${RELEASE}/bin
 tar -xzf /tmp/safrochaind.tar.gz -C ~/.safrochain/cosmovisor/upgrades/${RELEASE}/bin
-~/.safrochain/cosmovisor/upgrades/${RELEASE}/bin/safrochaind version --long | head -2
+~/.safrochain/cosmovisor/upgrades/${RELEASE}/bin/safrochaind version
+~/.safrochain/cosmovisor/upgrades/${RELEASE}/bin/safrochaind version --long | grep -E '^version:|^cosmos_sdk_version:|^go:'
 ```
 
 cosmovisor will pick up the new binary automatically when it sees the

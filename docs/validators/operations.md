@@ -30,7 +30,7 @@ assumes:
 export VALADDR=$(safrochaind keys show validator --bech val -a --keyring-backend file)
 export CHAIN_ID=safrochain-1
 export NODE=https://rpc.safrochain.network:443
-export FEES="--gas auto --gas-adjustment 1.3 --fees 5000usaf"
+export FEES="--gas auto --gas-adjustment 1.3 --gas-prices 100000usaf"
 ```
 
 ## Edit description / commission

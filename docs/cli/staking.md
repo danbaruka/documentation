@@ -27,7 +27,7 @@ safrochaind query staking validators --limit 200 -o json \
 safrochaind tx staking delegate <validator-operator-addr> <amount>usaf \
   --from <delegator-key> \
   --chain-id safrochain-1 \
-  --gas auto --gas-adjustment 1.3 --fees 5000usaf \
+  --gas auto --gas-adjustment 1.3 --gas-prices 100000usaf \
   -y
 ```
 

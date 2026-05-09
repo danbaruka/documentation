@@ -93,7 +93,7 @@ Sign with `--ledger` on every `tx`:
 safrochaind tx staking edit-validator --commission-rate 0.06 \
   --from validator --ledger --keyring-backend file \
   --chain-id safrochain-1 --gas auto --gas-adjustment 1.3 \
-  --fees 5000usaf --yes
+  --gas-prices 100000usaf --yes
 ```
 
 The Ledger displays the message; you press both buttons to confirm.

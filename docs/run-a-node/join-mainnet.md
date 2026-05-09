@@ -14,7 +14,7 @@ genesis SHA-256 are placeholders until the chain is live.
 
 | Network | Chain ID | safrochain-node tag | Go |
 | --- | --- | --- | --- |
-| Mainnet | `safrochain-1` | `v0.2.1` | `1.25.8` |
+| Mainnet | `safrochain-1` | `v0.2.2` | `1.25.8` |
 | Testnet | `safro-testnet-1` | `release/v0.1.0` | `1.23.9` |
 
 ## Endpoints
@@ -36,11 +36,11 @@ reference:
 ### 1. Install `safrochaind` (mainnet)
 
 Follow the **Mainnet** track in [Install](./install) (Go **1.25.8** + tag
-**`v0.2.1`**), or run the consolidated copy-paste block below.
+**`v0.2.2`**), or run the consolidated copy-paste block below.
 
 ```bash
 # =============================================================================
-# Mainnet — Go 1.25.8 + safrochaind v0.2.1 (Ubuntu / Debian)
+# Mainnet — Go 1.25.8 + safrochaind v0.2.2 (Ubuntu / Debian)
 # Chain ID: safrochain-1
 # =============================================================================
 
@@ -72,19 +72,51 @@ else
     exit 1
 fi
 
-# Build safrochaind v0.2.1 (mainnet tag)
+# Build safrochaind v0.2.2 (mainnet tag)
 git clone https://github.com/Safrochain-Org/safrochain-node ~/safrochain-node
 cd ~/safrochain-node
 git fetch --tags
-git checkout v0.2.1
+git checkout v0.2.2
 make install
+```
 
-# Verify — expected output:
-#   safrochaind   v0.2.1
-#   Cosmos SDK    v0.50.14
-#   CometBFT      v0.38.21
-#   Go runtime    go1.25.8 ...
-safrochaind version --long | head -5
+After a successful build, `make install` prints an **install complete** banner.
+For tag **`v0.2.2`** you should see (paths and commit vary by machine):
+
+```text
+┌──────────────────────────────────────────────────────────────────
+│   ✨  INSTALL COMPLETE
+├──────────────────────────────────────────────────────────────────
+│   ●  safrochaind   v0.2.2
+│   ●  Cosmos SDK    v0.50.14
+│   ●  CometBFT      v0.38.21
+│   ●  Go runtime    go1.25.8 darwin/arm64
+│   ●  Build tags    netgo,ledger
+│   ●  Commit        <short sha>
+│   ●  Binary        <path>/safrochaind
+└──────────────────────────────────────────────────────────────────
+```
+
+On Linux AMD64 servers the **Go runtime** line is typically `go1.25.8 linux/amd64`
+instead of `darwin/arm64`.
+
+Cross-check with the CLI (`--long` lists dependencies first; filter to the summary):
+
+```bash
+safrochaind version
+# safrochaind v0.2.2
+
+safrochaind version --long | grep -E '^version:|^cosmos_sdk_version:|^go:|^build_tags:|^commit:'
+```
+
+Expected (commit full hash varies; **go** shows your OS/arch, e.g. macOS Apple Silicon):
+
+```text
+build_tags: netgo,ledger
+commit: <sha>
+cosmos_sdk_version: v0.50.14
+go: go version go1.25.8 darwin/arm64
+version: v0.2.2
 ```
 
 ### 2. Initialise the home
@@ -105,23 +137,27 @@ sha256sum ~/.safrochain/config/genesis.json
 
 Source of truth at launch:
 
-- The GitHub **release** for tag `v0.2.1` will publish:
+- The GitHub **release** for tag `v0.2.2` will publish:
   - `genesis.json`
   - `genesis.json.sha256`
 
 Verify using the published checksum:
 
 ```bash
-curl -fsSL https://github.com/Safrochain-Org/safrochain-node/releases/download/v0.2.1/genesis.json \
+curl -fsSL https://github.com/Safrochain-Org/safrochain-node/releases/download/v0.2.2/genesis.json \
   -o ~/.safrochain/config/genesis.json
-curl -fsSL https://github.com/Safrochain-Org/safrochain-node/releases/download/v0.2.1/genesis.json.sha256 \
+curl -fsSL https://github.com/Safrochain-Org/safrochain-node/releases/download/v0.2.2/genesis.json.sha256 \
   -o /tmp/genesis.json.sha256
 ( cd ~/.safrochain/config && shasum -a 256 -c /tmp/genesis.json.sha256 )
 ```
 
-### 4. Configure peers
+### 4. Configure peers (`config.toml`)
 
-Edit `~/.safrochain/config/config.toml`:
+```bash
+export MAINNET_HOME="$HOME/.safrochain"
+```
+
+Edit `$MAINNET_HOME/config/config.toml` under `[p2p]`:
 
 ```toml
 [p2p]
@@ -134,7 +170,7 @@ pex = true
 The seed node IDs are published in:
 
 - [Chain registry](../networks/chain-registry) (field `peers.seeds[].id`)
-- the `v0.2.1` GitHub release notes
+- the `v0.2.2` GitHub release notes
 
 At launch, you will replace `<NODEID1>` and `<NODEID2>` with 40-hex-char node IDs:
 
@@ -142,12 +178,47 @@ At launch, you will replace `<NODEID1>` and `<NODEID2>` with 40-hex-char node ID
 <node_id_1>@seed.safrochain.network:26666,<node_id_2>@seed2.safrochain.network:26670
 ```
 
+**Update seeds without opening an editor** (comma-separated list):
+
+```bash
+SEEDS="<NODEID1>@seed.safrochain.network:26666,<NODEID2>@seed2.safrochain.network:26670"
+```
+
+Linux:
+
+```bash
+sed -i.bak -e "s|^seeds *=.*|seeds = \"$SEEDS\"|" "$MAINNET_HOME/config/config.toml"
+```
+
+macOS:
+
+```bash
+sed -i '' -e "s|^seeds *=.*|seeds = \"$SEEDS\"|" "$MAINNET_HOME/config/config.toml"
+```
+
+Optional public P2P advertisement:
+
+```bash
+# Replace with your routable IP:port if this node accepts inbound P2P
+sed -i.bak -e "s|^external_address *=.*|external_address = \"<PUBLIC_IP>:26656\"|" "$MAINNET_HOME/config/config.toml"   # Linux
+```
+
+Verify:
+
+```bash
+grep -E '^(seeds|persistent_peers|pex|external_address) ' "$MAINNET_HOME/config/config.toml"
+```
+
+:::tip Same layout as the public guide
+The legacy [Install a Node](https://docs.safrochain.com/install-a-node-1176655m0) walkthrough uses the same **`sed`** pattern for `seeds` / `persistent_peers` / `pex`; mainnet **addresses and gas** must follow this page and launch-day releases, not the older examples on that URL.
+:::
+
 ### 5. App-level settings (`app.toml`)
 
 ```toml
-# config/app.toml
+# ~/.safrochain/config/app.toml
 
-minimum-gas-prices = "0.025usaf"
+minimum-gas-prices = "100000usaf"
 
 [api]
 enable = true
@@ -178,14 +249,45 @@ For an archive (RPC-2-style) node:
 pruning = "nothing"
 ```
 
-### 6. Set CLI defaults
+One-line **minimum gas** patch (if you only adjust the floor):
 
 ```bash
-safrochaind config chain-id  safrochain-1
-safrochaind config node      https://rpc.safrochain.network:443
-safrochaind config keyring-backend file
-safrochaind config broadcast-mode sync
-safrochaind config output  json
+sed -i.bak 's|^minimum-gas-prices *=.*|minimum-gas-prices = "100000usaf"|' "$MAINNET_HOME/config/app.toml"   # Linux
+# macOS: sed -i '' 's|^minimum-gas-prices *=.*|minimum-gas-prices = "100000usaf"|' "$MAINNET_HOME/config/app.toml"
+```
+
+### 5b. `client.toml` (optional file defaults)
+
+```toml
+# ~/.safrochain/config/client.toml
+
+chain-id = "safrochain-1"
+keyring-backend = "file"
+output = "json"
+node = "tcp://127.0.0.1:26657"
+```
+
+### 6. Set CLI defaults (`client.toml` via confix)
+
+Writes `~/.safrochain/config/client.toml` when using the default `--home`:
+
+```bash
+safrochaind config set client chain-id safrochain-1
+safrochaind config set client node https://rpc.safrochain.network:443
+safrochaind config set client keyring-backend file
+safrochaind config set client broadcast-mode sync
+safrochaind config set client output json
+```
+
+If your node data lives under a custom `--home`, pass it on each command:
+
+```bash
+export MAINNET_HOME="$HOME/.safrochain"
+safrochaind config set client chain-id safrochain-1 --home "$MAINNET_HOME"
+safrochaind config set client node tcp://127.0.0.1:26657 --home "$MAINNET_HOME"
+safrochaind config set client keyring-backend file --home "$MAINNET_HOME"
+safrochaind config set client output json --home "$MAINNET_HOME"
+safrochaind config set client broadcast-mode sync --home "$MAINNET_HOME"
 ```
 
 ### 7. (Recommended) Statesync from rpc1/rpc2

@@ -32,7 +32,8 @@ Typical flags include `--packet-timeout-height`, `--packet-timeout-timestamp`, s
 ```bash
 safrochaind tx ibc-transfer transfer transfer channel-0 \
   addr_safro1dest... 1000000usaf \
-  --from mykey --chain-id SOURCE-CHAIN --fees 5000usaf -y
+  --from mykey --chain-id SOURCE-CHAIN \
+  --gas auto --gas-adjustment 1.3 --gas-prices 100000usaf -y
 ```
 
 Run `safrochaind tx ibc-transfer transfer --help` for timeout and memo flags.

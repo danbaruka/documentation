@@ -55,18 +55,18 @@ safrochaind query feepay is-eligible "$CONTRACT" "$WALLET" --node "$RPC" -o json
 ```bash
 # Register your FeePay CosmWasm contract (addresses match Msg fields)
 safrochaind tx feepay register addr_safro1sender... "$CONTRACT" \
-  --from mykey --chain-id "$CHAIN_ID" --node "$RPC" --fees 10000usaf -y
+  --from mykey --chain-id "$CHAIN_ID" --node "$RPC" --gas auto --gas-adjustment 1.3 --gas-prices 100000usaf -y
 
 # Top up the contract fee pool
 safrochaind tx feepay fund addr_safro1sender... "$CONTRACT" 50000000usaf \
-  --from mykey --chain-id "$CHAIN_ID" --node "$RPC" --fees 10000usaf -y
+  --from mykey --chain-id "$CHAIN_ID" --node "$RPC" --gas auto --gas-adjustment 1.3 --gas-prices 100000usaf -y
 
 # Raise per-wallet cap (integer limit per module rules)
 safrochaind tx feepay update-wallet-limit addr_safro1sender... "$CONTRACT" 1000 \
-  --from mykey --chain-id "$CHAIN_ID" --node "$RPC" --fees 10000usaf -y
+  --from mykey --chain-id "$CHAIN_ID" --node "$RPC" --gas auto --gas-adjustment 1.3 --gas-prices 100000usaf -y
 
 safrochaind tx feepay unregister addr_safro1sender... "$CONTRACT" \
-  --from mykey --chain-id "$CHAIN_ID" --node "$RPC" --fees 10000usaf -y
+  --from mykey --chain-id "$CHAIN_ID" --node "$RPC" --gas auto --gas-adjustment 1.3 --gas-prices 100000usaf -y
 ```
 
 **Source**: `safrochain-node/x/feepay/`

@@ -24,8 +24,10 @@ and this project aims to follow [Semantic Versioning](https://semver.org/).
 ### Changed
 
 - Updated bech32 prefix to `addr_safro` across docs and examples.
-- Bumped mainnet recommended version to `v0.2.1` (Go 1.25.8) across chain
+- Bumped mainnet recommended version to `v0.2.2` (Go 1.25.8) across chain
   registry, install guide, network endpoints, and join-mainnet runbook.
+- Global fee / node defaults: **0.1 SAF per unit of gas** (`100000usaf`) including
+  chain-registry fee steps, CLI examples, and testnet Keplr `gasPriceStep`.
 - Documented testnet build flow as `release/v0.1.0` on Go **1.23.9**, with
   separate copy-paste install blocks for mainnet and testnet so the two Go
   toolchains are not mixed by accident.

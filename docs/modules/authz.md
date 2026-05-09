@@ -22,7 +22,8 @@ The **authz** module provides **generic authorizations**: one account (**granter
 ```bash
 safrochaind tx authz grant addr_safro1grantee... generic \
   --msg-type=/cosmos.bank.v1beta1.MsgSend \
-  --from granter --chain-id safrochain-testnet-1 --fees 5000usaf -y
+  --from granter --chain-id safrochain-testnet-1 \
+  --gas auto --gas-adjustment 1.3 --gas-prices 100000usaf -y
 ```
 
 Use `safrochaind tx authz exec --help` when executing an authorized message.

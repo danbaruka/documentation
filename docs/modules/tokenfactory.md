@@ -53,18 +53,18 @@ safrochaind query tokenfactory denom-authority-metadata factory/addr_safro1creat
 ```bash
 # Create a factory denom (full denom becomes factory/<creator>/<subdenom>)
 safrochaind tx tokenfactory create-denom addr_safro1creator... mycoin \
-  --from mykey --chain-id "$CHAIN_ID" --node "$RPC" --gas auto --gas-adjustment 1.3 \
-  --fees 10000usaf -y
+  --from mykey --chain-id "$CHAIN_ID" --node "$RPC" \
+  --gas auto --gas-adjustment 1.3 --gas-prices 100000usaf -y
 
 # Mint to an address (sender must be denom admin)
 safrochaind tx tokenfactory mint addr_safro1creator... \
   1000000factory/addr_safro1creator.../mycoin addr_safro1recipient... \
-  --from mykey --chain-id "$CHAIN_ID" --node "$RPC" --fees 10000usaf -y
+  --from mykey --chain-id "$CHAIN_ID" --node "$RPC" --gas auto --gas-adjustment 1.3 --gas-prices 100000usaf -y
 
 # Burn from an address (admin)
 safrochaind tx tokenfactory burn addr_safro1creator... \
   500000factory/addr_safro1creator.../mycoin addr_safro1holder... \
-  --from mykey --chain-id "$CHAIN_ID" --node "$RPC" --fees 10000usaf -y
+  --from mykey --chain-id "$CHAIN_ID" --node "$RPC" --gas auto --gas-adjustment 1.3 --gas-prices 100000usaf -y
 
 # Simulate only (no broadcast)
 safrochaind tx tokenfactory create-denom addr_safro1creator... mycoin \

@@ -26,7 +26,7 @@ The **wasm** module embeds **CosmWasm** smart contracts (code upload, instantiat
 safrochaind query wasm contract addr_safro1contract... --node "$RPC" -o json
 
 safrochaind tx wasm store ./artifacts/my_contract.wasm \
-  --from deployer --chain-id safrochain-testnet-1 --gas auto --gas-adjustment 1.3 --fees 500000usaf -y
+  --from deployer --chain-id safrochain-testnet-1 --gas auto --gas-adjustment 1.3 --gas-prices 100000usaf -y
 ```
 
 Use `safrochaind query wasm contract-state smart --help` for JSON query payloads.

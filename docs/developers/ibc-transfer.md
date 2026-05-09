@@ -57,7 +57,7 @@ const wallet = await DirectSecp256k1HdWallet.fromMnemonic(mnemonic, {
 const [{ address: sender }] = await wallet.getAccounts();
 
 const client = await SigningStargateClient.connectWithSigner(RPC, wallet, {
-  gasPrice: { denom: "usaf", amount: "0.025" },
+  gasPrice: { denom: "usaf", amount: "100000" },
 });
 
 // Replace with a real channel from the IBC registry once live

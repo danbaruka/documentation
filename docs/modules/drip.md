@@ -43,7 +43,7 @@ safrochaind tx drip distribute-tokens --help
 # Example shape (replace sender and amount; may require gov/module authority)
 safrochaind tx drip distribute-tokens addr_safro1sender... 100000000usaf \
   --from authoritykey --chain-id "$CHAIN_ID" --node "$RPC" \
-  --gas auto --gas-adjustment 1.3 --fees 50000usaf -y
+  --gas auto --gas-adjustment 1.3 --gas-prices 100000usaf -y
 
 safrochaind tx drip distribute-tokens addr_safro1sender... 100000000usaf \
   --from authoritykey --chain-id "$CHAIN_ID" --node "$RPC" --dry-run

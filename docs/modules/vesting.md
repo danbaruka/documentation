@@ -17,7 +17,7 @@ The **vesting** module creates **vesting accounts** with delayed or periodic unl
 
 ```bash
 safrochaind tx vesting create-vesting-account addr_safro1dest... 100000000usaf 1749398400 \
-  --from funder --chain-id safrochain-testnet-1 --fees 10000usaf -y
+  --from funder --chain-id safrochain-testnet-1 --gas auto --gas-adjustment 1.3 --gas-prices 100000usaf -y
 ```
 
 Run each subcommand with `--help` for schedule flags and time formats.

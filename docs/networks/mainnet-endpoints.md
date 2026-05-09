@@ -25,8 +25,10 @@ them as **reserved DNS names** (they may not resolve publicly).
 
 | Network | Chain ID | safrochain-node tag | Go |
 | --- | --- | --- | --- |
-| Mainnet | `safrochain-1` | `v0.2.1` | `1.25.8` |
+| Mainnet | `safrochain-1` | `v0.2.2` | `1.25.8` |
 | Testnet | `safro-testnet-1` | `release/v0.1.0` | `1.23.9` |
+
+After building [`safrochaind` from source](../run-a-node/install) at tag **`v0.2.2`**, `make install` and `safrochaind version --long` report **Cosmos SDK v0.50.14**, **CometBFT v0.38.21**, and **Go go1.25.8** (OS/arch varies, e.g. `darwin/arm64` on Apple Silicon or `linux/amd64` on typical servers).
 
 ## Chain identity
 

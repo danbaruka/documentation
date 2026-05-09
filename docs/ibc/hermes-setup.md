@@ -93,7 +93,7 @@ trust_threshold = { numerator = '2', denominator = '3' }
 address_type = { derivation = 'cosmos' }
 
 [chains.gas_price]
-price = 0.025
+price = 100000
 denom = 'usaf'
 
 # ----------------------------------------------------------------------------
@@ -106,7 +106,7 @@ denom = 'usaf'
 # event_source = { mode = 'push', url = 'wss://rpc.testnet.safrochain.com/websocket', batch_delay = '500ms' }
 # account_prefix = 'safro'
 # key_name = 'relayer-safro-testnet'
-# gas_price = { price = 0.025, denom = 'usaf' }
+# gas_price = { price = 100000, denom = 'usaf' }
 # trust_threshold = { numerator = '2', denominator = '3' }
 # trusting_period = '14days'
 
@@ -206,7 +206,7 @@ safrochaind tx ibc-transfer transfer transfer channel-0 \
   cosmos1abc... 1000000usaf \
   --from sender --chain-id safrochain-1 \
   --node https://rpc.safrochain.network:443 \
-  --gas auto --gas-adjustment 1.3 --fees 5000usaf -y
+  --gas auto --gas-adjustment 1.3 --gas-prices 100000usaf -y
 ```
 
 Watch Hermes log:
