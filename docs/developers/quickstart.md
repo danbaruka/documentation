@@ -101,7 +101,7 @@ safrochaind tx bank send dev "$ADDR" 1usaf \
   --chain-id safro-testnet-1 \
   --node https://rpc.testnet.safrochain.com:443 \
   --gas auto --gas-adjustment 1.3 \
-  --gas-prices 100000usaf \
+  --gas-prices 0.05usaf \
   --keyring-backend file \
   --yes
 ```

@@ -38,7 +38,7 @@ safrochaind tx --help
 --node https://rpc.safrochain.network:443
 --keyring-backend file
 --gas auto --gas-adjustment 1.3
---gas-prices 100000usaf
+--gas-prices 0.05usaf
 --broadcast-mode sync         # mempool ack, no consensus wait
 --output json
 -y                            # skip yes/no prompt
@@ -95,7 +95,7 @@ safrochaind tx feegrant grant alice <bob-address> \
 # bob now signs a tx and asks the chain to charge alice's fees
 safrochaind tx bank send bob addr_safro1ccc... 1000usaf \
   --fee-granter <alice-address> \
-  --from bob --gas auto --gas-adjustment 1.3 --gas-prices 100000usaf -y
+  --from bob --gas auto --gas-adjustment 1.3 --gas-prices 0.05usaf -y
 
 # alice revokes
 safrochaind tx feegrant revoke alice <bob-address> --from alice -y

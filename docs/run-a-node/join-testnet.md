@@ -131,16 +131,16 @@ Align the node's mempool policy with the chain (**global minimum gas**). Adjust 
 
 ```bash
 grep -q '^minimum-gas-prices' "$HOME_NODE/config/app.toml" \
-  && sed -i.bak 's|^minimum-gas-prices *=.*|minimum-gas-prices = "100000usaf"|' "$HOME_NODE/config/app.toml" \
-  || echo 'minimum-gas-prices = "100000usaf"' >> "$HOME_NODE/config/app.toml"
+  && sed -i.bak 's|^minimum-gas-prices *=.*|minimum-gas-prices = "0.05usaf"|' "$HOME_NODE/config/app.toml" \
+  || echo 'minimum-gas-prices = "0.05usaf"' >> "$HOME_NODE/config/app.toml"
 ```
 
 On **macOS**, use `sed -i ''` instead of `sed -i.bak`:
 
 ```bash
 grep -q '^minimum-gas-prices' "$HOME_NODE/config/app.toml" \
-  && sed -i '' 's|^minimum-gas-prices *=.*|minimum-gas-prices = "100000usaf"|' "$HOME_NODE/config/app.toml" \
-  || echo 'minimum-gas-prices = "100000usaf"' >> "$HOME_NODE/config/app.toml"
+  && sed -i '' 's|^minimum-gas-prices *=.*|minimum-gas-prices = "0.05usaf"|' "$HOME_NODE/config/app.toml" \
+  || echo 'minimum-gas-prices = "0.05usaf"' >> "$HOME_NODE/config/app.toml"
 ```
 
 Optional API / gRPC (local indexing or tooling): ensure these sections exist — merge by hand if missing:

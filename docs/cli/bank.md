@@ -42,7 +42,7 @@ safrochaind tx bank send <from-key-or-address> <to-address> <amount><denom> \
   --node https://rpc.safrochain.network:443 \
   --keyring-backend file \
   --gas auto --gas-adjustment 1.3 \
-  --gas-prices 100000usaf \
+  --gas-prices 0.05usaf \
   -y
 ```
 
@@ -87,7 +87,7 @@ safrochaind query bank denom-metadata -o json \
 
 ## Fees and gas prices
 
-The chain enforces a **minimum gas price** of **`100000usaf`** via the
+The chain enforces a **minimum gas price** of **`0.05usaf`** via the
 [`globalfee` module](../modules/globalfee.md) (plus each validator’s
 `minimum-gas-prices` in `app.toml`). Query the live floor with
 `safrochaind query globalfee minimum-gas-prices`.
@@ -95,15 +95,15 @@ The chain enforces a **minimum gas price** of **`100000usaf`** via the
 Recommended: let the CLI price gas from the simulation:
 
 ```bash
---gas auto --gas-adjustment 1.3 --gas-prices 100000usaf
+--gas auto --gas-adjustment 1.3 --gas-prices 0.05usaf
 ```
 
 For a known-cheap tx (`bank send`), you can fix gas and pay a fee that meets
-the floor (200000 × 100000 `usaf` = 20,000,000,000 `usaf` ≈ **20,000 SAF** at
-minimum price; round up slightly if desired):
+the floor (200 000 × `0.05` `usaf` = 10 000 `usaf` ≈ **0.01 SAF** at minimum
+price; round up slightly if desired):
 
 ```bash
---gas 200000 --fees 20000000000usaf
+--gas 200000 --fees 10000usaf
 ```
 
 See [Tokenomics](../protocol/tokenomics) for the full economic model.

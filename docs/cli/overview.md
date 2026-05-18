@@ -65,7 +65,7 @@ After this, you can drop `--chain-id`, `--node`, `--keyring-backend`,
 | `--keyring-backend KIND` | `file` (recommended) / `os` / `test` (sandbox only). |
 | `--from KEY` | which signer key to use. |
 | `--gas auto --gas-adjustment 1.3` | safe default; override with a fixed number for known-cheap txs. |
-| `--gas-prices 100000usaf` | matches **0.1 SAF/gas** in base units (`usaf`) and [`globalfee`](../modules/globalfee); use with `--gas auto`. |
+| `--gas-prices 0.05usaf` | matches **0.05 usaf/gas** (the chain-wide min via globalfee) (`usaf`) and [`globalfee`](../modules/globalfee); use with `--gas auto`. |
 | `--broadcast-mode sync` | wait for inclusion in mempool but not confirmation. |
 | `--output json` | parse with `jq`/`yq`. |
 | `--yes -y` | skip confirmation prompt. |

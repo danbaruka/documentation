@@ -91,7 +91,7 @@ const wallet = await DirectSecp256k1HdWallet.fromMnemonic(mnemonic, {
 const [{ address: fromAddress }] = await wallet.getAccounts();
 
 const client = await SigningStargateClient.connectWithSigner(RPC, wallet, {
-  gasPrice: { denom: DENOM, amount: "100000" },
+  gasPrice: { denom: DENOM, amount: "0.05" },
 });
 
 const toAddress = "addr_safro1yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy";
@@ -112,7 +112,7 @@ node send.mjs
 
 ## Notes
 
-- Fees: the examples use **`gasPrice` amount `100000`** in **`usaf`** (0.1 SAF per gas unit)
+- Fees: the examples use **`gasPrice` amount `0.05`** in **`usaf`** (0.05 usaf per gas)
   plus `"auto"` gas simulation.
 - Prefix: wallet prefix must be `addr_safro`.
 - Production apps should add retries/backoff and handle RPC failures gracefully.

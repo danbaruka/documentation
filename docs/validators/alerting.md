@@ -239,7 +239,7 @@ below: keep it short, action-first, and version-controlled.
    safrochaind tx slashing unjail \
      --from validator --keyring-backend file \
      --chain-id safrochain-1 \
-     --gas auto --gas-adjustment 1.3 --gas-prices 100000usaf \
+     --gas auto --gas-adjustment 1.3 --gas-prices 0.05usaf \
      --node https://rpc.safrochain.network:443 --yes
    ```
 4. Post-incident: write a short timeline in your team channel, file a

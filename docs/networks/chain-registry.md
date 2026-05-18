@@ -27,10 +27,10 @@ schema so that wallets, explorers, and relayers can auto-configure.
     "fee_tokens": [
       {
         "denom": "usaf",
-        "fixed_min_gas_price": 100000,
-        "low_gas_price": 100000,
-        "average_gas_price": 100000,
-        "high_gas_price": 100000
+        "fixed_min_gas_price": 0.05,
+        "low_gas_price": 0.05,
+        "average_gas_price": 0.0625,
+        "high_gas_price": 0.075
       }
     ]
   },
@@ -41,7 +41,11 @@ schema so that wallets, explorers, and relayers can auto-configure.
     "compatible_versions": ["v0.2.2"],
     "binaries": {},
     "cosmos_sdk_version": "0.50",
-    "consensus": { "type": "cometbft", "version": "0.38" }
+    "consensus": { "type": "cometbft", "version": "0.38" },
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/Safrochain-Org/draft-genesis/main/genesis.json",
+      "genesis_sha256": "964423b6008f6c3f0f0410455336372d74bb2f5cda0a8da52dfa152347850ec8"
+    }
   },
   "peers": {
     "seeds": [
@@ -89,10 +93,10 @@ schema so that wallets, explorers, and relayers can auto-configure.
     "fee_tokens": [
       {
         "denom": "usaf",
-        "fixed_min_gas_price": 100000,
-        "low_gas_price": 100000,
-        "average_gas_price": 100000,
-        "high_gas_price": 100000
+        "fixed_min_gas_price": 0.05,
+        "low_gas_price": 0.05,
+        "average_gas_price": 0.0625,
+        "high_gas_price": 0.075
       }
     ]
   },

@@ -25,5 +25,5 @@ The **distribution** module routes **staking rewards**, **validator commissions*
 ```bash
 safrochaind tx distribution withdraw-all-rewards --from mykey \
   --chain-id safrochain-testnet-1 \
-  --gas auto --gas-adjustment 1.3 --gas-prices 100000usaf -y
+  --gas auto --gas-adjustment 1.3 --gas-prices 0.05usaf -y
 ```

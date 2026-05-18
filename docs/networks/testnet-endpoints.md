@@ -108,7 +108,7 @@ If your wallet supports manual chain registration, use:
       "coinDenom": "SAF",
       "coinMinimalDenom": "usaf",
       "coinDecimals": 6,
-      "gasPriceStep": { "low": 100000, "average": 100000, "high": 100000 }
+      "gasPriceStep": { "low": 0.05, "average": 0.0625, "high": 0.075 }
     }
   ],
   "coinType": 118

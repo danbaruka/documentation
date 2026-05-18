@@ -54,13 +54,13 @@ safrochaind query feeshare withdrawer-contracts "$WITHDRAWER" --node "$RPC" -o j
 
 ```bash
 safrochaind tx feeshare register "$CW" "$DEPLOYER" "$WITHDRAWER" \
-  --from mykey --chain-id "$CHAIN_ID" --node "$RPC" --gas auto --gas-adjustment 1.3 --gas-prices 100000usaf -y
+  --from mykey --chain-id "$CHAIN_ID" --node "$RPC" --gas auto --gas-adjustment 1.3 --gas-prices 0.05usaf -y
 
 safrochaind tx feeshare update "$CW" "$DEPLOYER" "$WITHDRAWER" \
-  --from mykey --chain-id "$CHAIN_ID" --node "$RPC" --gas auto --gas-adjustment 1.3 --gas-prices 100000usaf -y
+  --from mykey --chain-id "$CHAIN_ID" --node "$RPC" --gas auto --gas-adjustment 1.3 --gas-prices 0.05usaf -y
 
 safrochaind tx feeshare cancel "$CW" "$DEPLOYER" \
-  --from mykey --chain-id "$CHAIN_ID" --node "$RPC" --gas auto --gas-adjustment 1.3 --gas-prices 100000usaf -y
+  --from mykey --chain-id "$CHAIN_ID" --node "$RPC" --gas auto --gas-adjustment 1.3 --gas-prices 0.05usaf -y
 
 safrochaind tx feeshare register "$CW" "$DEPLOYER" "$WITHDRAWER" \
   --from mykey --chain-id "$CHAIN_ID" --node "$RPC" --dry-run

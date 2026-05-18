@@ -127,29 +127,38 @@ safrochaind init my-moniker --chain-id safrochain-1 --home ~/.safrochain
 
 ### 3. Replace genesis
 
+The canonical mainnet `genesis.json` lives in the
+[`Safrochain-Org/draft-genesis`](https://github.com/Safrochain-Org/draft-genesis)
+repository. Pull it and verify the SHA-256:
+
 ```bash
-curl -L https://raw.githubusercontent.com/Safrochain-Org/safrochain-node/main/networks/safrochain-1/genesis.json \
+curl -L https://raw.githubusercontent.com/Safrochain-Org/draft-genesis/main/genesis.json \
   -o ~/.safrochain/config/genesis.json
 
 sha256sum ~/.safrochain/config/genesis.json
-# expected: <HASH-PUBLISHED-ON-LAUNCH-DAY>
+# Expected:
+# 964423b6008f6c3f0f0410455336372d74bb2f5cda0a8da52dfa152347850ec8
 ```
 
-Source of truth at launch:
-
-- The GitHub **release** for tag `v0.2.2` will publish:
-  - `genesis.json`
-  - `genesis.json.sha256`
-
-Verify using the published checksum:
+One-liner verification:
 
 ```bash
-curl -fsSL https://github.com/Safrochain-Org/safrochain-node/releases/download/v0.2.2/genesis.json \
-  -o ~/.safrochain/config/genesis.json
-curl -fsSL https://github.com/Safrochain-Org/safrochain-node/releases/download/v0.2.2/genesis.json.sha256 \
-  -o /tmp/genesis.json.sha256
-( cd ~/.safrochain/config && shasum -a 256 -c /tmp/genesis.json.sha256 )
+( cd ~/.safrochain/config && \
+  echo "964423b6008f6c3f0f0410455336372d74bb2f5cda0a8da52dfa152347850ec8  genesis.json" \
+  | shasum -a 256 -c - )
+# Expected: genesis.json: OK
 ```
+
+The same repo publishes
+[`COMMUNITY-VALIDATORS.md`](https://github.com/Safrochain-Org/draft-genesis/blob/main/COMMUNITY-VALIDATORS.md)
+documenting the 9 validators in the block-1 set and the procedure their
+operators used to submit gentxs.
+
+:::note Genesis can still change before launch
+The SHA above is the **current** draft. Until `genesis_time`, the foundation
+may publish a refreshed draft. Always verify against the SHA in the latest
+release notes or launch-day announcement before you start your node.
+:::
 
 ### 4. Configure peers (`config.toml`)
 
@@ -218,7 +227,7 @@ The legacy [Install a Node](https://docs.safrochain.com/install-a-node-1176655m0
 ```toml
 # ~/.safrochain/config/app.toml
 
-minimum-gas-prices = "100000usaf"
+minimum-gas-prices = "0.05usaf"
 
 [api]
 enable = true
@@ -252,8 +261,8 @@ pruning = "nothing"
 One-line **minimum gas** patch (if you only adjust the floor):
 
 ```bash
-sed -i.bak 's|^minimum-gas-prices *=.*|minimum-gas-prices = "100000usaf"|' "$MAINNET_HOME/config/app.toml"   # Linux
-# macOS: sed -i '' 's|^minimum-gas-prices *=.*|minimum-gas-prices = "100000usaf"|' "$MAINNET_HOME/config/app.toml"
+sed -i.bak 's|^minimum-gas-prices *=.*|minimum-gas-prices = "0.05usaf"|' "$MAINNET_HOME/config/app.toml"   # Linux
+# macOS: sed -i '' 's|^minimum-gas-prices *=.*|minimum-gas-prices = "0.05usaf"|' "$MAINNET_HOME/config/app.toml"
 ```
 
 ### 5b. `client.toml` (optional file defaults)

@@ -24,7 +24,7 @@ safrochaind query bank balances addr_safro1... --node "$RPC" -o json
 
 safrochaind tx bank send mykey addr_safro1recv... 1000000usaf \
   --chain-id safrochain-testnet-1 \
-  --gas auto --gas-adjustment 1.3 --gas-prices 100000usaf -y
+  --gas auto --gas-adjustment 1.3 --gas-prices 0.05usaf -y
 ```
 
 More examples: [CLI: Bank](../cli/bank.md).

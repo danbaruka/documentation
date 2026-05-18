@@ -46,13 +46,13 @@ safrochaind query clock contract "$CW" --node "$RPC" -o json
 
 ```bash
 safrochaind tx clock register addr_safro1owner... "$CW" \
-  --from mykey --chain-id "$CHAIN_ID" --node "$RPC" --gas auto --gas-adjustment 1.3 --gas-prices 100000usaf -y
+  --from mykey --chain-id "$CHAIN_ID" --node "$RPC" --gas auto --gas-adjustment 1.3 --gas-prices 0.05usaf -y
 
 safrochaind tx clock unjail addr_safro1owner... "$CW" \
-  --from mykey --chain-id "$CHAIN_ID" --node "$RPC" --gas auto --gas-adjustment 1.3 --gas-prices 100000usaf -y
+  --from mykey --chain-id "$CHAIN_ID" --node "$RPC" --gas auto --gas-adjustment 1.3 --gas-prices 0.05usaf -y
 
 safrochaind tx clock unregister addr_safro1owner... "$CW" \
-  --from mykey --chain-id "$CHAIN_ID" --node "$RPC" --gas auto --gas-adjustment 1.3 --gas-prices 100000usaf -y
+  --from mykey --chain-id "$CHAIN_ID" --node "$RPC" --gas auto --gas-adjustment 1.3 --gas-prices 0.05usaf -y
 
 safrochaind tx clock register addr_safro1owner... "$CW" \
   --from mykey --chain-id "$CHAIN_ID" --node "$RPC" --dry-run

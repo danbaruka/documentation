@@ -64,7 +64,7 @@ safrochaind tx slashing unjail \
   --from validator \
   --chain-id safrochain-1 \
   --gas auto --gas-adjustment 1.3 \
-  --gas-prices 100000usaf \
+  --gas-prices 0.05usaf \
   --node https://rpc.safrochain.network:443 \
   --yes
 

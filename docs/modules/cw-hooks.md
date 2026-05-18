@@ -48,16 +48,16 @@ safrochaind query cw-hooks governance-contracts --node "$RPC" -o json
 
 ```bash
 safrochaind tx cw-hooks register-staking "$CW" "$REG" \
-  --from mykey --chain-id "$CHAIN_ID" --node "$RPC" --gas auto --gas-adjustment 1.3 --gas-prices 100000usaf -y
+  --from mykey --chain-id "$CHAIN_ID" --node "$RPC" --gas auto --gas-adjustment 1.3 --gas-prices 0.05usaf -y
 
 safrochaind tx cw-hooks register-governance "$CW" "$REG" \
-  --from mykey --chain-id "$CHAIN_ID" --node "$RPC" --gas auto --gas-adjustment 1.3 --gas-prices 100000usaf -y
+  --from mykey --chain-id "$CHAIN_ID" --node "$RPC" --gas auto --gas-adjustment 1.3 --gas-prices 0.05usaf -y
 
 safrochaind tx cw-hooks unregister-staking "$CW" "$REG" \
-  --from mykey --chain-id "$CHAIN_ID" --node "$RPC" --gas auto --gas-adjustment 1.3 --gas-prices 100000usaf -y
+  --from mykey --chain-id "$CHAIN_ID" --node "$RPC" --gas auto --gas-adjustment 1.3 --gas-prices 0.05usaf -y
 
 safrochaind tx cw-hooks unregister-governance "$CW" "$REG" \
-  --from mykey --chain-id "$CHAIN_ID" --node "$RPC" --gas auto --gas-adjustment 1.3 --gas-prices 100000usaf -y
+  --from mykey --chain-id "$CHAIN_ID" --node "$RPC" --gas auto --gas-adjustment 1.3 --gas-prices 0.05usaf -y
 
 safrochaind tx cw-hooks register-staking "$CW" "$REG" \
   --from mykey --chain-id "$CHAIN_ID" --node "$RPC" --dry-run

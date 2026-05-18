@@ -40,6 +40,20 @@ After building [`safrochaind` from source](../run-a-node/install) at tag **`v0.2
 | Conversion | `1 SAF = 1_000_000 usaf` |
 | Total supply | `1,000,000,000 SAF` (fixed) |
 | Bech32 prefix | `addr_safro` |
+| Minimum gas price | `0.05 usaf/gas` (chain-wide via [`globalfee`](../modules/globalfee)) |
+| Validators at block 1 | **9** (2 SF Foundation + 7 community) |
+
+## Genesis
+
+| Field | Value |
+| --- | --- |
+| Repository | [`Safrochain-Org/draft-genesis`](https://github.com/Safrochain-Org/draft-genesis) |
+| Raw URL | `https://raw.githubusercontent.com/Safrochain-Org/draft-genesis/main/genesis.json` |
+| Current SHA-256 | `964423b6008f6c3f0f0410455336372d74bb2f5cda0a8da52dfa152347850ec8` |
+| Validator manifest | [`COMMUNITY-VALIDATORS.md`](https://github.com/Safrochain-Org/draft-genesis/blob/main/COMMUNITY-VALIDATORS.md) |
+
+The current SHA refers to the **draft** genesis. The foundation will publish
+the final SHA on launch day; the URL stays the same.
 
 ## RPC (CometBFT JSON-RPC over HTTPS)
 

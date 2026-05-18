@@ -51,7 +51,7 @@ EOF
 
 safrochaind tx gov submit-proposal proposal.json \
   --from alice --chain-id safrochain-1 \
-  --gas auto --gas-adjustment 1.3 --gas-prices 100000usaf -y
+  --gas auto --gas-adjustment 1.3 --gas-prices 0.05usaf -y
 ```
 
 Add the actual on-chain message (e.g., `MsgUpdateParams`) inside `messages[]`

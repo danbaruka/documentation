@@ -23,5 +23,5 @@ safrochaind query nft class my-class-id --node "$RPC" -o json
 
 safrochaind tx nft send addr_safro1receiver... my-class-id my-token-id \
   --from sender --chain-id safrochain-testnet-1 \
-  --gas auto --gas-adjustment 1.3 --gas-prices 100000usaf -y
+  --gas auto --gas-adjustment 1.3 --gas-prices 0.05usaf -y
 ```

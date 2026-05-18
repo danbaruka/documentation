@@ -162,7 +162,7 @@ safrochaind tx staking create-validator validator.json \
   --from validator \
   --chain-id safro-testnet-1 \
   --gas auto --gas-adjustment 1.3 \
-  --gas-prices 100000usaf \
+  --gas-prices 0.05usaf \
   --keyring-backend file \
   --node https://rpc.testnet.safrochain.com:443 \
   --yes
@@ -176,7 +176,7 @@ safrochaind tx staking create-validator validator.json \
   --from validator \
   --chain-id safrochain-1 \
   --gas auto --gas-adjustment 1.3 \
-  --gas-prices 100000usaf \
+  --gas-prices 0.05usaf \
   --keyring-backend file \
   --node https://rpc.safrochain.network:443 \
   --yes

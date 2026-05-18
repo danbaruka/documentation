@@ -23,7 +23,7 @@ The **feegrant** module lets a **granter** pay **transaction fees** for a **gran
 safrochaind tx feegrant grant addr_safro1granter... addr_safro1grantee... \
   --spend-limit 1000000usaf --period 3600 --expiration 2026-12-31 \
   --from granterkey --chain-id safrochain-testnet-1 \
-  --gas auto --gas-adjustment 1.3 --gas-prices 100000usaf -y
+  --gas auto --gas-adjustment 1.3 --gas-prices 0.05usaf -y
 ```
 
 Run `safrochaind tx feegrant grant --help` for allowance types (basic, periodic, filtered).
