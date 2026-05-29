@@ -44,7 +44,7 @@ schema so that wallets, explorers, and relayers can auto-configure.
     "consensus": { "type": "cometbft", "version": "0.38" },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/Safrochain-Org/draft-genesis/main/genesis.json",
-      "genesis_sha256": "f5b699aa9c6d76e18f4abf93c4a2833e09364e40789f62c6d3018a5f9fdf75a2"
+      "genesis_sha256": "588c98b9291e56e71ddf7471c56480e3e951e8b5bc4790d5e763c6b38888ef00"
     }
   },
   "peers": {
