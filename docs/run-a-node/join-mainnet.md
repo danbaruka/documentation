@@ -28,7 +28,8 @@ reference:
 | REST | [https://api.safrochain.network](https://api.safrochain.network) |
 | gRPC | [https://grpc.safrochain.network](https://grpc.safrochain.network) |
 | gRPC-Web | [https://grpc-web.safrochain.network](https://grpc-web.safrochain.network) |
-| Seeds | `seed.safrochain.network:26666`, `seed2.safrochain.network:26670` |
+| Seeds | `bc772fdc9749e6dfd200a9428f07d86fe4fd34ec@seed.safrochain.network:26666`<br/>`d323d296ba55e89fb6ce1a724f8da1740bd8cbb0@seed2.safrochain.network:26670` |
+| Persistent peers (optional) | `131aeac8bd7fe9b678cdaa9cc3fe2d7af3ded1fe@rpc1.safrochain.network:26676`<br/>`29879611b7f822203a2822c2bfbd8e8f39161139@rpc2.safrochain.network:36656` |
 | Status | [https://status.safrochain.network](https://status.safrochain.network) |
 
 ## Steps
@@ -170,27 +171,23 @@ Edit `$MAINNET_HOME/config/config.toml` under `[p2p]`:
 
 ```toml
 [p2p]
-seeds = "<NODEID1>@seed.safrochain.network:26666,<NODEID2>@seed2.safrochain.network:26670"
-persistent_peers = ""
+seeds = "bc772fdc9749e6dfd200a9428f07d86fe4fd34ec@seed.safrochain.network:26666,d323d296ba55e89fb6ce1a724f8da1740bd8cbb0@seed2.safrochain.network:26670"
+persistent_peers = "131aeac8bd7fe9b678cdaa9cc3fe2d7af3ded1fe@rpc1.safrochain.network:26676,29879611b7f822203a2822c2bfbd8e8f39161139@rpc2.safrochain.network:36656"
 addr_book_strict = true
 pex = true
 ```
 
-The seed node IDs are published in:
+The same node IDs are also published in:
 
 - [Chain registry](../networks/chain-registry) (field `peers.seeds[].id`)
 - the `v0.2.2` GitHub release notes
 
-At launch, you will replace `<NODEID1>` and `<NODEID2>` with 40-hex-char node IDs:
-
-```text
-<node_id_1>@seed.safrochain.network:26666,<node_id_2>@seed2.safrochain.network:26670
-```
+The 40-hex-char IDs above are the **production** ed25519 node IDs of the Safrochain Foundation sentries and rpc1. They remain stable across chain resets (we preserve `config/node_key.json`).
 
 **Update seeds without opening an editor** (comma-separated list):
 
 ```bash
-SEEDS="<NODEID1>@seed.safrochain.network:26666,<NODEID2>@seed2.safrochain.network:26670"
+SEEDS="bc772fdc9749e6dfd200a9428f07d86fe4fd34ec@seed.safrochain.network:26666,d323d296ba55e89fb6ce1a724f8da1740bd8cbb0@seed2.safrochain.network:26670"
 ```
 
 Linux:

@@ -110,10 +110,22 @@ grpcurl grpc.safrochain.network:443 \
 
 ## P2P seeds (CometBFT P2P over TCP)
 
-| Name | Endpoint | Port | Purpose |
-| --- | --- | --- | --- |
-| `seed`  | `seed.safrochain.network:26666` | 26666 | primary public seed/sentry |
-| `seed2` | `seed2.safrochain.network:26670` | 26670 | secondary public seed/sentry |
+| Name | Node ID @ endpoint | Purpose |
+| --- | --- | --- |
+| `seed`  | `bc772fdc9749e6dfd200a9428f07d86fe4fd34ec@seed.safrochain.network:26666`  | primary public seed/sentry |
+| `seed2` | `d323d296ba55e89fb6ce1a724f8da1740bd8cbb0@seed2.safrochain.network:26670` | secondary public seed/sentry |
+
+Drop-in `[p2p]` block for `config.toml`:
+
+```toml
+seeds = "bc772fdc9749e6dfd200a9428f07d86fe4fd34ec@seed.safrochain.network:26666,d323d296ba55e89fb6ce1a724f8da1740bd8cbb0@seed2.safrochain.network:26670"
+persistent_peers = "131aeac8bd7fe9b678cdaa9cc3fe2d7af3ded1fe@rpc1.safrochain.network:26676"
+```
+
+| Name | Node ID @ endpoint | Purpose |
+| --- | --- | --- |
+| `rpc1` | `131aeac8bd7fe9b678cdaa9cc3fe2d7af3ded1fe@rpc1.safrochain.network:26676` | optional persistent peer (public RPC node) |
+| `rpc2` | `29879611b7f822203a2822c2bfbd8e8f39161139@rpc2.safrochain.network:36656` | optional persistent peer (public RPC node, archive) |
 
 Validators **never** accept inbound public P2P; only the public seed nodes
 listed above are reachable from the open internet.
