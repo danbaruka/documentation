@@ -44,7 +44,7 @@ schema so that wallets, explorers, and relayers can auto-configure.
     "consensus": { "type": "cometbft", "version": "0.38" },
     "genesis": {
       "genesis_url": "https://raw.githubusercontent.com/Safrochain-Org/draft-genesis/main/genesis.json",
-      "genesis_sha256": "f5b699aa9c6d76e18f4abf93c4a2833e09364e40789f62c6d3018a5f9fdf75a2"
+      "genesis_sha256": "21b5e7b470bb912ea652dea4b684758d19f92840393204ac06f8c9aef4812525"
     }
   },
   "peers": {
@@ -52,10 +52,7 @@ schema so that wallets, explorers, and relayers can auto-configure.
       { "id": "bc772fdc9749e6dfd200a9428f07d86fe4fd34ec", "address": "seed.safrochain.network:26666",  "provider": "Safrochain Foundation" },
       { "id": "d323d296ba55e89fb6ce1a724f8da1740bd8cbb0", "address": "seed2.safrochain.network:26670", "provider": "Safrochain Foundation" }
     ],
-    "persistent_peers": [
-      { "id": "131aeac8bd7fe9b678cdaa9cc3fe2d7af3ded1fe", "address": "rpc1.safrochain.network:26676", "provider": "Safrochain Foundation" },
-      { "id": "29879611b7f822203a2822c2bfbd8e8f39161139", "address": "rpc2.safrochain.network:36656", "provider": "Safrochain Foundation" }
-    ]
+    "persistent_peers": []
   },
   "apis": {
     "rpc":  [

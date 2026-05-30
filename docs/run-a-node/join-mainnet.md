@@ -1,13 +1,13 @@
 ---
 title: Join mainnet
-description: Sync a Safrochain node against safrochain-1 (Q3 2026).
+description: Sync a Safrochain node against safrochain-1.
 sidebar_position: 6
 ---
 
-:::info Mainnet target: Q3 2026
-Mainnet is **not** producing blocks yet. The flow below is the procedure
-the foundation will publish on launch day. Endpoints, seed node IDs, and
-genesis SHA-256 are placeholders until the chain is live.
+:::info Mainnet is live
+`safrochain-1` is producing blocks. Genesis time was
+`2026-05-30T14:39:48Z`. Follow the procedure below to spin up a node and
+sync from genesis.
 :::
 
 ## Network versions
@@ -29,7 +29,6 @@ reference:
 | gRPC | [https://grpc.safrochain.network](https://grpc.safrochain.network) |
 | gRPC-Web | [https://grpc-web.safrochain.network](https://grpc-web.safrochain.network) |
 | Seeds | `bc772fdc9749e6dfd200a9428f07d86fe4fd34ec@seed.safrochain.network:26666`<br/>`d323d296ba55e89fb6ce1a724f8da1740bd8cbb0@seed2.safrochain.network:26670` |
-| Persistent peers (optional) | `131aeac8bd7fe9b678cdaa9cc3fe2d7af3ded1fe@rpc1.safrochain.network:26676`<br/>`29879611b7f822203a2822c2bfbd8e8f39161139@rpc2.safrochain.network:36656` |
 | Status | [https://status.safrochain.network](https://status.safrochain.network) |
 
 ## Steps
@@ -138,27 +137,23 @@ curl -L https://raw.githubusercontent.com/Safrochain-Org/draft-genesis/main/gene
 
 sha256sum ~/.safrochain/config/genesis.json
 # Expected:
-# 964423b6008f6c3f0f0410455336372d74bb2f5cda0a8da52dfa152347850ec8
+# 21b5e7b470bb912ea652dea4b684758d19f92840393204ac06f8c9aef4812525
 ```
 
 One-liner verification:
 
 ```bash
 ( cd ~/.safrochain/config && \
-  echo "964423b6008f6c3f0f0410455336372d74bb2f5cda0a8da52dfa152347850ec8  genesis.json" \
+  echo "21b5e7b470bb912ea652dea4b684758d19f92840393204ac06f8c9aef4812525  genesis.json" \
   | shasum -a 256 -c - )
 # Expected: genesis.json: OK
 ```
 
-The same repo publishes
-[`COMMUNITY-VALIDATORS.md`](https://github.com/Safrochain-Org/draft-genesis/blob/main/COMMUNITY-VALIDATORS.md)
-documenting the 9 validators in the block-1 set and the procedure their
-operators used to submit gentxs.
-
-:::note Genesis can still change before launch
-The SHA above is the **current** draft. Until `genesis_time`, the foundation
-may publish a refreshed draft. Always verify against the SHA in the latest
-release notes or launch-day announcement before you start your node.
+:::note Launch genesis (post hard-fork)
+This is the live `safrochain-1` genesis with `genesis_time = 2026-05-30T14:39:48Z`
+and the Safrochain Foundation's two block-1 validators
+(`safro-validator-1`, `safro-validator-2`). Additional validators join
+on-chain via `MsgCreateValidator` after syncing.
 :::
 
 ### 4. Configure peers (`config.toml`)
@@ -172,10 +167,14 @@ Edit `$MAINNET_HOME/config/config.toml` under `[p2p]`:
 ```toml
 [p2p]
 seeds = "bc772fdc9749e6dfd200a9428f07d86fe4fd34ec@seed.safrochain.network:26666,d323d296ba55e89fb6ce1a724f8da1740bd8cbb0@seed2.safrochain.network:26670"
-persistent_peers = "131aeac8bd7fe9b678cdaa9cc3fe2d7af3ded1fe@rpc1.safrochain.network:26676,29879611b7f822203a2822c2bfbd8e8f39161139@rpc2.safrochain.network:36656"
+persistent_peers = ""
 addr_book_strict = true
 pex = true
 ```
+
+The two foundation seeds are sufficient to bootstrap the peer mesh. Once
+your node has connected and `pex` has populated its address book, it will
+discover and dial additional peers automatically.
 
 The same node IDs are also published in:
 

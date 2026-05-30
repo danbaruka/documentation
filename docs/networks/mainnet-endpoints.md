@@ -15,10 +15,9 @@ keywords:
   - Cosmos RPC
 ---
 
-:::info Mainnet target
-**Target launch:** **Q3 2026.** The endpoints below are the canonical names that
-will be served the moment the chain produces its first block. Until then treat
-them as **reserved DNS names** (they may not resolve publicly).
+:::info Mainnet is live
+`safrochain-1` is producing blocks (genesis time `2026-05-30T14:39:48Z`).
+All endpoints below are served by the Safrochain Foundation infrastructure.
 :::
 
 ## Network versions
@@ -119,16 +118,18 @@ Drop-in `[p2p]` block for `config.toml`:
 
 ```toml
 seeds = "bc772fdc9749e6dfd200a9428f07d86fe4fd34ec@seed.safrochain.network:26666,d323d296ba55e89fb6ce1a724f8da1740bd8cbb0@seed2.safrochain.network:26670"
-persistent_peers = "131aeac8bd7fe9b678cdaa9cc3fe2d7af3ded1fe@rpc1.safrochain.network:26676"
+persistent_peers = ""
 ```
 
-| Name | Node ID @ endpoint | Purpose |
-| --- | --- | --- |
-| `rpc1` | `131aeac8bd7fe9b678cdaa9cc3fe2d7af3ded1fe@rpc1.safrochain.network:26676` | optional persistent peer (public RPC node) |
-| `rpc2` | `29879611b7f822203a2822c2bfbd8e8f39161139@rpc2.safrochain.network:36656` | optional persistent peer (public RPC node, archive) |
+The two seeds are enough to bootstrap. Once your node connects and `pex`
+populates its address book, it discovers and dials further peers
+automatically.
 
 Validators **never** accept inbound public P2P; only the public seed nodes
-listed above are reachable from the open internet.
+listed above are reachable from the open internet. The public RPC nodes
+(`rpc1`, `rpc2`) are fronted by Cloudflare, so only their HTTPS RPC port
+443 is reachable — their CometBFT P2P sockets are intentionally not
+exposed publicly.
 
 ## Status page
 
