@@ -6,7 +6,7 @@ sidebar_position: 6
 
 :::info Mainnet is live
 `safrochain-1` is producing blocks. Genesis time was
-`2026-05-30T14:39:48Z`. Follow the procedure below to spin up a node and
+`2026-06-25T10:00:00Z`. Follow the procedure below to spin up a node and
 sync from genesis.
 :::
 
@@ -128,32 +128,33 @@ safrochaind init my-moniker --chain-id safrochain-1 --home ~/.safrochain
 ### 3. Replace genesis
 
 The canonical mainnet `genesis.json` lives in the
-[`Safrochain-Org/draft-genesis`](https://github.com/Safrochain-Org/draft-genesis)
+[`Safrochain-Org/mainnet-genesis`](https://github.com/Safrochain-Org/mainnet-genesis)
 repository. Pull it and verify the SHA-256:
 
 ```bash
-curl -L https://raw.githubusercontent.com/Safrochain-Org/draft-genesis/main/genesis.json \
+curl -L https://raw.githubusercontent.com/Safrochain-Org/mainnet-genesis/main/genesis.json \
   -o ~/.safrochain/config/genesis.json
 
 sha256sum ~/.safrochain/config/genesis.json
 # Expected:
-# 21b5e7b470bb912ea652dea4b684758d19f92840393204ac06f8c9aef4812525
+# c05ac5aec1918df9edb257e8e0eea184d73edc51370eb4aa9f0b4f0aad615c4d
 ```
 
 One-liner verification:
 
 ```bash
 ( cd ~/.safrochain/config && \
-  echo "21b5e7b470bb912ea652dea4b684758d19f92840393204ac06f8c9aef4812525  genesis.json" \
+  echo "c05ac5aec1918df9edb257e8e0eea184d73edc51370eb4aa9f0b4f0aad615c4d  genesis.json" \
   | shasum -a 256 -c - )
 # Expected: genesis.json: OK
 ```
 
-:::note Launch genesis (post hard-fork)
-This is the live `safrochain-1` genesis with `genesis_time = 2026-05-30T14:39:48Z`
-and the Safrochain Foundation's two block-1 validators
-(`safro-validator-1`, `safro-validator-2`). Additional validators join
-on-chain via `MsgCreateValidator` after syncing.
+:::note Launch genesis
+This is the live `safrochain-1` genesis with `genesis_time = 2026-06-25T10:00:00Z`
+and four block-1 validators: **Ubuntu** + **Kilimanjaro** (Safrochain Foundation,
+50,000 SAF each, Horcrux-protected 2-of-3 threshold consensus keys) and
+**HusoNode** + **Winnode** (community, 10,000 SAF each). Additional validators
+join on-chain via `MsgCreateValidator` after syncing.
 :::
 
 ### 4. Configure peers (`config.toml`)

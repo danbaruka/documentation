@@ -10,7 +10,7 @@ host tokens are required in the repo.
 
 2. Under **Build and deployment** → **Source**, choose **GitHub Actions** (not “Deploy from a branch”).
 
-3. After the first successful run of **CI and Deploy** on `main`, the site will be available at the URL GitHub shows (see below). You can add a **Custom domain** there (e.g. `draft-docs.safrochain.com`) and follow the DNS instructions GitHub provides.
+3. After the first successful run of **CI and Deploy** on `main`, the site will be available at the URL GitHub shows (see below). You can add a **Custom domain** there (e.g. `docs.safrochain.com`) and follow the DNS instructions GitHub provides.
 
 **No** `VERCEL_*` (or other) secrets are required for this flow.
 
@@ -19,12 +19,12 @@ host tokens are required in the repo.
 | Setup | What you get |
 | --- | --- |
 | **Project site** (repo `documentation`) | `https://safrochain-org.github.io/documentation/` |
-| **Custom domain** in Pages settings | Your domain (e.g. `https://draft-docs.safrochain.com/`) with `static/CNAME` already in the build |
+| **Custom domain** in Pages settings | Your domain (e.g. `https://docs.safrochain.com/`) with `static/CNAME` already in the build |
 
 If you use the default `https://<org>.github.io/<repo>/` **without** a custom domain, set
 Docusaurus `baseUrl` in `docusaurus.config.ts` to `'/<repo>/'` (e.g. `'/documentation/'`).
 With a custom domain at the **root** of the site, keep `baseUrl: '/'` and align `url`
-with the live hostname (already `https://draft-docs.safrochain.com` in this project).
+with the live hostname (already `https://docs.safrochain.com` in this project).
 
 ## How deploy runs
 
@@ -48,7 +48,7 @@ is what updates the live site.
 
 ## DNS (custom domain)
 
-In **Settings** → **Pages** → **Custom domain**, add `draft-docs.safrochain.com` (or
+In **Settings** → **Pages** → **Custom domain**, add `docs.safrochain.com` (or
 your host). GitHub will show a **CNAME** target (usually
 `<user>.github.io` or a verification CNAME). Add that record at your DNS provider; see
 [GitHub: managing a custom domain](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site).

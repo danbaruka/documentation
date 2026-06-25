@@ -9,7 +9,7 @@
 
 The official documentation for **Safrochain** — an Africa-first Layer-1
 blockchain built on the Cosmos SDK and CometBFT consensus. The site is
-published at <https://draft-docs.safrochain.com>.
+published at <https://docs.safrochain.com>.
 
 > Looking for the chain itself? See
 > [`Safrochain-Org/safrochain-node`](https://github.com/Safrochain-Org).

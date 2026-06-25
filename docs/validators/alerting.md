@@ -47,7 +47,7 @@ groups:
         labels: { severity: critical, page: "true" }
         annotations:
           summary: "Validator has 0 voting power (jailed or unbonded)"
-          runbook: "https://draft-docs.safrochain.com/validators/alerting#runbook-validatorjailed"
+          runbook: "https://docs.safrochain.com/validators/alerting#runbook-validatorjailed"
 
       - alert: ValidatorMissingBlocks
         expr: increase(cometbft_consensus_validator_missed_blocks[10m]) > 5
@@ -55,7 +55,7 @@ groups:
         labels: { severity: critical, page: "true" }
         annotations:
           summary: "Validator missed > 5 blocks in 10 min: pre-jail warning"
-          runbook: "https://draft-docs.safrochain.com/validators/alerting#runbook-validatormissingblocks"
+          runbook: "https://docs.safrochain.com/validators/alerting#runbook-validatormissingblocks"
 
       - alert: ChainHeightStalled
         expr: rate(cometbft_consensus_height{role="validator"}[5m]) == 0
@@ -63,7 +63,7 @@ groups:
         labels: { severity: critical, page: "true" }
         annotations:
           summary: "Validator block height has not advanced in 2 min"
-          runbook: "https://draft-docs.safrochain.com/validators/alerting#runbook-chainheightstalled"
+          runbook: "https://docs.safrochain.com/validators/alerting#runbook-chainheightstalled"
 
       - alert: ValidatorBehindNetwork
         expr: |
@@ -94,7 +94,7 @@ groups:
         labels: { severity: critical, page: "true" }
         annotations:
           summary: "Remote signer has not attempted to sign in 2 min"
-          runbook: "https://draft-docs.safrochain.com/validators/alerting#runbook-signersilent"
+          runbook: "https://docs.safrochain.com/validators/alerting#runbook-signersilent"
 
       - alert: ClockDrift
         expr: abs(node_ntp_offset_seconds) > 0.1

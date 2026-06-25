@@ -22,4 +22,4 @@ User-agent: Google-Extended
 Allow: /
 
 # Sitemaps
-Sitemap: https://draft-docs.safrochain.com/sitemap.xml
+Sitemap: https://docs.safrochain.com/sitemap.xml

@@ -7,13 +7,13 @@ sidebar_position: 4
 These descriptors follow the [`cosmos/chain-registry`](https://github.com/cosmos/chain-registry)
 schema so that wallets, explorers, and relayers can auto-configure.
 
-## Mainnet: `safrochain-1` (Q3 2026)
+## Mainnet: `safrochain-1` (live — launched 2026-06-25)
 
 ```json
 {
   "$schema": "../chain.schema.json",
   "chain_name": "safrochain",
-  "status": "upcoming",
+  "status": "live",
   "network_type": "mainnet",
   "website": "https://safrochain.com",
   "pretty_name": "Safrochain",
@@ -43,8 +43,9 @@ schema so that wallets, explorers, and relayers can auto-configure.
     "cosmos_sdk_version": "0.50",
     "consensus": { "type": "cometbft", "version": "0.38" },
     "genesis": {
-      "genesis_url": "https://raw.githubusercontent.com/Safrochain-Org/draft-genesis/main/genesis.json",
-      "genesis_sha256": "21b5e7b470bb912ea652dea4b684758d19f92840393204ac06f8c9aef4812525"
+      "genesis_url": "https://raw.githubusercontent.com/Safrochain-Org/mainnet-genesis/main/genesis.json",
+      "genesis_sha256": "c05ac5aec1918df9edb257e8e0eea184d73edc51370eb4aa9f0b4f0aad615c4d",
+      "genesis_time": "2026-06-25T10:00:00Z"
     }
   },
   "peers": {

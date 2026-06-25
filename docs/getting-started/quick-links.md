@@ -6,7 +6,7 @@ description: Official Safrochain URLs and developer endpoints.
 ## Primary
 
 - **Website**: [safrochain.com](https://safrochain.com)
-- **Docs**: [draft-docs.safrochain.com](https://draft-docs.safrochain.com)
+- **Docs**: [docs.safrochain.com](https://docs.safrochain.com)
 - **GitHub**: [github.com/Safrochain-Org](https://github.com/Safrochain-Org)
 
 ## Network tools

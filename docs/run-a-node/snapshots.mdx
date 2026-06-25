@@ -1,0 +1,116 @@
+---
+title: Snapshots
+description: Catch up to chain tip from a tarball snapshot of safrochain-1.
+sidebar_position: 7
+---
+
+import LiveSnapshotInfo from '@site/src/components/LiveSnapshotInfo';
+
+A snapshot is a tarball of `data/` from a known-good Safrochain node. New
+nodes restore from it instead of replaying every block from genesis,
+cutting hours-to-days of catch-up to a few minutes.
+
+The foundation publishes snapshots of the live chain from rpc2 once per day.
+
+## Live snapshot status
+
+<LiveSnapshotInfo />
+
+| Endpoint | What it returns |
+| --- | --- |
+| [`https://snapshots.safrochain.network/`](https://snapshots.safrochain.network/) | Browser-friendly HTML page — always shows current height, size, time, SHA-256, and a download button |
+| [`https://snapshots.safrochain.network/latest.json`](https://snapshots.safrochain.network/latest.json) | Machine-readable manifest (height, file, sha256, size_bytes, created) |
+| [`https://snapshots.safrochain.network/latest.tar.lz4`](https://snapshots.safrochain.network/latest.tar.lz4) | Symlink to the most recent snapshot tarball |
+| `https://snapshots.safrochain.network/<file>.tar.lz4` | A specific snapshot by name |
+
+Filename pattern: `safrochain-1_h<height>_<UTC-timestamp>.tar.lz4`
+(e.g. `safrochain-1_h21815_20260531T080608Z.tar.lz4`).
+
+The foundation keeps the **last 3 snapshots** online; older ones are
+auto-pruned. Snapshots are LZ4-compressed (faster decode than gzip).
+
+## Restoring (from a stopped node)
+
+```bash
+# 1. Stop the daemon
+sudo systemctl stop safrochaind
+
+# 2. Wipe data only (keep config + keys), keep the addr_book
+sudo -u safrochain safrochaind comet unsafe-reset-all \
+  --home /var/lib/safrochain --keep-addr-book
+
+# 3. Fetch the latest snapshot + its sha256 from the manifest
+MANIFEST=$(curl -fsSL https://snapshots.safrochain.network/latest.json)
+NAME=$(echo "$MANIFEST" | jq -r .file)
+SHA=$(echo  "$MANIFEST" | jq -r .sha256)
+SIZE=$(echo "$MANIFEST" | jq -r .size_human)
+
+echo "Downloading $NAME ($SIZE)"
+curl -L "https://snapshots.safrochain.network/$NAME" -o /tmp/safro.tar.lz4
+
+# 4. Verify integrity (critical: don't skip)
+echo "$SHA  /tmp/safro.tar.lz4" | sha256sum -c -
+
+# 5. Extract over the now-empty data dir
+sudo -u safrochain bash -c \
+  "lz4 -d /tmp/safro.tar.lz4 | tar -xf - -C /var/lib/safrochain"
+rm /tmp/safro.tar.lz4
+
+# 6. (Optional but safe) zero out priv_validator_state if you're a validator
+#    that has never signed on this chain. Skip if you already signed and want
+#    to keep your double-sign protection.
+# echo '{"height":"0","round":0,"step":0}' | sudo -u safrochain tee \
+#   /var/lib/safrochain/data/priv_validator_state.json
+
+# 7. Start and watch sync
+sudo systemctl start safrochaind
+sudo journalctl -u safrochaind -f
+```
+
+The node will boot, replay the few hundred blocks since the snapshot was
+taken (~3 s per block), and reach chain tip in minutes.
+
+## Validating freshness before downloading
+
+```bash
+SNAP=$(curl -fsSL https://snapshots.safrochain.network/latest.json | jq -r .height)
+TIP=$( curl -fsSL https://rpc1.safrochain.network/status \
+       | jq -r .result.sync_info.latest_block_height)
+echo "snapshot=$SNAP tip=$TIP lag=$((TIP - SNAP)) blocks"
+```
+
+Snapshots are typically taken at 04:00 UTC daily, so worst-case lag is
+~28 800 blocks (~24 hours at 3 s/block).
+
+## Producing your own snapshot
+
+If you operate a node and want to publish snapshots for your community,
+run something like this (mirrors what the foundation does on rpc2):
+
+```bash
+sudo systemctl stop safrochaind
+H=$(curl -fsSL http://127.0.0.1:26657/status | jq -r .result.sync_info.latest_block_height)
+NAME="safrochain-1_h${H}_$(date -u +%Y%m%dT%H%M%SZ).tar.lz4"
+tar -cf - -C /var/lib/safrochain --exclude=data/snapshots --exclude=wasm data \
+  | lz4 -3 -z > "/srv/snapshots/$NAME"
+sha256sum "/srv/snapshots/$NAME" > "/srv/snapshots/$NAME.sha256"
+sudo systemctl start safrochaind
+```
+
+Then expose `/srv/snapshots/` via nginx + your domain (and back it up
+off-host: any S3-compatible bucket — AWS S3, Cloudflare R2, Backblaze B2).
+
+## Common pitfalls
+
+- **Skipping the SHA-256 check** → silent corruption later when the node
+  fails to load a malformed DB. Always verify.
+- **Mismatched LZ4 version** → make sure `lz4 -V` reports at least 1.9.0.
+- **Restoring across chain-ids** → fails. The data dir embeds chain-id;
+  never mix snapshots from different networks.
+- **Restoring while still acting as a validator** → make sure your
+  validator is jailed / unbonded or that another instance is signing
+  before you restore; otherwise you risk missing blocks long enough to be
+  jailed.
+- **Forgetting `--keep-addr-book`** → your node restarts with no peer
+  list; you'll be slow to connect. Always pass `--keep-addr-book` to
+  `unsafe-reset-all` if you want to retain peer discovery.

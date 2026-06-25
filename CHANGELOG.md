@@ -10,7 +10,7 @@ and this project aims to follow [Semantic Versioning](https://semver.org/).
 
 ### Added
 
-- `static/CNAME` for the docs host (`draft-docs.safrochain.com`) so static output matches the
+- `static/CNAME` for the docs host (`docs.safrochain.com`) so static output matches the
   canonical production domain.
 - Auto deploy: GitHub Actions → **GitHub Pages** (`upload-pages-artifact` +
   `deploy-pages`); one-time **Settings → Pages → Source: GitHub Actions**; see

@@ -16,7 +16,7 @@ keywords:
 ---
 
 :::info Mainnet is live
-`safrochain-1` is producing blocks (genesis time `2026-05-30T14:39:48Z`).
+`safrochain-1` is producing blocks (genesis time `2026-06-25T10:00:00Z`).
 All endpoints below are served by the Safrochain Foundation infrastructure.
 :::
 
@@ -40,19 +40,20 @@ After building [`safrochaind` from source](../run-a-node/install) at tag **`v0.2
 | Total supply | `1,000,000,000 SAF` (fixed) |
 | Bech32 prefix | `addr_safro` |
 | Minimum gas price | `0.05 usaf/gas` (chain-wide via [`globalfee`](../modules/globalfee)) |
-| Validators at block 1 | **9** (2 SF Foundation + 7 community) |
+| Validators at block 1 | **4** — Ubuntu + Kilimanjaro (SF Foundation, 50k SAF / 8 % each), HusoNode + Winnode (community, 10k SAF / 10 % each) |
+| Total bonded at block 1 | 120,000 SAF |
 
 ## Genesis
 
 | Field | Value |
 | --- | --- |
-| Repository | [`Safrochain-Org/draft-genesis`](https://github.com/Safrochain-Org/draft-genesis) |
-| Raw URL | `https://raw.githubusercontent.com/Safrochain-Org/draft-genesis/main/genesis.json` |
-| Current SHA-256 | `964423b6008f6c3f0f0410455336372d74bb2f5cda0a8da52dfa152347850ec8` |
-| Validator manifest | [`COMMUNITY-VALIDATORS.md`](https://github.com/Safrochain-Org/draft-genesis/blob/main/COMMUNITY-VALIDATORS.md) |
-
-The current SHA refers to the **draft** genesis. The foundation will publish
-the final SHA on launch day; the URL stays the same.
+| Repository | [`Safrochain-Org/mainnet-genesis`](https://github.com/Safrochain-Org/mainnet-genesis) |
+| Raw URL | `https://raw.githubusercontent.com/Safrochain-Org/mainnet-genesis/main/genesis.json` |
+| Launch SHA-256 | `c05ac5aec1918df9edb257e8e0eea184d73edc51370eb4aa9f0b4f0aad615c4d` |
+| Genesis time | `2026-06-25T10:00:00Z` |
+| Initial height | `1` |
+| File size | 27,596 bytes (≈ 27 KB) |
+| Binary | `safrochaind v0.2.2` (Cosmos SDK 0.50.14, CometBFT 0.38.21) |
 
 ## RPC (CometBFT JSON-RPC over HTTPS)
 
