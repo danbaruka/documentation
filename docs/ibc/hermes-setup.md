@@ -7,7 +7,8 @@ sidebar_position: 2
 [Hermes](https://hermes.informal.systems/) is the relayer of choice for
 Safrochain foundation operators. This page is a copy-paste template that
 brings up a single-host relayer between Safrochain and one counterparty.
-It applies equally to mainnet (Q3 2026) and testnet today.
+Mainnet channels to Noble and Osmosis are **already open** — configure Hermes
+to relay existing paths; see [Channels](./channels#join-as-a-relayer).
 
 ## Prerequisites
 
@@ -63,7 +64,7 @@ host = '127.0.0.1'
 port = 3001
 
 # ----------------------------------------------------------------------------
-# Safrochain (mainnet, uncomment for production)
+# Safrochain (mainnet)
 # ----------------------------------------------------------------------------
 [[chains]]
 id = 'safrochain-1'
@@ -91,38 +92,55 @@ sequential_batch_tx = false
 trusting_period = '14days'
 trust_threshold = { numerator = '2', denominator = '3' }
 address_type = { derivation = 'cosmos' }
-
-[chains.gas_price]
-price = 0.05
-denom = 'usaf'
+gas_price = { price = 0.05, denom = 'usaf' }
 
 # ----------------------------------------------------------------------------
-# Safrochain (testnet, currently live)
+# Noble (live path: channel-0 ↔ channel-581)
 # ----------------------------------------------------------------------------
-# [[chains]]
-# id = 'safro-testnet-1'
-# rpc_addr = 'https://rpc.testnet.safrochain.com:443'
-# grpc_addr = 'https://grpc.testnet.safrochain.com:443'
-# event_source = { mode = 'push', url = 'wss://rpc.testnet.safrochain.com/websocket', batch_delay = '500ms' }
-# account_prefix = 'safro'
-# key_name = 'relayer-safro-testnet'
-# gas_price = { price = 0.05, denom = 'usaf' }
-# trust_threshold = { numerator = '2', denominator = '3' }
-# trusting_period = '14days'
+[[chains]]
+id = 'noble-1'
+type = 'CosmosSdk'
+rpc_addr = 'https://noble-rpc.polkachu.com:443'
+grpc_addr = 'https://noble-grpc.polkachu.com:443'
+event_source = { mode = 'push', url = 'wss://noble-rpc.polkachu.com/websocket', batch_delay = '500ms' }
+rpc_timeout = '15s'
+trusted_node = false
+account_prefix = 'noble'
+key_name = 'relayer-noble'
+key_store_type = 'Test'
+store_prefix = 'ibc'
+default_gas = 200000
+gas_multiplier = 1.3
+clock_drift = '5s'
+max_block_time = '6s'
+trusting_period = '14days'
+trust_threshold = { numerator = '2', denominator = '3' }
+address_type = { derivation = 'cosmos' }
+gas_price = { price = 0.1, denom = 'uusdc' }
 
 # ----------------------------------------------------------------------------
-# Counterparty (replace with the chain you are bridging to)
+# Osmosis (live path: channel-1 ↔ channel-110497)
 # ----------------------------------------------------------------------------
-# [[chains]]
-# id = 'cosmoshub-4'
-# rpc_addr = 'https://rpc.cosmos.network:443'
-# grpc_addr = 'https://grpc.cosmos.network:443'
-# event_source = { mode = 'push', url = 'wss://rpc.cosmos.network/websocket', batch_delay = '500ms' }
-# account_prefix = 'cosmos'
-# key_name = 'relayer-cosmoshub'
-# gas_price = { price = 0.025, denom = 'uatom' }
-# trust_threshold = { numerator = '2', denominator = '3' }
-# trusting_period = '14days'
+[[chains]]
+id = 'osmosis-1'
+type = 'CosmosSdk'
+rpc_addr = 'https://rpc.osmosis.zone:443'
+grpc_addr = 'https://grpc.osmosis.zone:443'
+event_source = { mode = 'push', url = 'wss://rpc.osmosis.zone/websocket', batch_delay = '500ms' }
+rpc_timeout = '15s'
+trusted_node = false
+account_prefix = 'osmo'
+key_name = 'relayer-osmosis'
+key_store_type = 'Test'
+store_prefix = 'ibc'
+default_gas = 200000
+gas_multiplier = 1.3
+clock_drift = '5s'
+max_block_time = '6s'
+trusting_period = '14days'
+trust_threshold = { numerator = '2', denominator = '3' }
+address_type = { derivation = 'cosmos' }
+gas_price = { price = 0.025, denom = 'uosmo' }
 ```
 
 ## Import the relayer keys
@@ -133,10 +151,15 @@ hermes keys add \
   --chain safrochain-1 \
   --mnemonic-file <(echo "your 24-word mnemonic")
 
-# Counterparty (example: Cosmos Hub)
+# Noble
 hermes keys add \
-  --chain cosmoshub-4 \
-  --mnemonic-file <(echo "your counterparty mnemonic")
+  --chain noble-1 \
+  --mnemonic-file <(echo "your noble mnemonic")
+
+# Osmosis
+hermes keys add \
+  --chain osmosis-1 \
+  --mnemonic-file <(echo "your osmosis mnemonic")
 ```
 
 Verify:
@@ -156,19 +179,29 @@ hermes health-check
 `health-check` will RPC + gRPC ping every chain and report the trusting
 period vs unbonding period.
 
-## Open a transfer channel (one-time, by the foundation)
+## Relay existing channels (mainnet)
+
+Noble and Osmosis channels are **already open**. Start Hermes after config
+validation — it will clear packets on:
+
+| Path | Safrochain | Counterparty |
+| --- | --- | --- |
+| Noble | `transfer/channel-0` | `transfer/channel-581` |
+| Osmosis | `transfer/channel-1` | `transfer/channel-110497` |
 
 ```bash
-hermes create channel \
-  --a-chain safrochain-1 \
-  --b-chain cosmoshub-4 \
-  --a-port transfer \
-  --b-port transfer \
-  --new-client-connection
+# Relay Safrochain ↔ Noble only
+hermes start --chains safrochain-1,noble-1
+
+# Or Safrochain ↔ Osmosis
+hermes start --chains safrochain-1,osmosis-1
+
+# Or all three chains
+hermes start
 ```
 
-Channel handshake is recorded in [Channels](./channels) and signed off by
-the foundation governance.
+Only run `hermes create channel` when opening a **new** counterparty that
+does not yet appear in [Channels](./channels).
 
 ## Start as a systemd service
 
@@ -201,24 +234,25 @@ sudo journalctl -u hermes -f
 ## Smoke test
 
 ```bash
-# from another machine
-safrochaind tx ibc-transfer transfer transfer channel-0 \
-  cosmos1abc... 1000000usaf \
+# Send SAF to Osmosis (channel-1)
+safrochaind tx ibc-transfer transfer transfer channel-1 \
+  osmo1abc... 1000000usaf \
   --from sender --chain-id safrochain-1 \
-  --node https://rpc.safrochain.network:443 \
+  --node https://rpc1.safrochain.network:443 \
   --gas auto --gas-adjustment 1.3 --gas-prices 0.05usaf -y
 ```
 
 Watch Hermes log:
 
 ```text
-INFO ibc::relay::link::relay_path: relayed packets: src_chain=safrochain-1 dst_chain=cosmoshub-4 ...
+INFO ibc::relay::link::relay_path: relayed packets: src_chain=safrochain-1 dst_chain=osmosis-1 ...
 ```
 
-Verify on the counterparty:
+Verify on Osmosis:
 
 ```bash
-gaiad query bank balances cosmos1abc... | grep ibc/
+osmosisd query bank balances osmo1abc... --node https://rpc.osmosis.zone:443 \
+  | grep ibc/DBAA4846F611A7603EFCE6F9F46F4F561D48B1F492A576022F000614A17089CE
 ```
 
 ## Health & monitoring

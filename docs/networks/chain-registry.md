@@ -74,7 +74,31 @@ schema so that wallets, explorers, and relayers can auto-configure.
   },
   "explorers": [
     { "kind": "safroexplorer", "url": "https://explorer.safrochain.com/", "tx_page": "https://explorer.safrochain.com/tx/${txHash}" }
-  ]
+  ],
+  "ibc": {
+    "channels": [
+      {
+        "chain_1": { "chain_name": "safrochain", "client_id": "07-tendermint-0", "connection_id": "connection-0" },
+        "chain_2": { "chain_name": "noble", "client_id": "07-tendermint-224", "connection_id": "connection-210" },
+        "port_id": "transfer",
+        "channel_id": "channel-0",
+        "counterparty": { "port_id": "transfer", "channel_id": "channel-581" },
+        "ordering": "unordered",
+        "version": "ics20-1",
+        "tags": { "status": "live", "preferred": true, "dex": false }
+      },
+      {
+        "chain_1": { "chain_name": "safrochain", "client_id": "07-tendermint-1", "connection_id": "connection-1" },
+        "chain_2": { "chain_name": "osmosis", "client_id": "07-tendermint-3719", "connection_id": "connection-11075" },
+        "port_id": "transfer",
+        "channel_id": "channel-1",
+        "counterparty": { "port_id": "transfer", "channel_id": "channel-110497" },
+        "ordering": "unordered",
+        "version": "ics20-1",
+        "tags": { "status": "live", "preferred": true, "dex": true }
+      }
+    ]
+  }
 }
 ```
 
@@ -119,7 +143,7 @@ schema so that wallets, explorers, and relayers can auto-configure.
 }
 ```
 
-## `assetlist.json` (both networks)
+## `assetlist.json` (mainnet)
 
 ```json
 {
@@ -140,10 +164,57 @@ schema so that wallets, explorers, and relayers can auto-configure.
         "png": "https://safrochain.com/safcoin.png",
         "svg": "https://safrochain.com/svg/safohcian_logo_white.svg"
       }
+    },
+    {
+      "description": "Circle USDC bridged from Noble over IBC channel-0.",
+      "denom_units": [
+        { "denom": "ibc/8E27BA2D5493AF5636760E354E46004562C46AB7EC0CC4C1CA14E9E20E2545B5", "exponent": 0, "aliases": ["uusdc"] },
+        { "denom": "USDC", "exponent": 6 }
+      ],
+      "base": "ibc/8E27BA2D5493AF5636760E354E46004562C46AB7EC0CC4C1CA14E9E20E2545B5",
+      "name": "USD Coin (Noble)",
+      "display": "USDC",
+      "symbol": "USDC",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": { "chain_name": "noble", "base_denom": "uusdc", "channel_id": "channel-581" },
+          "chain": { "channel_id": "channel-0", "path": "transfer/channel-0/uusdc" }
+        }
+      ],
+      "logo_URIs": { "svg": "https://raw.githubusercontent.com/cosmos/chain-registry/master/_non-cosmos/ethereum/images/usdc.svg" }
+    },
+    {
+      "description": "Osmosis OSMO bridged over IBC channel-1.",
+      "denom_units": [
+        { "denom": "ibc/0471F1C4E7AFD3F07702BEF6DC365268D64570F7C1FDC98EA6098DD6DE59817B", "exponent": 0, "aliases": ["uosmo"] },
+        { "denom": "OSMO", "exponent": 6 }
+      ],
+      "base": "ibc/0471F1C4E7AFD3F07702BEF6DC365268D64570F7C1FDC98EA6098DD6DE59817B",
+      "name": "Osmosis",
+      "display": "OSMO",
+      "symbol": "OSMO",
+      "traces": [
+        {
+          "type": "ibc",
+          "counterparty": { "chain_name": "osmosis", "base_denom": "uosmo", "channel_id": "channel-110497" },
+          "chain": { "channel_id": "channel-1", "path": "transfer/channel-1/uosmo" }
+        }
+      ],
+      "logo_URIs": { "png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/osmosis/images/osmo.png" }
     }
   ]
 }
 ```
+
+SAF on counterparty chains (for wallet/explorer asset lists on Noble and Osmosis):
+
+| Chain | IBC denom | Trace |
+| --- | --- | --- |
+| Noble | `ibc/416D906365215CB6641B38CCDAA01385AA4B20E5E8EF2D65702A1B3F383FBBA2` | `transfer/channel-581/usaf` |
+| Osmosis | `ibc/DBAA4846F611A7603EFCE6F9F46F4F561D48B1F492A576022F000614A17089CE` | `transfer/channel-110497/usaf` |
+
+Full channel topology: [IBC channels](../ibc/channels).
 
 ## SLIP-44 / HD path
 

@@ -20,13 +20,18 @@ relayer, see [IBC: Hermes setup](../ibc/hermes-setup).
 
 ## What you need
 
-1. A funded account on `safro-testnet-1`
+1. A funded account on `safrochain-1` (mainnet) or `safro-testnet-1`
 2. A destination chain address (counterparty)
 3. A channel ID on Safrochain that connects to the destination chain
 
-Channel IDs are published in the chain’s IBC registry once the channel is live:
+Live mainnet channels:
 
-- [IBC channels](../ibc/channels)
+| Destination | Safrochain channel | Counterparty channel |
+| --- | --- | --- |
+| Noble (`noble-1`) | `channel-0` | `channel-581` |
+| Osmosis (`osmosis-1`) | `channel-1` | `channel-110497` |
+
+Full registry: [IBC channels](../ibc/channels).
 
 ## Key parameters
 
@@ -47,8 +52,8 @@ Most apps use **timeoutTimestamp** (recommended) because it is chain-agnostic.
 import { DirectSecp256k1HdWallet } from "@cosmjs/proto-signing";
 import { SigningStargateClient, assertIsDeliverTxSuccess } from "@cosmjs/stargate";
 
-const RPC = "https://rpc.testnet.safrochain.com:443";
-const CHAIN_ID = "safro-testnet-1";
+const RPC = "https://rpc1.safrochain.network:443";
+const CHAIN_ID = "safrochain-1";
 const mnemonic = process.env.MNEMONIC!;
 
 const wallet = await DirectSecp256k1HdWallet.fromMnemonic(mnemonic, {
@@ -60,11 +65,11 @@ const client = await SigningStargateClient.connectWithSigner(RPC, wallet, {
   gasPrice: { denom: "usaf", amount: "0.05" },
 });
 
-// Replace with a real channel from the IBC registry once live
+// Noble: channel-0 · Osmosis: channel-1
 const sourcePort = "transfer";
-const sourceChannel = "channel-0";
+const sourceChannel = "channel-1";
 
-const receiver = "cosmos1xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+const receiver = "osmo1xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
 const token = { denom: "usaf", amount: "1000000" }; // 1 SAF
 
 const memo = "ibc test";
@@ -97,11 +102,9 @@ for the destination chain.
 
 Recommended approach:
 
-1. Maintain a small config mapping like `{ chainId -> sourceChannel }`.
-2. Update it when the foundation opens new channels (or when channels are
-   rotated).
-3. For safety, display the channel you intend to use in your UI so operators
-   can verify it.
+1. Maintain a config mapping, e.g. `{ "noble-1": "channel-0", "osmosis-1": "channel-1" }`.
+2. Update it when new channels open (see [Channels](../ibc/channels)).
+3. Display the channel in your UI so users can verify it.
 
 ## Common failure modes
 
@@ -114,4 +117,5 @@ Recommended approach:
 
 ## Next
 
-- If you need relayer operations: [Hermes setup](../ibc/hermes-setup)\n+- If you need general IBC background: [IBC overview](../ibc/overview)\n+
+- Relayer operations: [Hermes setup](../ibc/hermes-setup)
+- IBC background: [IBC overview](../ibc/overview)

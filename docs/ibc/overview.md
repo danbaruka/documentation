@@ -26,9 +26,13 @@ genesis. Out of the box you get:
 - **ICS-721 NFT transfers**: interchain NFT moves once a counterparty wires
   it up.
 
-Today the chain is in the testnet phase, so channels listed on
-[Channels](./channels) are placeholders. They open in lockstep with mainnet
-launch (Q3 2026).
+Mainnet (`safrochain-1`) has **live** ICS-20 channels to **Noble** and
+**Osmosis**. See the full registry in [Channels](./channels).
+
+| Path | Safrochain channel | Counterparty channel | Tokens |
+| --- | --- | --- | --- |
+| Safrochain ↔ Noble | `channel-0` | `channel-581` | USDC in, SAF out |
+| Safrochain ↔ Osmosis | `channel-1` | `channel-110497` | OSMO in, SAF out |
 
 ## Why a chain operator runs a relayer
 
@@ -38,11 +42,12 @@ counterparty so that:
 
 - Token transfers in/out of Safrochain don't depend on third-party uptime
 - The foundation can pay relayer fees in `SAF` via the `ibcfee` middleware
+  when fee channels are registered
 - Channel handshake bugs and timeout issues get caught fast (alert
   pipeline)
 
-Independent operators are very welcome to relay too; the more redundancy,
-the healthier the channel.
+Independent operators are very welcome to relay the same open channels; the
+more redundancy, the healthier the network. See [Join as a relayer](./channels#join-as-a-relayer).
 
 ## Relayer choices
 
@@ -58,27 +63,31 @@ pattern.
 
 ## Address format on counterparties
 
-When you send `SAF` from Safrochain to another chain over channel-0, your
-asset arrives as
+When you send `SAF` from Safrochain over IBC, the voucher hash depends on
+the **counterparty channel id** (not the Safrochain channel id):
 
-```text
-ibc/<sha256-of-channel-0-and-usaf>
-```
+| Destination | Safrochain channel | Trace on destination | IBC denom on destination |
+| --- | --- | --- | --- |
+| Noble | `channel-0` | `transfer/channel-581/usaf` | `ibc/416D906365215CB6641B38CCDAA01385AA4B20E5E8EF2D65702A1B3F383FBBA2` |
+| Osmosis | `channel-1` | `transfer/channel-110497/usaf` | `ibc/DBAA4846F611A7603EFCE6F9F46F4F561D48B1F492A576022F000614A17089CE` |
 
-The destination explorer typically resolves this to "SAF (Safrochain)" using
-its assetlist. To compute it yourself:
+Compute any IBC denom locally:
 
 ```bash
-echo -n "transfer/channel-0/usaf" | shasum -a 256
-# <64 hex chars>. IBC denom is "ibc/<that hash uppercased>"
+echo -n "transfer/<counterparty-channel>/<base-denom>" | shasum -a 256
+# IBC denom = "ibc/" + that hex (uppercased)
 ```
+
+Inbound tokens on Safrochain use the Safrochain channel in the trace, e.g.
+OSMO arrives as `transfer/channel-1/uosmo` →
+`ibc/0471F1C4E7AFD3F07702BEF6DC365268D64570F7C1FDC98EA6098DD6DE59817B`.
 
 ## Fees
 
-ICS-29 fee middleware is enabled. A relayer can attach `recv_fee`,
-`ack_fee`, and `timeout_fee` to each packet and be paid in `usaf` from a
-fee escrow on the source chain. This is what keeps the channel reliable
-without anyone running a relayer "out of charity".
+ICS-29 fee middleware is enabled on-chain. A relayer can attach `recv_fee`,
+`ack_fee`, and `timeout_fee` to each packet and be paid from a fee escrow on
+the source chain. No fee-enabled channels are registered yet on mainnet; the
+foundation relayer currently clears packets without ICS-29 incentives.
 
 ## Health monitoring
 
@@ -95,4 +104,4 @@ Hermes ships a Prometheus-compatible metrics endpoint (defaults to
 
 - [Hermes setup](./hermes-setup): full config template, systemd unit,
   health checks.
-- [Channels](./channels): canonical channel registry (opens at mainnet).
+- [Channels](./channels): canonical channel registry with live IDs and IBC denoms.
