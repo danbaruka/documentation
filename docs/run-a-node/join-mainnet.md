@@ -132,7 +132,7 @@ The canonical mainnet `genesis.json` lives in the
 repository. Pull it and verify the SHA-256:
 
 ```bash
-curl -L https://raw.githubusercontent.com/Safrochain-Org/mainnet-genesis/main/genesis.json \
+curl -fsSL https://raw.githubusercontent.com/Safrochain-Org/mainnet-genesis/main/genesis.json \
   -o ~/.safrochain/config/genesis.json
 
 sha256sum ~/.safrochain/config/genesis.json

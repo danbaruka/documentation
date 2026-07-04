@@ -35,6 +35,20 @@ The testnet is currently live and is the easiest way to experiment with
 | Testnet | `safro-testnet-1` | `release/v0.1.0` | `1.23.9` |
 | Mainnet | `safrochain-1` | `v0.2.2` | `1.25.8` |
 
+## Genesis
+
+| Field | Value |
+| --- | --- |
+| Repository | [`Safrochain-Org/genesis`](https://github.com/Safrochain-Org/genesis) |
+| File | [`genesis-testnet.json`](https://github.com/Safrochain-Org/genesis/blob/main/genesis-testnet.json) |
+| Raw URL | `https://raw.githubusercontent.com/Safrochain-Org/genesis/main/genesis-testnet.json` |
+| Mirror | `https://genesis.safrochain.com/testnet/genesis.json` |
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/Safrochain-Org/genesis/main/genesis-testnet.json \
+  -o ~/.safrochain/config/genesis.json
+```
+
 ## Public endpoints
 
 | Service | Endpoint |

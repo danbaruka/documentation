@@ -9,6 +9,19 @@ schema so that wallets, explorers, and relayers can auto-configure.
 
 ## Mainnet: `safrochain-1` (live — launched 2026-06-25)
 
+**PR-ready bundle:** [`chain-registry/safrochain/`](../../../chain-registry/safrochain/) at repo root
+(includes `chain.json`, `assetlist.json`, `versions.json`, `images/`, and
+[`_IBC/`](../../../chain-registry/_IBC/) channel files). Copy into a fork of
+[`cosmos/chain-registry`](https://github.com/cosmos/chain-registry).
+
+Review fixes vs earlier drafts:
+
+| Issue | Resolution |
+| --- | --- |
+| Binary URL 404 | Omit `codebase.binaries` until `v0.2.2` release assets are published on GitHub |
+| `TBD_seed_node_id` | Use live IDs below (40-char hex) |
+| Seed port `26656` | Use **`26666`** / **`26670`** (not default CometBFT 26656) |
+
 ```json
 {
   "$schema": "../chain.schema.json",
@@ -19,6 +32,14 @@ schema so that wallets, explorers, and relayers can auto-configure.
   "pretty_name": "Safrochain",
   "chain_id": "safrochain-1",
   "bech32_prefix": "addr_safro",
+  "bech32_config": {
+    "bech32PrefixAccAddr": "addr_safro",
+    "bech32PrefixAccPub": "addr_safropub",
+    "bech32PrefixValAddr": "addr_safrovaloper",
+    "bech32PrefixValPub": "addr_safrovaloperpub",
+    "bech32PrefixConsAddr": "addr_safrovalcons",
+    "bech32PrefixConsPub": "addr_safrovalconspub"
+  },
   "daemon_name": "safrochaind",
   "node_home": "$HOME/.safrochain",
   "key_algos": ["secp256k1"],
@@ -39,13 +60,12 @@ schema so that wallets, explorers, and relayers can auto-configure.
     "git_repo": "https://github.com/Safrochain-Org/safrochain-node",
     "recommended_version": "v0.2.2",
     "compatible_versions": ["v0.2.2"],
-    "binaries": {},
-    "cosmos_sdk_version": "0.50",
-    "consensus": { "type": "cometbft", "version": "0.38" },
+    "tag": "v0.2.2",
+    "sdk": { "type": "cosmos", "version": "0.50.14" },
+    "consensus": { "type": "cometbft", "version": "0.38.21" },
+    "ibc": { "type": "go", "version": "8.7.0", "ics_enabled": ["ics20-1", "ics27-1"] },
     "genesis": {
-      "genesis_url": "https://raw.githubusercontent.com/Safrochain-Org/mainnet-genesis/main/genesis.json",
-      "genesis_sha256": "c05ac5aec1918df9edb257e8e0eea184d73edc51370eb4aa9f0b4f0aad615c4d",
-      "genesis_time": "2026-06-25T10:00:00Z"
+      "genesis_url": "https://raw.githubusercontent.com/Safrochain-Org/mainnet-genesis/main/genesis.json"
     }
   },
   "peers": {
@@ -57,50 +77,42 @@ schema so that wallets, explorers, and relayers can auto-configure.
   },
   "apis": {
     "rpc":  [
+      { "address": "https://rpc.safrochain.network", "provider": "Safrochain Foundation" },
       { "address": "https://rpc1.safrochain.network", "provider": "Safrochain Foundation" },
-      { "address": "https://rpc2.safrochain.network", "provider": "Safrochain Foundation" }
+      { "address": "https://rpc2.safrochain.network", "provider": "Safrochain Foundation", "archive": true }
     ],
     "rest": [
+      { "address": "https://api.safrochain.network", "provider": "Safrochain Foundation" },
       { "address": "https://api1.safrochain.network", "provider": "Safrochain Foundation" },
-      { "address": "https://api2.safrochain.network", "provider": "Safrochain Foundation" }
+      { "address": "https://api2.safrochain.network", "provider": "Safrochain Foundation", "archive": true }
     ],
     "grpc": [
-      { "address": "grpc1.safrochain.network:443", "provider": "Safrochain Foundation" },
-      { "address": "grpc2.safrochain.network:443", "provider": "Safrochain Foundation" }
+      { "address": "https://grpc.safrochain.network:443", "provider": "Safrochain Foundation" },
+      { "address": "https://grpc1.safrochain.network:443", "provider": "Safrochain Foundation" },
+      { "address": "https://grpc2.safrochain.network:443", "provider": "Safrochain Foundation", "archive": true }
     ],
     "grpc-web": [
       { "address": "https://grpc-web.safrochain.network", "provider": "Safrochain Foundation" }
+    ],
+    "wss": [
+      { "address": "wss://rpc.safrochain.network/websocket", "provider": "Safrochain Foundation" }
     ]
   },
   "explorers": [
-    { "kind": "safroexplorer", "url": "https://explorer.safrochain.com/", "tx_page": "https://explorer.safrochain.com/tx/${txHash}" }
-  ],
-  "ibc": {
-    "channels": [
-      {
-        "chain_1": { "chain_name": "safrochain", "client_id": "07-tendermint-0", "connection_id": "connection-0" },
-        "chain_2": { "chain_name": "noble", "client_id": "07-tendermint-224", "connection_id": "connection-210" },
-        "port_id": "transfer",
-        "channel_id": "channel-0",
-        "counterparty": { "port_id": "transfer", "channel_id": "channel-581" },
-        "ordering": "unordered",
-        "version": "ics20-1",
-        "tags": { "status": "live", "preferred": true, "dex": false }
-      },
-      {
-        "chain_1": { "chain_name": "safrochain", "client_id": "07-tendermint-1", "connection_id": "connection-1" },
-        "chain_2": { "chain_name": "osmosis", "client_id": "07-tendermint-3719", "connection_id": "connection-11075" },
-        "port_id": "transfer",
-        "channel_id": "channel-1",
-        "counterparty": { "port_id": "transfer", "channel_id": "channel-110497" },
-        "ordering": "unordered",
-        "version": "ics20-1",
-        "tags": { "status": "live", "preferred": true, "dex": true }
-      }
-    ]
-  }
+    {
+      "kind": "safroexplorer",
+      "url": "https://explorer.safrochain.com/",
+      "tx_page": "https://explorer.safrochain.com/tx/${txHash}",
+      "account_page": "https://explorer.safrochain.com/address/${accountAddress}"
+    }
+  ]
 }
 ```
+
+IBC channel metadata lives in separate `_IBC/` files (not inline in `chain.json`):
+
+- `_IBC/safrochain-noble.json` — `channel-0` ↔ `channel-581`
+- `_IBC/safrochain-osmosis.json` — `channel-1` ↔ `channel-110497`
 
 ## Testnet: `safro-testnet-1` (live)
 
@@ -131,7 +143,10 @@ schema so that wallets, explorers, and relayers can auto-configure.
     "recommended_version": "v0.1.0",
     "compatible_versions": ["v0.1.0"],
     "cosmos_sdk_version": "0.50",
-    "consensus": { "type": "cometbft", "version": "0.38" }
+    "consensus": { "type": "cometbft", "version": "0.38" },
+    "genesis": {
+      "genesis_url": "https://raw.githubusercontent.com/Safrochain-Org/genesis/main/genesis-testnet.json"
+    }
   },
   "apis": {
     "rpc":  [{ "address": "https://rpc.testnet.safrochain.com",  "provider": "Safrochain Foundation" }],
@@ -150,7 +165,7 @@ schema so that wallets, explorers, and relayers can auto-configure.
   "chain_name": "safrochain",
   "assets": [
     {
-      "description": "The native token of Safrochain.",
+      "description": "The native staking, governance, and fee token of Safrochain, a mobile-first mobile-money-powered blockchain connecting mobile wallets to on-chain finance and interoperable digital rails.",
       "denom_units": [
         { "denom": "usaf", "exponent": 0 },
         { "denom": "saf",  "exponent": 6 }

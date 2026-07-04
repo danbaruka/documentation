@@ -92,13 +92,15 @@ safrochaind init my-moniker --chain-id safro-testnet-1 --home ~/.safrochain-test
 
 ### 3. Replace the placeholder genesis with the testnet's
 
-Official mirrors (use **one**):
+The canonical testnet `genesis.json` lives in
+[`Safrochain-Org/genesis`](https://github.com/Safrochain-Org/genesis)
+as `genesis-testnet.json`. Official mirrors (use **one**):
 
 ```bash
 export HOME_NODE="$HOME/.safrochain-testnet"
 
 curl -fsSL -o "$HOME_NODE/config/genesis.json" \
-  https://raw.githubusercontent.com/Safrochain-Org/safrochain-node/main/networks/safro-testnet-1/genesis.json
+  https://raw.githubusercontent.com/Safrochain-Org/genesis/main/genesis-testnet.json
 ```
 
 ```bash

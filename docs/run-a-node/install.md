@@ -332,19 +332,24 @@ This creates `~/.safrochain/{config,data}` with:
 
 ## 5 · Replace the placeholder genesis
 
-For **testnet**:
+For **testnet** (`safro-testnet-1`):
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/Safrochain-Org/safrochain-node/main/networks/safro-testnet-1/genesis.json \
+curl -fsSL https://raw.githubusercontent.com/Safrochain-Org/genesis/main/genesis-testnet.json \
   -o ~/.safrochain/config/genesis.json
 ```
 
-For **mainnet** (post-launch):
+For **mainnet** (`safrochain-1`):
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/Safrochain-Org/safrochain-node/main/networks/safrochain-1/genesis.json \
+curl -fsSL https://raw.githubusercontent.com/Safrochain-Org/mainnet-genesis/main/genesis.json \
   -o ~/.safrochain/config/genesis.json
 ```
+
+Canonical sources:
+
+- Mainnet: [`Safrochain-Org/mainnet-genesis`](https://github.com/Safrochain-Org/mainnet-genesis)
+- Testnet: [`Safrochain-Org/genesis`](https://github.com/Safrochain-Org/genesis) (`genesis-testnet.json`), or mirror `https://genesis.safrochain.com/testnet/genesis.json`
 
 Verify the SHA-256 against the value published on
 [Mainnet endpoints](../networks/mainnet-endpoints) /
